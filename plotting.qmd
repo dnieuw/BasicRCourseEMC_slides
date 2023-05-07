@@ -1,0 +1,259 @@
+---
+title: "Data visualization using the ggplot2 package"
+format:
+  revealjs:
+    chalkboard: true
+execute:
+  echo: true
+editor: visual
+---
+
+## Basic plotting
+
+```{r}
+data(ToothGrowth)
+str(ToothGrowth)
+```
+
+## Scatterplots
+
+```{r}
+plot(ToothGrowth$len)
+```
+
+## Scatterplots
+
+```{r}
+plot(ToothGrowth$dose, ToothGrowth$len)
+```
+
+## Scatterplots
+
+```{r}
+plot(ToothGrowth$dose, ToothGrowth$len, 
+     xlab = "Dose", ylab = "Tooth Length")
+```
+
+## Scatterplots
+
+```{r}
+plot(ToothGrowth$dose, ToothGrowth$len, 
+     xlab = "Dose", ylab = "Tooth Length", 
+     main = "Guinea Pig Tooth Growth by Dosage")
+```
+
+## Scatterplots
+
+```{r}
+plot(ToothGrowth$dose, ToothGrowth$len, 
+     xlab = "Dose", ylab = "Tooth Length", 
+     main = "Guinea Pig Tooth Growth by Dosage", 
+     col = ToothGrowth$supp, pch = as.numeric(ToothGrowth$supp))
+```
+
+## Scatterplots
+
+```{r}
+plot(ToothGrowth$dose, ToothGrowth$len, 
+     xlab = "Dose", ylab = "Tooth Length", 
+     main = "Guinea Pig Tooth Growth by Dosage", 
+     col = ToothGrowth$supp, pch = as.numeric(ToothGrowth$supp))
+
+legend(1.5, 15, c("OJ", "VC"), col = 1:2, pch = 1:2)
+```
+
+## Scatterplots
+
+```{r}
+plot(ToothGrowth$dose, ToothGrowth$len, 
+     xlab = "Dose", ylab = "Tooth Length",
+     main = "Guinea Pig Tooth Growth by Dosage",
+     col = ToothGrowth$supp, pch = as.numeric(ToothGrowth$supp), cex = 2)
+
+legend(1.5, 15, c("OJ", "VC"), col = 1:2, 
+       pch = as.numeric(ToothGrowth$supp), cex=2)
+```
+
+## Line Graphs
+
+```{r}
+plot(ToothGrowth$len, type = "l") # note type is the letter l for "line"
+```
+
+## Line Graphs
+
+```{r}
+plot(ToothGrowth$len, type = "b") # note type is the letter b for "both"
+```
+
+## Line Graphs
+
+```{r}
+plot(ToothGrowth$len, type = "l")
+lines(ToothGrowth$len + 2)
+```
+
+## Line Graphs
+
+```{r}
+plot(ToothGrowth$len, type = "l")
+lines(ToothGrowth$len + 2, lty = 3, lwd = 3, col = "darkgreen")
+```
+
+## Bar Charts
+
+```{r}
+plot(ToothGrowth$dose)
+```
+
+## Bar Charts
+
+```{r}
+table(ToothGrowth$dose)
+```
+
+## Bar Charts
+
+```{r}
+barplot(table(ToothGrowth$dose))
+```
+
+## Bar Charts
+
+```{r}
+props <- table(ToothGrowth$dose)/nrow(ToothGrowth)
+props
+```
+
+## Bar Charts
+
+```{r}
+barplot(props)
+```
+
+## Bar Charts
+
+```{r}
+barplot(props, ylim = c(0, .4))
+```
+
+## Bar Charts
+
+```{r}
+barplot(props, ylim = c(0, .4), width = .2, col = c("blue", "white", "red"))
+```
+
+## Bar Charts
+
+```{r}
+barplot(props, xlim = c(0, .4),
+  width = .2, col = c("blue", "white", "red"),
+  horiz = TRUE)
+```
+
+## Histograms
+
+```{r}
+hist(ToothGrowth$len)
+```
+
+## Histograms
+
+```{r}
+hist(ToothGrowth$len, freq = FALSE)
+```
+
+## Histograms
+
+```{r}
+hist(ToothGrowth$len, freq = FALSE, breaks = seq(0, 35, 2))
+```
+
+## Histograms
+
+```{r}
+hist(ToothGrowth$len, freq = FALSE, breaks = 25)
+```
+
+## Histograms
+
+```{r}
+hist(ToothGrowth$len, freq = FALSE, breaks = seq(0, 35, 2),
+  main = "Histogram of Tooth Growth", xlab = "Tooth Length",
+  ylim = c(0, .07), col = "orange")
+```
+
+## Boxplots
+
+```{r}
+boxplot(ToothGrowth$len)
+```
+
+## Boxplots
+
+```{r}
+boxplot(ToothGrowth$len~ToothGrowth$supp)
+```
+
+## Boxplots
+
+```{r}
+boxplot(ToothGrowth$len~ToothGrowth$supp,
+  col = c("darkgreen", "purple"),
+  ylab = "Supplement Type", xlab = "Tooth Length",
+  ylim = c(0, 40), horizontal = TRUE)
+```
+
+## Multiple plots in one window
+
+```{r}
+par(mfrow = c(1, 2))
+boxplot(ToothGrowth$len~ToothGrowth$supp, main = "Boxplot",
+xlab = "Supplement Type")
+  
+hist(ToothGrowth$len, main = "Histogram", xlab = "Tooth Length")
+```
+
+## Multiple plots in one window
+
+To reset plotting device run:
+
+`dev.off()`
+
+or
+
+`par(mfrow = c(1, 1))`
+
+## Saving Plots
+
+```{r, eval=F}
+# note: run getwd() to see the working directory -
+# that is the directory to which files will be written
+pdf("plot1.pdf", width = 6, height = 9)
+boxplot(ToothGrowth$len~ToothGrowth$supp,
+  col = c("darkgreen", "purple"),
+  xlab = "Supplement Type", ylab = "Tooth Length",
+  ylim = c(0, 40), horizontal = TRUE)
+dev.off()
+
+pdf("plot2.pdf", width = 4, height = 8)
+boxplot(ToothGrowth$len~ToothGrowth$supp,
+  col = c("darkgreen", "purple"),
+  xlab = "Supplement Type", ylab = "Tooth Length",
+  ylim = c(0, 40), horizontal = TRUE)
+dev.off()
+```
+
+## Saving Plots
+
+```{r, eval=F}
+png("plot1.png", units = "in", res = 300,
+  width = 6, height = 9)
+
+boxplot(ToothGrowth$len~ToothGrowth$supp,
+  col = c("darkgreen", "purple"),
+  xlab = "Supplement Type", ylab = "Tooth Length",
+  ylim = c(0, 40), horizontal = TRUE)
+
+dev.off()
+```

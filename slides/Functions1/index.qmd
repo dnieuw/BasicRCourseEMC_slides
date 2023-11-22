@@ -1,0 +1,437 @@
+---
+title: "R Course - Day 3"
+subtitle: "Functions I"
+format:
+  emc-revealjs:
+    toc: true
+    toc-depth: 1
+    menu: true
+execute:
+  echo: true
+categories: [Day3]
+image: "image.png"
+---
+
+## Arithmetic Operators {data-background="./_extensions/emc/www/triangle1.svg"}
+
+R can simply be used as a *calculator*.
+
+::: columns
+::: {.column style="width: 45%"}
+```{r}
+x <- 10
+y <- 3
+x + y
+x - y
+x * y
+```
+:::
+
+::: {.column style="width: 45%"}
+```{r}
+x / y
+x ^ y   # exponentiation
+x %% y  # modular arithmetic
+x %/% y  
+```
+:::
+:::
+
+## How these functions work on vectors {data-background="./_extensions/emc/www/triangle1.svg"}
+
+::: columns
+::: {.column style="width: 45%"}
+```{r}
+a_vector <- 1:10
+# x is recycled without warning
+a_vector + x                   
+a_vector + a_vector
+```
+:::
+
+::: {.column style="width: 45%"}
+```{r, warning=TRUE}
+vec_of_thr <- c(2, 4, 6)
+# recycled with a warning
+a_vector + vec_of_thr
+vec_of_fi <- c(1, 2, 3, 4, 5)
+# recycled without warning
+a_vector + vec_of_fi
+```
+:::
+:::
+
+## How these functions work on matrices {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+ano_matrix <- matrix(1:12,ncol=4)
+ano_matrix + x
+ano_matrix + ano_matrix
+ano_matrix * ano_matrix
+```
+
+## Relational Operators {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+#Previously we defined x as 10 and y as 3
+x < y   #Smaller than
+x > y   #Larger than
+x <= y  #Smaller or equal to
+x >= y  #Larger or equal to
+x == y  #Equal to (use two '=')
+x != y  #Not equal to (! means 'not')
+```
+
+## Logical Operators {data-background="./_extensions/emc/www/triangle1.svg"}
+
+These operate on logical (`TRUE` or `FALSE`) expressions and return `TRUE` or `FALSE` or `TRUE`/`FALSE` vectors.
+
+```{r, eval=FALSE}
+&&  # "And"   for logical scalars (single values)
+||  # "Or"    for logical scalars
+!   # "Not"   for logical scalars or vectors
+&   # "And"   for logical vectors (multiple values)
+|   # "Or"    for logical vectors
+```
+
+## Logical Operations on Scalar Logical Expressions {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+TRUE && TRUE
+TRUE && FALSE
+
+FALSE || TRUE
+FALSE || FALSE
+```
+
+## Combine logical and relational operators {data-background="./_extensions/emc/www/triangle1.svg"}
+
+Inside a range of numbers:
+
+```{r}
+x <- 75
+x > 60 && x < 70
+```
+
+Outside a range of numbers:
+
+```{r}
+x < 60 || x > 70
+```
+
+## Combine with if() else() statement {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+x <- 3
+y <- 5
+
+if(x < 10 && y < 10) {
+  print("Both less than 10")
+} else {
+  print("Not both less than 10")
+}
+```
+
+## Not!
+
+```{r}
+!TRUE
+```
+
+```{r}
+!FALSE
+```
+
+```{r}
+!(6 < 5)
+```
+
+## Logical Operations on Logical Vectors {data-background="./_extensions/emc/www/triangle1.svg"}
+
+Difference between `&` and `&&`:
+
+```{r, warning=TRUE}
+c(TRUE, FALSE, TRUE) && c(TRUE, TRUE, FALSE)
+```
+
+```{r}
+c(TRUE, FALSE, TRUE) & c(TRUE, TRUE, FALSE)
+```
+
+## Logical Operations with ifelse() {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+systolic <- c(110, 119, 111, 113, 128)
+diastolic <- c(70, 74, 88, 74, 83)
+
+classification <- ifelse(systolic < 120 & diastolic < 80, 
+                         yes = "Normal", 
+                         no = "Abnormal")
+classification
+```
+
+## Logical Operations for subsetting {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+bpData <- data.frame(
+  name = c("Joe", "Katy", "Bill", "Kim", "Mark"),
+  systolic = c(110, 119, 111, 113, 128),
+  diastolic = c(70, 74, 88, 74, 83)
+)
+
+bpData
+
+bpData[bpData$systolic < 120 & bpData$diastolic < 80, ]
+
+```
+
+## Built-in Named Functions {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r, eval=FALSE}
+str() #Print structure of an object
+class() #Print class of an object
+head() #First six elements/rows
+tail() #Last six elements/rows
+ls() #List all objects you made
+seq(from=1, to=10, by=2) #Create a sequence
+```
+
+Built-in functions in base-R :
+
+<https://stat.ethz.ch/R-manual/R-patched/library/base/html/00Index.html>
+
+## Function arguments {data-background="./_extensions/emc/www/triangle1.svg"}
+
+***arguments***, the object in the parentheses `( )`:
+
+```{r}
+sqrt(2)
+
+```
+
+or
+
+```{r}
+x <- 2
+sqrt(x)
+```
+
+or
+
+```{r}
+sqrt(x^2 + 5)
+```
+
+## Functions with multiple arguments {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+args(round)
+
+round(4.679, 2)
+```
+
+`digits` is optional and defaults to 0:
+
+```{r}
+round(4.679)
+```
+
+## Named Argument Matching {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+round(x = 4.679, digits = 2)
+round(digits = 2, x = 4.679)
+```
+
+Mixing is possible:
+
+```{r}
+round(4.679, digits=2)
+round(digits=2, 4.679)
+```
+
+## If? Then! Else? {data-background="./_extensions/emc/www/triangle1.svg"}
+
+Conditional execution:
+
+```{r, eval=FALSE}
+if (condition) {
+  statement1
+}
+```
+
+or
+
+```{r, eval=FALSE}
+if (condition) {
+  statement1
+} else {
+  statement2
+}
+```
+
+## Example {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+if (x >= 10) {
+  y <- 1
+} else {
+    y <- 0
+}
+
+y
+```
+
+Oneliner:
+
+```{r}
+y <- if(x >= 10) 1 else 0
+y
+```
+
+Beware!
+
+```{r}
+y <- if(x >= 10) 1 #no else
+y
+```
+
+## Returning some value based on a condition {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+mySign <- function(x) {
+    if(x < 0) {
+      return("Negative")
+    } else {
+      return("Non-negative")
+    }
+}
+
+mySign(13)
+```
+
+## Nested `if()` Statements {data-background="./_extensions/emc/www/triangle1.svg"}
+
+`if` inside an `if`
+
+```{r, eval=FALSE}
+
+if(condition1) {
+  if(condition2) {
+    statement1 
+  } else {
+    statement2
+  }
+}
+```
+
+## Stringing multiple if else together {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+whatAnimalSound <- function(animal){
+  if(animal == "cat") {
+    return("Meow!")
+  } else if (animal == "frog") {
+    return("Ribbit!")
+  } else if (animal == "dog") {
+    return("Woof!")
+  } else {
+    return(paste0("I don't know what sound a '",animal,"' makes..."))
+  }
+}
+```
+
+```{r}
+whatAnimalSound("dog")
+whatAnimalSound("bird")
+```
+
+## if-else on a vector: The `ifelse()` Function {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r, error=TRUE}
+height <- c(69, 71, 67, 66, 72, 71, 61, 65, 73, 70, 68, 74)
+
+if (height > 69){
+  print("tall") 
+} else {
+  print("short")
+}
+```
+
+```{r}
+htCategory <- ifelse(height > 69, yes = "tall", no = "short")
+
+htCategory
+```
+
+For more complicated cases we can use `apply()`
+
+## Creating your own functions {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r, eval=FALSE}
+myFun <- function(arg1, arg2) {
+  ## Here you type expressions that use the arguments
+}
+
+myFun(arg1, arg2)
+```
+
+## Returning a result
+
+```{r}
+do1 <- function(x, y){
+  z <- x + y
+  x
+  z
+}
+
+do1(x = 1, y = 3) # Only z is returned
+```
+
+```{r}
+do2 <- function(x, y){
+  z <- x + y 
+  return(x)
+  z
+}
+
+do2(x = 1, y = 3) # z is ignored
+```
+
+## Returning multiple values {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+
+do3 <- function(x, y){ 
+  z <- x + y 
+  return(list(x, z))
+}
+
+do3(x = 1, y = 3)
+```
+
+```{r}
+do4 <- function(x, y = 2){ 
+  z1 <- x + y
+  z2 <- x * y 
+  return(c(z1, z2))
+} 
+
+do4(x = 1) ## uses y = 2
+do4(x = 1, y = 3) ## overwrites default value of y
+```
+
+## Function with multiple input values {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+meanOfAll <- function(...) {
+  x <- mean(c(...))
+  return(x)
+}
+
+usSales <- c(123,456,789)
+europeSales <- c(100,1000,10000,100000)
+otherSales <- c(50,100,150,200,250,300,350)
+
+meanOfAll(usSales, europeSales, otherSales)
+```

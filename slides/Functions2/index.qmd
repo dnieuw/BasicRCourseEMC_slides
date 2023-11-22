@@ -1,0 +1,416 @@
+---
+title: "R Course - Day 3"
+subtitle: "Functions II"
+format:
+  emc-revealjs:
+    toc: true
+    toc-depth: 1
+    menu: true
+execute:
+  echo: true
+categories: [Day3]
+image: "image.png"
+---
+
+## Function environments and scoping {data-background="./_extensions/emc/www/triangle1.svg"}
+
+The Top-Level (or Global) Environment
+
+```{r}
+w <- 2
+f <- function(y) {
+  d <- 3
+  return(d * (w + y))
+}
+environment(f)
+```
+
+Objects in the Global Environment:
+
+```{r}
+objects()
+```
+
+## Global and Local Variables {data-background="./_extensions/emc/www/triangle1.svg"}
+
+`w` is a global variable
+
+`d` is a local variable to `f()`
+
+```{r, error=TRUE}
+f <- function(y) {
+  d <- 3
+  return(d * (w + y))
+}
+
+f(y = 1)
+
+d
+```
+
+## Local preference over Global {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+w <- 2
+d <- 4
+
+f <- function(y) {
+  d <- 3
+  return(d * (w + y))
+}
+
+f(y = 1)
+```
+
+## Local assignment of variables {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+w <- 2
+d <- 4 # This value of d will remain unchanged.
+
+f <- function(y) {
+  d <- 3 # This doesnt affect the value of d in the global environment
+  return(d * (w + y))
+}
+
+f(y = 1)
+
+d
+```
+
+## Nested Functions and the Scope Hierarchy {data-background="./_extensions/emc/www/triangle1.svg"}
+
+Example:
+
+```{r}
+w <- 2
+f <- function(y) {
+  d <- 3
+  h <- function() {
+    b <- 5
+    return(d * (w + y))
+  }
+  return(h())
+}
+```
+
+-   `w` is a global environment variable to `f()` and also to `h()`
+
+-   `y` and `d` are local variables to `f()`, but "global" to `h()`
+
+-   `b` is local to `h()`
+
+## Check local variables with `ls()` {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+w <- 2
+f <- function(y) {
+  d <- 3
+  h <- function() {
+    b <- 5
+    return(d * (w + y))
+  }
+  print(ls())
+  return(h())
+}
+
+f(y = 2)
+```
+
+Note that `b` is not printed, as it is local to `h()`, but not to `f()`.
+
+## View environment: `environment()` {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+w <- 2
+f <- function(y) {
+  d <- 3
+  h <- function() {
+    b <- 5
+    return(d * (w + y))
+  }
+  print(environment(h))
+  return(h())
+}
+f(y = 2)
+```
+
+Shows location in computer memory
+
+## Decorating a function with returns, errors, and warnings {data-background="./_extensions/emc/www/triangle1.svg"}
+
+The following functions are useful for terminating a function call or just printing a warning message:
+
+```{r, eval=FALSE}
+return()     # Terminate a function call and return a value
+stop()       # Terminate a function call and print an error message
+warning()    # Print a warning message (without terminating the function call)
+```
+
+## Terminating a Function Call Using `return()` {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+mySign <- function(x) {
+  if(x < 0) return("Negative")
+  if(x > 0) return("Positive")
+  return("Zero")
+}
+
+mySign(x = 13)
+```
+
+Note: `return("Zero")` not reached
+
+## Terminating Using `stop()` {data-background="./_extensions/emc/www/triangle1.svg"}
+
+`stop()` means "error"
+
+```{r}
+myRatio <- function(x, y) {
+  if(y == 0) stop("Cannot divide by 0")
+  return(x/y)
+}
+```
+
+```{r, error=TRUE}
+myRatio(x = 3, y = 0)
+```
+
+Note: `return(x/y)` not reached
+
+## Printing a Warning Message Using `warning()` {data-background="./_extensions/emc/www/triangle1.svg"}
+
+`warning()` just prints a warning message.
+
+```{r, warning=TRUE}
+myRatio <- function(x, y) {
+  if(y == 0) warning("Attempt made to divide by 0")
+  return(x/y)
+}
+
+myRatio(x = 3, y = 0)
+```
+
+R can divide by zero, it returns special value `Inf`
+
+## Looping {data-background="./_extensions/emc/www/triangle1.svg"}
+
+Repeat (iterate) an R statement
+
+```{r,eval=FALSE}
+for() # Repeat a set of statements a specified number of times
+while() # Repeat a set of statements as long as a specified condition is met
+repeat # Repeat a set of statements until a break command is encountered
+```
+
+Stopping a loop:
+
+```{r, eval=FALSE}
+break # Terminate a loops iterations
+next # Skip ahead to the next iteration
+```
+
+## Example `for`, `while` and `repeat` loops {data-background="./_extensions/emc/www/triangle1.svg"}
+
+::: columns
+
+::: {.column style="width: 45%"}
+```{r}
+for(i in 1:5) {
+  print(i^2)
+}
+```
+
+```{r}
+i <- 1
+while(i <= 5) {
+  print(i^2)
+  i <- i + 1
+}
+```
+:::
+
+::: {.column style="width: 45%"}
+```{r}
+i <- 1
+repeat {
+  print(i^2)
+  i <- i + 1
+  if(i > 5) break
+}
+```
+:::
+
+:::
+
+## for() Loops {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r, eval=F}
+for(i in sequence) {
+  statement1
+  statement2
+  .
+  .
+  .
+  statementq
+}
+```
+
+## "Looping" over a `data.frame` {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+coins <- data.frame(Coin = c("penny", "quarter", "nickel", "quarter", "dime", "penny"),
+                    Year = c(1943, 1905, 1889, 1960, 1937, 1900),
+                    Mint = c("Den", "SF", "Phil", "Den", "SF", "Den"),
+                    Condition = c("good", "fair", "excellent", "good", "poor", "good"),
+                    Value = c(12.00, 55.00, 300.00, 40.00, 18.00, 28.00),
+                    Price = c(15.00, 45.00, 375.00, 25.00, 20.00, 20.00))
+coins
+```
+
+Calculate the mean of each column:
+
+```{r, error=TRUE}
+colMeans(coins)
+```
+
+## Looping Over `data.frame` Columns {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+means <- NULL
+for(i in 1:ncol(coins)) {
+  if (is.numeric(coins[ , i])) {
+    means <- c(means, mean(coins[ , i]))
+  }
+}
+
+means
+```
+
+## Looping Over List Elements {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+myList <- list(
+  w = c(4, 4, 5, 5, 6, 6),
+  x = c("a", "b", "c"),
+  y = c(5, 10, 15),
+  z = c("r", "s", "t", "u", "v")
+)
+
+lengths <- NULL
+
+for(i in myList) {
+  print(i)
+  lengths <- c(lengths, length(i))
+}
+
+lengths
+```
+
+## Using apply functions {data-background="./_extensions/emc/www/triangle1.svg"}
+
+Applying a function to an object
+
+-   `apply()`
+-   `lapply()`
+-   `sapply()`
+-   `tapply()`
+
+## Using apply on matrices {data-background="./_extensions/emc/www/triangle1.svg"}
+
+`apply()` requires 3 arguments:
+
+```{r}
+args(apply)
+```
+
+-   x: the data
+-   MARGIN: `1`, `2`, or `c(1,2)`
+-   function: the function to apply (without the `( )`)
+
+<!-- The apply function works by "applying" a specified function to an data object. It requires 3 arguments: the data, a so-called "MARGIN", and a function. The data can be a vector, data.frame or a matrix. The MARGIN indicates whether you want to apply the function to the rows or the columns of your data, or both. To apply the function to the rows the MARGIN should be 1, to apply it to the columns it should be 2 and to apply it to both it should be `c(1,2)`. The function can be an existing function, such as `sum()` or `mean()`, or your own custom function. -->
+
+## Applying a function on a matrix {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+mat <- matrix(1:25,nrow=5)
+
+mat
+```
+
+Margin 1 to apply to the rows:
+
+```{r}
+apply(mat, 1, max)
+```
+
+Margin 2 to apply to the columns:
+
+```{r}
+apply(mat, 2, max)
+
+```
+
+## Applying a function to each element: {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+apply(mat, c(1,2), sqrt)
+
+```
+
+Remember:
+
+```{r}
+sqrt(mat)
+```
+
+## Using lapply on lists to return lists {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+mylist <- list(matrix(1:16,nrow=4), matrix(1:9,nrow=3),matrix(1:4,nrow=2))
+
+lapply(mylist, dim)
+```
+
+## lapply on a data.frame (list of lists) {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+df <- data.frame("col1"=c(1,1,1,1), "col2"=c(2,2,2,2), "col3"=c(3,3,3,3))
+
+lapply(df, sum)
+```
+
+## Using lapply alternative: sapply {data-background="./_extensions/emc/www/triangle1.svg"}
+
+"Simplify" lapply output:
+
+```{r}
+sapply(mylist, dim)
+```
+
+```{r}
+sapply(df, sum)
+```
+
+## Using tapply on groups of data {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+patients <- data.frame("group"=paste('grp',
+                          c(1,1,1,1,1,2,2,2,2,2),sep='-'), 
+                       "outcome"=rnorm(10)) 
+                      #10 random normally distributed values
+patients
+
+tapply(patients$outcome, patients$group, mean)
+```
+
+## Multiple grouping variables possible {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+
+patients <- data.frame("group"=paste('grp',c(1,1,1,1,1,2,2,2,2,2),sep='-'),
+                       "serotype"=c("A","B","A","B","A","B","A","B","A","B"),
+                       "outcome"=rnorm(10))
+
+tapply(patients$outcome, list(patients$group, patients$serotype), mean)
+```

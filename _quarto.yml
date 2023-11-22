@@ -1,0 +1,18 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "BasicRCourseEMC_Slides"
+  navbar:
+    right:
+      - icon: github
+        href: https://github.com/dnieuw/BasicRCourseEMC_slides
+        
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+
+
+

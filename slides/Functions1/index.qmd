@@ -11,179 +11,11 @@ execute:
 categories: [Day3]
 image: "image.png"
 ---
-
-## Arithmetic Operators {data-background="./_extensions/emc/www/triangle1.svg"}
-
-R can simply be used as a *calculator*.
-
-::: columns
-::: {.column style="width: 45%"}
-```{r}
-x <- 10
-y <- 3
-x + y
-x - y
-x * y
-```
-:::
-
-::: {.column style="width: 45%"}
-```{r}
-x / y
-x ^ y   # exponentiation
-x %% y  # modular arithmetic
-x %/% y  
-```
-:::
-:::
-
-## How these functions work on vectors {data-background="./_extensions/emc/www/triangle1.svg"}
-
-::: columns
-::: {.column style="width: 45%"}
-```{r}
-a_vector <- 1:10
-# x is recycled without warning
-a_vector + x                   
-a_vector + a_vector
-```
-:::
-
-::: {.column style="width: 45%"}
-```{r, warning=TRUE}
-vec_of_thr <- c(2, 4, 6)
-# recycled with a warning
-a_vector + vec_of_thr
-vec_of_fi <- c(1, 2, 3, 4, 5)
-# recycled without warning
-a_vector + vec_of_fi
-```
-:::
-:::
-
-## How these functions work on matrices {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-ano_matrix <- matrix(1:12,ncol=4)
-ano_matrix + x
-ano_matrix + ano_matrix
-ano_matrix * ano_matrix
-```
-
-## Relational Operators {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-#Previously we defined x as 10 and y as 3
-x < y   #Smaller than
-x > y   #Larger than
-x <= y  #Smaller or equal to
-x >= y  #Larger or equal to
-x == y  #Equal to (use two '=')
-x != y  #Not equal to (! means 'not')
-```
-
-## Logical Operators {data-background="./_extensions/emc/www/triangle1.svg"}
-
-These operate on logical (`TRUE` or `FALSE`) expressions and return `TRUE` or `FALSE` or `TRUE`/`FALSE` vectors.
-
-```{r, eval=FALSE}
-&&  # "And"   for logical scalars (single values)
-||  # "Or"    for logical scalars
-!   # "Not"   for logical scalars or vectors
-&   # "And"   for logical vectors (multiple values)
-|   # "Or"    for logical vectors
-```
-
-## Logical Operations on Scalar Logical Expressions {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-TRUE && TRUE
-TRUE && FALSE
-
-FALSE || TRUE
-FALSE || FALSE
-```
-
-## Combine logical and relational operators {data-background="./_extensions/emc/www/triangle1.svg"}
-
-Inside a range of numbers:
-
-```{r}
-x <- 75
-x > 60 && x < 70
-```
-
-Outside a range of numbers:
-
-```{r}
-x < 60 || x > 70
-```
-
-## Combine with if() else() statement {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-x <- 3
-y <- 5
-
-if(x < 10 && y < 10) {
-  print("Both less than 10")
-} else {
-  print("Not both less than 10")
-}
-```
-
-## Not!
-
-```{r}
-!TRUE
-```
-
-```{r}
-!FALSE
-```
-
-```{r}
-!(6 < 5)
-```
-
-## Logical Operations on Logical Vectors {data-background="./_extensions/emc/www/triangle1.svg"}
-
-Difference between `&` and `&&`:
-
-```{r, warning=TRUE}
-c(TRUE, FALSE, TRUE) && c(TRUE, TRUE, FALSE)
-```
-
-```{r}
-c(TRUE, FALSE, TRUE) & c(TRUE, TRUE, FALSE)
-```
-
-## Logical Operations with ifelse() {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-systolic <- c(110, 119, 111, 113, 128)
-diastolic <- c(70, 74, 88, 74, 83)
-
-classification <- ifelse(systolic < 120 & diastolic < 80, 
-                         yes = "Normal", 
-                         no = "Abnormal")
-classification
-```
-
-## Logical Operations for subsetting {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-bpData <- data.frame(
-  name = c("Joe", "Katy", "Bill", "Kim", "Mark"),
-  systolic = c(110, 119, 111, 113, 128),
-  diastolic = c(70, 74, 88, 74, 83)
-)
-
-bpData
-
-bpData[bpData$systolic < 120 & bpData$diastolic < 80, ]
-
-```
+## Functions {data-background="./_extensions/emc/www/triangle1.svg"}
+- Functions: a set of expressions that carry out a specific task
+- Task is only performed when the function is run
+- R has a lot of built in functions
+- Packages are just a collection of functions
 
 ## Built-in Named Functions {data-background="./_extensions/emc/www/triangle1.svg"}
 
@@ -250,7 +82,211 @@ round(4.679, digits=2)
 round(digits=2, 4.679)
 ```
 
+
+## Creating your own functions {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r, eval=FALSE}
+myFun <- function(arg1, arg2) {
+  ## Here you type expressions that use the arguments
+}
+
+myFun(arg1, arg2)
+```
+
+## A simple example {data-background="./_extensions/emc/www/triangle1.svg"}
+
+Calculate a mean of two values
+
+```{r}
+mean_xy <- function(x, y){
+  z <- (x + y)/2
+  return(z)
+}
+
+```
+
+```{r}
+mean_xy(2,6)
+```
+
+or 
+
+```{r}
+mean_xy(x = 2, y = 6)
+```
+
+
+## Returning a value {data-background="./_extensions/emc/www/triangle1.svg"}
+
+Either the last statement is returned or use `return()`
+```{r}
+mean_xy_2 <- function(x, y){
+  z <- (x + y)/2
+  x
+  z
+}
+
+mean_xy_2(x = 1, y = 3) # x is ignored
+```
+
+
+```{r}
+mean_xy_3 <- function(x, y){
+  z <- x + y 
+  return(x)
+  z
+}
+
+mean_xy_3(x = 1, y = 3) # everything after `return` is ignored
+```
+
+
+
+
+## Function with multiple input values {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+mean_vector <- function(...){ 
+  z <- mean(c(...))
+  return(z)
+} 
+
+mean_vector(1,2,3)
+mean_vector(1,2,3,4,5,6,7,8,9,10) 
+```
+
+## Vectorized arguments {data-background="./_extensions/emc/www/triangle1.svg"}
+
+Functions can be vectorized
+
+```{r}
+mean_x <- function(x){ 
+  z <- mean(x)
+  return(z)
+} 
+
+```
+
+We can use a vector `x` for the function `mean_x`
+```{r}
+x <- c(1,2,3,4,5)
+mean_x(x)
+
+```
+
+## Custom functions {data-background="./_extensions/emc/www/triangle1.svg"}
+
+
+Custom function are useful if you have a set of commands you have to use multiple times.
+
+1) Save time
+
+2) Keep code concise
+
+3) Less coding mistakes
+
+## Example of custom function
+
+Calculate a mean of the non-negative values in vector
+```{r}
+my_descriptives <- function(x){
+  x.trim <- x[x>=0]
+  out <- mean(x.trim)
+  return(out)
+}
+```
+
+```{r, echo=FALSE}
+PatientID <- 1:25
+Ages <- round(c(rnorm(15, mean = 45, sd = 10), -50, rnorm(9, mean = 45, sd = 10) ) )
+data <- data.frame(PatientID = PatientID, Ages = Ages)
+data$Sex <- as.factor(c(rbinom(24, 1, 0.5),-1))
+```
+
+A variable `Ages` has one negative value
+```{r}
+data$Ages
+```
+
+## Example of custom function
+
+Run the custom function on `Ages`
+```{r}
+my_descriptives(data$Ages)
+```
+
+Compare the output with the standard function `mean`
+
+```{r}
+
+mean(data$Ages)
+```
+
+
+## Returning a vector{data-background="./_extensions/emc/www/triangle1.svg"}
+
+Output of a function does not need to be a scalar
+
+```{r}
+my_descriptives <- function(x){
+  x.trim <- x[x>=0]
+  out <- summary(x.trim)
+  return(out)
+}
+
+```
+
+
+```{r}
+my_descriptives(data$Ages)
+
+```
+
+
+## Returning multiple values {data-background="./_extensions/emc/www/triangle1.svg"}
+
+Put multiple objects in an object container (list, array, etc.)
+
+
+```{r}
+my_descriptives2 <- function(x){
+  x.trim <- x[x>0]
+  below0 <- sum(x<0)
+  meanX <- mean(x.trim)
+  return(list(below0, meanX))
+}
+```
+
+The function additionally returns how many values were negative.
+
+```{r}
+my_descriptives2(data$Ages)
+```
+
+
+## Default value of an argument
+
+```{r}
+calc4 <- function(x, y = 2){ 
+  z1 <- x + y
+  z2 <- x * y 
+  return(c(z1, z2))
+} 
+
+calc4(x = 1) ## uses y = 2
+calc4(x = 1, y = 3) ## overwrites default value of y
+```
+
 ## If? Then! Else? {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r, eval=FALSE}
+if()    # Used to execute a statement only if the given condition
+        # is met
+else    # Used to specify an alternative statement to be executed 
+        # if the condition given in if() isn't met
+```
+
+## If? Then! Else?
 
 Conditional execution:
 
@@ -273,6 +309,7 @@ if (condition) {
 ## Example {data-background="./_extensions/emc/www/triangle1.svg"}
 
 ```{r}
+x <- 5
 if (x >= 10) {
   y <- 1
 } else {
@@ -296,19 +333,6 @@ y <- if(x >= 10) 1 #no else
 y
 ```
 
-## Returning some value based on a condition {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-mySign <- function(x) {
-    if(x < 0) {
-      return("Negative")
-    } else {
-      return("Non-negative")
-    }
-}
-
-mySign(13)
-```
 
 ## Nested `if()` Statements {data-background="./_extensions/emc/www/triangle1.svg"}
 
@@ -323,6 +347,44 @@ if(condition1) {
     statement2
   }
 }
+```
+
+## `if() else()` statements in functions
+
+```{r, echo=FALSE}
+PatientID <- 1:25
+Ages <- round(c(rnorm(15, mean = 45, sd = 10), -50, rnorm(9, mean = 45, sd = 10) ) )
+data <- data.frame(PatientID = PatientID, Ages = Ages)
+data$Sex <- as.factor(c(rbinom(24, 1, 0.5),-1))
+```
+
+First check whether a variable is numeric or factor. Then report descriptives accordingly
+```{r}
+my_descriptives <- function(x){
+  if(class(x) == "numeric"){
+    x.trim <- x[x>0]
+    summary(x.trim)
+  } else if (class(x) == "factor"){
+    x.trim <- droplevels(x[x!=-1])
+    table(x.trim)
+  }
+}
+```
+
+## `if() else()` statements in functions
+
+
+```{r}
+my_descriptives(data$Ages)
+my_descriptives(data$Sex)
+```
+
+
+Compare:
+
+```{r}
+summary(data$Ages)
+table(data$Sex)
 ```
 
 ## Stringing multiple if else together {data-background="./_extensions/emc/www/triangle1.svg"}
@@ -366,72 +428,5 @@ htCategory
 
 For more complicated cases we can use `apply()`
 
-## Creating your own functions {data-background="./_extensions/emc/www/triangle1.svg"}
 
-```{r, eval=FALSE}
-myFun <- function(arg1, arg2) {
-  ## Here you type expressions that use the arguments
-}
-
-myFun(arg1, arg2)
-```
-
-## Returning a result
-
-```{r}
-do1 <- function(x, y){
-  z <- x + y
-  x
-  z
-}
-
-do1(x = 1, y = 3) # Only z is returned
-```
-
-```{r}
-do2 <- function(x, y){
-  z <- x + y 
-  return(x)
-  z
-}
-
-do2(x = 1, y = 3) # z is ignored
-```
-
-## Returning multiple values {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-
-do3 <- function(x, y){ 
-  z <- x + y 
-  return(list(x, z))
-}
-
-do3(x = 1, y = 3)
-```
-
-```{r}
-do4 <- function(x, y = 2){ 
-  z1 <- x + y
-  z2 <- x * y 
-  return(c(z1, z2))
-} 
-
-do4(x = 1) ## uses y = 2
-do4(x = 1, y = 3) ## overwrites default value of y
-```
-
-## Function with multiple input values {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-meanOfAll <- function(...) {
-  x <- mean(c(...))
-  return(x)
-}
-
-usSales <- c(123,456,789)
-europeSales <- c(100,1000,10000,100000)
-otherSales <- c(50,100,150,200,250,300,350)
-
-meanOfAll(usSales, europeSales, otherSales)
-```
+------------------------------------------------------------------------

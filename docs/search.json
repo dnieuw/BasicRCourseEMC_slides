@@ -224,60 +224,60 @@
     "text": "Saving Plots\n\npng(\"plot1.png\", units = \"in\", res = 300,\n  width = 6, height = 9)\n\nboxplot(ToothGrowth$len~ToothGrowth$supp,\n  col = c(\"darkgreen\", \"purple\"),\n  xlab = \"Supplement Type\", ylab = \"Tooth Length\",\n  ylim = c(0, 40), horizontal = TRUE)\n\ndev.off()"
   },
   {
-    "objectID": "slides/Functions2/index.html#function-environments-and-scoping",
-    "href": "slides/Functions2/index.html#function-environments-and-scoping",
+    "objectID": "slides/Functions2/index.html#if-then-else",
+    "href": "slides/Functions2/index.html#if-then-else",
     "title": "R Course - Day 3",
-    "section": "Function environments and scoping",
-    "text": "Function environments and scoping\nThe Top-Level (or Global) Environment\n\nw &lt;- 2\nf &lt;- function(y) {\n  d &lt;- 3\n  return(d * (w + y))\n}\nenvironment(f)\n\n&lt;environment: R_GlobalEnv&gt;\n\n\nObjects in the Global Environment:\n\nobjects()\n\n[1] \"f\"               \"has_annotations\" \"w\""
+    "section": "If? Then! Else?",
+    "text": "If? Then! Else?\nConditional execution:\n\nif (condition) {\n  statement1\n}\n\nor\n\nif (condition) {\n  statement1\n} else {\n  statement2\n}"
   },
   {
-    "objectID": "slides/Functions2/index.html#global-and-local-variables",
-    "href": "slides/Functions2/index.html#global-and-local-variables",
+    "objectID": "slides/Functions2/index.html#example",
+    "href": "slides/Functions2/index.html#example",
     "title": "R Course - Day 3",
-    "section": "Global and Local Variables",
-    "text": "Global and Local Variables\nw is a global variable\nd is a local variable to f()\n\nf &lt;- function(y) {\n  d &lt;- 3\n  return(d * (w + y))\n}\n\nf(y = 1)\n\n[1] 9\n\nd\n\nError in eval(expr, envir, enclos): object 'd' not found"
+    "section": "Example",
+    "text": "Example\n\nx &lt;- 5\nif (x &lt; 10) {\n  y &lt;- 0\n}\ny\n\n[1] 0\n\n\nAnother example:\n\nif (x &gt;= 10) {\n  y &lt;- 1\n} else {\n  y &lt;- 0\n}\ny\n\n[1] 0"
   },
   {
-    "objectID": "slides/Functions2/index.html#local-preference-over-global",
-    "href": "slides/Functions2/index.html#local-preference-over-global",
+    "objectID": "slides/Functions2/index.html#if-else-on-one-line",
+    "href": "slides/Functions2/index.html#if-else-on-one-line",
     "title": "R Course - Day 3",
-    "section": "Local preference over Global",
-    "text": "Local preference over Global\n\nw &lt;- 2\nd &lt;- 4\n\nf &lt;- function(y) {\n  d &lt;- 3\n  return(d * (w + y))\n}\n\nf(y = 1)\n\n[1] 9"
+    "section": "If else on one line",
+    "text": "If else on one line\nOneliner:\n\ny &lt;- if(x &gt;= 10) 1 else 0\ny\n\n[1] 0\n\n\nBeware!\n\ny &lt;- if(x &gt;= 10) 1 #no else\ny\n\nNULL"
   },
   {
-    "objectID": "slides/Functions2/index.html#local-assignment-of-variables",
-    "href": "slides/Functions2/index.html#local-assignment-of-variables",
+    "objectID": "slides/Functions2/index.html#nested-if-statements",
+    "href": "slides/Functions2/index.html#nested-if-statements",
     "title": "R Course - Day 3",
-    "section": "Local assignment of variables",
-    "text": "Local assignment of variables\n\nw &lt;- 2\nd &lt;- 4 # This value of d will remain unchanged.\n\nf &lt;- function(y) {\n  d &lt;- 3 # This doesnt affect the value of d in the global environment\n  return(d * (w + y))\n}\n\nf(y = 1)\n\n[1] 9\n\nd\n\n[1] 4"
+    "section": "Nested if() Statements",
+    "text": "Nested if() Statements\nif inside an if\n\nif(condition1) {\n  if(condition2) {\n    statement1 \n  } else {\n    statement2\n  }\n}"
   },
   {
-    "objectID": "slides/Functions2/index.html#nested-functions-and-the-scope-hierarchy",
-    "href": "slides/Functions2/index.html#nested-functions-and-the-scope-hierarchy",
+    "objectID": "slides/Functions2/index.html#adding-if-else-to-the-descriptives-function",
+    "href": "slides/Functions2/index.html#adding-if-else-to-the-descriptives-function",
     "title": "R Course - Day 3",
-    "section": "Nested Functions and the Scope Hierarchy",
-    "text": "Nested Functions and the Scope Hierarchy\nExample:\n\nw &lt;- 2\nf &lt;- function(y) {\n  d &lt;- 3\n  h &lt;- function() {\n    b &lt;- 5\n    return(d * (w + y))\n  }\n  return(h())\n}\n\n\nw is a global environment variable to f() and also to h()\ny and d are local variables to f(), but “global” to h()\nb is local to h()"
+    "section": "Adding if else to the descriptives function",
+    "text": "Adding if else to the descriptives function\n\nmy_descriptives &lt;- function(x){\n  if(class(x) == \"numeric\"){\n    x.trim &lt;- x[x&gt;0]\n    summary(x.trim)\n  } else if (class(x) == \"factor\"){\n    x.trim &lt;- droplevels(x[x!=-1])\n    table(x.trim)\n  }\n}\nmy_descriptives(data$Ages)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  23.00   36.75   43.00   45.71   53.50   71.00 \n\nmy_descriptives(data$Sex)\n\nx.trim\n 0  1 \n13 11"
   },
   {
-    "objectID": "slides/Functions2/index.html#check-local-variables-with-ls",
-    "href": "slides/Functions2/index.html#check-local-variables-with-ls",
+    "objectID": "slides/Functions2/index.html#stringing-multiple-if-else-together",
+    "href": "slides/Functions2/index.html#stringing-multiple-if-else-together",
     "title": "R Course - Day 3",
-    "section": "Check local variables with ls()",
-    "text": "Check local variables with ls()\n\nw &lt;- 2\nf &lt;- function(y) {\n  d &lt;- 3\n  h &lt;- function() {\n    b &lt;- 5\n    return(d * (w + y))\n  }\n  print(ls())\n  return(h())\n}\n\nf(y = 2)\n\n[1] \"d\" \"h\" \"y\"\n\n\n[1] 12\n\n\nNote that b is not printed, as it is local to h(), but not to f()."
+    "section": "Stringing multiple if else together",
+    "text": "Stringing multiple if else together\n\nwhatAnimalSound &lt;- function(animal){\n  if(animal == \"cat\") {\n    return(\"Meow!\")\n  } else if (animal == \"frog\") {\n    return(\"Ribbit!\")\n  } else if (animal == \"dog\") {\n    return(\"Woof!\")\n  } else {\n    return(paste0(\"I don't know what sound a '\",animal,\"' makes...\"))\n  }\n}\n\n\nwhatAnimalSound(\"dog\")\n\n[1] \"Woof!\"\n\nwhatAnimalSound(\"bird\")\n\n[1] \"I don't know what sound a 'bird' makes...\""
   },
   {
-    "objectID": "slides/Functions2/index.html#view-environment-environment",
-    "href": "slides/Functions2/index.html#view-environment-environment",
+    "objectID": "slides/Functions2/index.html#if-else-on-a-vector-the-ifelse-function",
+    "href": "slides/Functions2/index.html#if-else-on-a-vector-the-ifelse-function",
     "title": "R Course - Day 3",
-    "section": "View environment: environment()",
-    "text": "View environment: environment()\n\nw &lt;- 2\nf &lt;- function(y) {\n  d &lt;- 3\n  h &lt;- function() {\n    b &lt;- 5\n    return(d * (w + y))\n  }\n  print(environment(h))\n  return(h())\n}\nf(y = 2)\n\n&lt;environment: 0x000001f136aa93c8&gt;\n\n\n[1] 12\n\n\nShows location in computer memory"
+    "section": "if-else on a vector: The ifelse() Function",
+    "text": "if-else on a vector: The ifelse() Function\n\nheight &lt;- c(69, 71, 67, 66, 72, 71, 61, 65, 73, 70, 68, 74)\n\nif (height &gt; 69){\n  print(\"tall\") \n} else {\n  print(\"short\")\n}\n\nError in if (height &gt; 69) {: the condition has length &gt; 1\n\n\n\nhtCategory &lt;- ifelse(height &gt; 69, yes = \"tall\", no = \"short\")\n\nhtCategory\n\n [1] \"short\" \"tall\"  \"short\" \"short\" \"tall\"  \"tall\"  \"short\" \"short\" \"tall\" \n[10] \"tall\"  \"short\" \"tall\" \n\n\nFor more complicated cases we can use apply()"
   },
   {
-    "objectID": "slides/Functions2/index.html#decorating-a-function-with-returns-errors-and-warnings",
-    "href": "slides/Functions2/index.html#decorating-a-function-with-returns-errors-and-warnings",
+    "objectID": "slides/Functions2/index.html#terminating-a-function-with-returns-errors-and-warnings",
+    "href": "slides/Functions2/index.html#terminating-a-function-with-returns-errors-and-warnings",
     "title": "R Course - Day 3",
-    "section": "Decorating a function with returns, errors, and warnings",
-    "text": "Decorating a function with returns, errors, and warnings\nThe following functions are useful for terminating a function call or just printing a warning message:\n\nreturn()     # Terminate a function call and return a value\nstop()       # Terminate a function call and print an error message\nwarning()    # Print a warning message (without terminating the function call)"
+    "section": "Terminating a function with returns, errors, and warnings",
+    "text": "Terminating a function with returns, errors, and warnings\nThe following functions are useful for terminating a function call or just printing a warning message:\n\nreturn()     # Terminate a function call and return a value\nstop()       # Terminate a function call and print an error message\nwarning()    # Print a warning message (without terminating the function call)"
   },
   {
     "objectID": "slides/Functions2/index.html#terminating-a-function-call-using-return",
@@ -396,14 +396,14 @@
     "href": "slides/Functions2/index.html#using-tapply-on-groups-of-data",
     "title": "R Course - Day 3",
     "section": "Using tapply on groups of data",
-    "text": "Using tapply on groups of data\n\npatients &lt;- data.frame(\"group\"=paste('grp',\n                          c(1,1,1,1,1,2,2,2,2,2),sep='-'), \n                       \"outcome\"=rnorm(10)) \n                      #10 random normally distributed values\npatients\n\n   group     outcome\n1  grp-1  1.04874992\n2  grp-1  0.87384415\n3  grp-1  2.15244945\n4  grp-1  0.42963028\n5  grp-1  0.01717816\n6  grp-2 -0.26485904\n7  grp-2  0.54020218\n8  grp-2 -0.29467288\n9  grp-2  0.83249330\n10 grp-2 -1.68409528\n\ntapply(patients$outcome, patients$group, mean)\n\n     grp-1      grp-2 \n 0.9043704 -0.1741863"
+    "text": "Using tapply on groups of data\n\npatients &lt;- data.frame(\"group\"=paste('grp',\n                          c(1,1,1,1,1,2,2,2,2,2),sep='-'), \n                       \"outcome\"=rnorm(10)) \n                      #10 random normally distributed values\npatients\n\n   group    outcome\n1  grp-1 -0.7930061\n2  grp-1  0.4491819\n3  grp-1  0.4399118\n4  grp-1  0.8997570\n5  grp-1 -0.8043006\n6  grp-2 -0.1144139\n7  grp-2  0.1370383\n8  grp-2 -1.0170428\n9  grp-2  0.6118554\n10 grp-2  0.6728039\n\ntapply(patients$outcome, patients$group, mean)\n\n     grp-1      grp-2 \n0.03830882 0.05804818"
   },
   {
     "objectID": "slides/Functions2/index.html#multiple-grouping-variables-possible",
     "href": "slides/Functions2/index.html#multiple-grouping-variables-possible",
     "title": "R Course - Day 3",
     "section": "Multiple grouping variables possible",
-    "text": "Multiple grouping variables possible\n\npatients &lt;- data.frame(\"group\"=paste('grp',c(1,1,1,1,1,2,2,2,2,2),sep='-'),\n                       \"serotype\"=c(\"A\",\"B\",\"A\",\"B\",\"A\",\"B\",\"A\",\"B\",\"A\",\"B\"),\n                       \"outcome\"=rnorm(10))\n\ntapply(patients$outcome, list(patients$group, patients$serotype), mean)\n\n               A          B\ngrp-1  0.5706276  0.5989575\ngrp-2 -0.4075951 -0.8276507"
+    "text": "Multiple grouping variables possible\n\npatients &lt;- data.frame(\"group\"=paste('grp',c(1,1,1,1,1,2,2,2,2,2),sep='-'),\n                       \"serotype\"=c(\"A\",\"B\",\"A\",\"B\",\"A\",\"B\",\"A\",\"B\",\"A\",\"B\"),\n                       \"outcome\"=rnorm(10))\n\ntapply(patients$outcome, list(patients$group, patients$serotype), mean)\n\n                A         B\ngrp-1  0.09293757 1.6339488\ngrp-2 -0.75751287 0.1602559"
   },
   {
     "objectID": "index.html",
@@ -413,95 +413,11 @@
     "text": "R Course - Day 3\n\n\n\nDay3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Course - Day 3\n\n\n\nDay3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Course - Day 2\n\n\n\nDay2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Course - Day 2\n\n\n\nDay2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "slides/Functions1/index.html#arithmetic-operators",
-    "href": "slides/Functions1/index.html#arithmetic-operators",
-    "title": "R Course - Day 3",
-    "section": "Arithmetic Operators",
-    "text": "Arithmetic Operators\nR can simply be used as a calculator.\n\n\n\nx &lt;- 10\ny &lt;- 3\nx + y\n\n[1] 13\n\nx - y\n\n[1] 7\n\nx * y\n\n[1] 30\n\n\n\n\nx / y\n\n[1] 3.333333\n\nx ^ y   # exponentiation\n\n[1] 1000\n\nx %% y  # modular arithmetic\n\n[1] 1\n\nx %/% y  \n\n[1] 3"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#how-these-functions-work-on-vectors",
-    "href": "slides/Functions1/index.html#how-these-functions-work-on-vectors",
-    "title": "R Course - Day 3",
-    "section": "How these functions work on vectors",
-    "text": "How these functions work on vectors\n\n\n\na_vector &lt;- 1:10\n# x is recycled without warning\na_vector + x                   \n\n [1] 11 12 13 14 15 16 17 18 19 20\n\na_vector + a_vector\n\n [1]  2  4  6  8 10 12 14 16 18 20\n\n\n\n\nvec_of_thr &lt;- c(2, 4, 6)\n# recycled with a warning\na_vector + vec_of_thr\n\nWarning in a_vector + vec_of_thr: longer object length is not a multiple of\nshorter object length\n\n\n [1]  3  6  9  6  9 12  9 12 15 12\n\nvec_of_fi &lt;- c(1, 2, 3, 4, 5)\n# recycled without warning\na_vector + vec_of_fi\n\n [1]  2  4  6  8 10  7  9 11 13 15"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#how-these-functions-work-on-matrices",
-    "href": "slides/Functions1/index.html#how-these-functions-work-on-matrices",
-    "title": "R Course - Day 3",
-    "section": "How these functions work on matrices",
-    "text": "How these functions work on matrices\n\nano_matrix &lt;- matrix(1:12,ncol=4)\nano_matrix + x\n\n     [,1] [,2] [,3] [,4]\n[1,]   11   14   17   20\n[2,]   12   15   18   21\n[3,]   13   16   19   22\n\nano_matrix + ano_matrix\n\n     [,1] [,2] [,3] [,4]\n[1,]    2    8   14   20\n[2,]    4   10   16   22\n[3,]    6   12   18   24\n\nano_matrix * ano_matrix\n\n     [,1] [,2] [,3] [,4]\n[1,]    1   16   49  100\n[2,]    4   25   64  121\n[3,]    9   36   81  144"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#relational-operators",
-    "href": "slides/Functions1/index.html#relational-operators",
-    "title": "R Course - Day 3",
-    "section": "Relational Operators",
-    "text": "Relational Operators\n\n#Previously we defined x as 10 and y as 3\nx &lt; y   #Smaller than\n\n[1] FALSE\n\nx &gt; y   #Larger than\n\n[1] TRUE\n\nx &lt;= y  #Smaller or equal to\n\n[1] FALSE\n\nx &gt;= y  #Larger or equal to\n\n[1] TRUE\n\nx == y  #Equal to (use two '=')\n\n[1] FALSE\n\nx != y  #Not equal to (! means 'not')\n\n[1] TRUE"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#logical-operators",
-    "href": "slides/Functions1/index.html#logical-operators",
-    "title": "R Course - Day 3",
-    "section": "Logical Operators",
-    "text": "Logical Operators\nThese operate on logical (TRUE or FALSE) expressions and return TRUE or FALSE or TRUE/FALSE vectors.\n\n&&  # \"And\"   for logical scalars (single values)\n||  # \"Or\"    for logical scalars\n!   # \"Not\"   for logical scalars or vectors\n&   # \"And\"   for logical vectors (multiple values)\n|   # \"Or\"    for logical vectors"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#logical-operations-on-scalar-logical-expressions",
-    "href": "slides/Functions1/index.html#logical-operations-on-scalar-logical-expressions",
-    "title": "R Course - Day 3",
-    "section": "Logical Operations on Scalar Logical Expressions",
-    "text": "Logical Operations on Scalar Logical Expressions\n\nTRUE && TRUE\n\n[1] TRUE\n\nTRUE && FALSE\n\n[1] FALSE\n\nFALSE || TRUE\n\n[1] TRUE\n\nFALSE || FALSE\n\n[1] FALSE"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#combine-logical-and-relational-operators",
-    "href": "slides/Functions1/index.html#combine-logical-and-relational-operators",
-    "title": "R Course - Day 3",
-    "section": "Combine logical and relational operators",
-    "text": "Combine logical and relational operators\nInside a range of numbers:\n\nx &lt;- 75\nx &gt; 60 && x &lt; 70\n\n[1] FALSE\n\n\nOutside a range of numbers:\n\nx &lt; 60 || x &gt; 70\n\n[1] TRUE"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#combine-with-if-else-statement",
-    "href": "slides/Functions1/index.html#combine-with-if-else-statement",
-    "title": "R Course - Day 3",
-    "section": "Combine with if() else() statement",
-    "text": "Combine with if() else() statement\n\nx &lt;- 3\ny &lt;- 5\n\nif(x &lt; 10 && y &lt; 10) {\n  print(\"Both less than 10\")\n} else {\n  print(\"Not both less than 10\")\n}\n\n[1] \"Both less than 10\""
-  },
-  {
-    "objectID": "slides/Functions1/index.html#not",
-    "href": "slides/Functions1/index.html#not",
-    "title": "R Course - Day 3",
-    "section": "Not!",
-    "text": "Not!\n\n!TRUE\n\n[1] FALSE\n\n\n\n!FALSE\n\n[1] TRUE\n\n\n\n!(6 &lt; 5)\n\n[1] TRUE"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#logical-operations-on-logical-vectors",
-    "href": "slides/Functions1/index.html#logical-operations-on-logical-vectors",
-    "title": "R Course - Day 3",
-    "section": "Logical Operations on Logical Vectors",
-    "text": "Logical Operations on Logical Vectors\nDifference between & and &&:\n\nc(TRUE, FALSE, TRUE) && c(TRUE, TRUE, FALSE)\n\nWarning in c(TRUE, FALSE, TRUE) && c(TRUE, TRUE, FALSE): 'length(x) = 3 &gt; 1' in\ncoercion to 'logical(1)'\n\nWarning in c(TRUE, FALSE, TRUE) && c(TRUE, TRUE, FALSE): 'length(x) = 3 &gt; 1' in\ncoercion to 'logical(1)'\n\n\n[1] TRUE\n\n\n\nc(TRUE, FALSE, TRUE) & c(TRUE, TRUE, FALSE)\n\n[1]  TRUE FALSE FALSE"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#logical-operations-with-ifelse",
-    "href": "slides/Functions1/index.html#logical-operations-with-ifelse",
-    "title": "R Course - Day 3",
-    "section": "Logical Operations with ifelse()",
-    "text": "Logical Operations with ifelse()\n\nsystolic &lt;- c(110, 119, 111, 113, 128)\ndiastolic &lt;- c(70, 74, 88, 74, 83)\n\nclassification &lt;- ifelse(systolic &lt; 120 & diastolic &lt; 80, \n                         yes = \"Normal\", \n                         no = \"Abnormal\")\nclassification\n\n[1] \"Normal\"   \"Normal\"   \"Abnormal\" \"Normal\"   \"Abnormal\""
-  },
-  {
-    "objectID": "slides/Functions1/index.html#logical-operations-for-subsetting",
-    "href": "slides/Functions1/index.html#logical-operations-for-subsetting",
-    "title": "R Course - Day 3",
-    "section": "Logical Operations for subsetting",
-    "text": "Logical Operations for subsetting\n\nbpData &lt;- data.frame(\n  name = c(\"Joe\", \"Katy\", \"Bill\", \"Kim\", \"Mark\"),\n  systolic = c(110, 119, 111, 113, 128),\n  diastolic = c(70, 74, 88, 74, 83)\n)\n\nbpData\n\n  name systolic diastolic\n1  Joe      110        70\n2 Katy      119        74\n3 Bill      111        88\n4  Kim      113        74\n5 Mark      128        83\n\nbpData[bpData$systolic &lt; 120 & bpData$diastolic &lt; 80, ]\n\n  name systolic diastolic\n1  Joe      110        70\n2 Katy      119        74\n4  Kim      113        74"
-  },
-  {
     "objectID": "slides/Functions1/index.html#built-in-named-functions",
     "href": "slides/Functions1/index.html#built-in-named-functions",
     "title": "R Course - Day 3",
     "section": "Built-in Named Functions",
-    "text": "Built-in Named Functions\n\nstr() #Print structure of an object\nclass() #Print class of an object\nhead() #First six elements/rows\ntail() #Last six elements/rows\nls() #List all objects you made\nseq(from=1, to=10, by=2) #Create a sequence\n\nBuilt-in functions in base-R :\nhttps://stat.ethz.ch/R-manual/R-patched/library/base/html/00Index.html"
+    "text": "Built-in Named Functions\n\nhead() #Print the first 6 lines of a dataframe\n\ntail() #Print the last 6 lines of a dataframe\n\nseq(from=1, to=10, by=2) #Create a sequence from 1 to 10 with steps of 2\n\nas.numeric(c(\"1\",\"2\",\"3\",\"4\")) #Turn string into numbers\n\nsort(c(3,4,2,5,1)) #Sort numbers or letters numerically or alphabetically\n\nmax(c(111,333,444,55,6,777,999)) #Determine the maximum value of a vector\n\nrnorm(10) #Sample 10 values from a r(andom) norm(al) distribution between 0 and 1\n\nBuilt-in functions in base-R :\nhttps://stat.ethz.ch/R-manual/R-patched/library/base/html/00Index.html"
   },
   {
     "objectID": "slides/Functions1/index.html#function-arguments",
@@ -525,48 +441,6 @@
     "text": "Named Argument Matching\n\nround(x = 4.679, digits = 2)\n\n[1] 4.68\n\nround(digits = 2, x = 4.679)\n\n[1] 4.68\n\n\nMixing is possible:\n\nround(4.679, digits=2)\n\n[1] 4.68\n\nround(digits=2, 4.679)\n\n[1] 4.68"
   },
   {
-    "objectID": "slides/Functions1/index.html#if-then-else",
-    "href": "slides/Functions1/index.html#if-then-else",
-    "title": "R Course - Day 3",
-    "section": "If? Then! Else?",
-    "text": "If? Then! Else?\nConditional execution:\n\nif (condition) {\n  statement1\n}\n\nor\n\nif (condition) {\n  statement1\n} else {\n  statement2\n}"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#example",
-    "href": "slides/Functions1/index.html#example",
-    "title": "R Course - Day 3",
-    "section": "Example",
-    "text": "Example\n\nif (x &gt;= 10) {\n  y &lt;- 1\n} else {\n    y &lt;- 0\n}\n\ny\n\n[1] 0\n\n\nOneliner:\n\ny &lt;- if(x &gt;= 10) 1 else 0\ny\n\n[1] 0\n\n\nBeware!\n\ny &lt;- if(x &gt;= 10) 1 #no else\ny\n\nNULL"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#returning-some-value-based-on-a-condition",
-    "href": "slides/Functions1/index.html#returning-some-value-based-on-a-condition",
-    "title": "R Course - Day 3",
-    "section": "Returning some value based on a condition",
-    "text": "Returning some value based on a condition\n\nmySign &lt;- function(x) {\n    if(x &lt; 0) {\n      return(\"Negative\")\n    } else {\n      return(\"Non-negative\")\n    }\n}\n\nmySign(13)\n\n[1] \"Non-negative\""
-  },
-  {
-    "objectID": "slides/Functions1/index.html#nested-if-statements",
-    "href": "slides/Functions1/index.html#nested-if-statements",
-    "title": "R Course - Day 3",
-    "section": "Nested if() Statements",
-    "text": "Nested if() Statements\nif inside an if\n\nif(condition1) {\n  if(condition2) {\n    statement1 \n  } else {\n    statement2\n  }\n}"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#stringing-multiple-if-else-together",
-    "href": "slides/Functions1/index.html#stringing-multiple-if-else-together",
-    "title": "R Course - Day 3",
-    "section": "Stringing multiple if else together",
-    "text": "Stringing multiple if else together\n\nwhatAnimalSound &lt;- function(animal){\n  if(animal == \"cat\") {\n    return(\"Meow!\")\n  } else if (animal == \"frog\") {\n    return(\"Ribbit!\")\n  } else if (animal == \"dog\") {\n    return(\"Woof!\")\n  } else {\n    return(paste0(\"I don't know what sound a '\",animal,\"' makes...\"))\n  }\n}\n\n\nwhatAnimalSound(\"dog\")\n\n[1] \"Woof!\"\n\nwhatAnimalSound(\"bird\")\n\n[1] \"I don't know what sound a 'bird' makes...\""
-  },
-  {
-    "objectID": "slides/Functions1/index.html#if-else-on-a-vector-the-ifelse-function",
-    "href": "slides/Functions1/index.html#if-else-on-a-vector-the-ifelse-function",
-    "title": "R Course - Day 3",
-    "section": "if-else on a vector: The ifelse() Function",
-    "text": "if-else on a vector: The ifelse() Function\n\nheight &lt;- c(69, 71, 67, 66, 72, 71, 61, 65, 73, 70, 68, 74)\n\nif (height &gt; 69){\n  print(\"tall\") \n} else {\n  print(\"short\")\n}\n\nError in if (height &gt; 69) {: the condition has length &gt; 1\n\n\n\nhtCategory &lt;- ifelse(height &gt; 69, yes = \"tall\", no = \"short\")\n\nhtCategory\n\n [1] \"short\" \"tall\"  \"short\" \"short\" \"tall\"  \"tall\"  \"short\" \"short\" \"tall\" \n[10] \"tall\"  \"short\" \"tall\" \n\n\nFor more complicated cases we can use apply()"
-  },
-  {
     "objectID": "slides/Functions1/index.html#creating-your-own-functions",
     "href": "slides/Functions1/index.html#creating-your-own-functions",
     "title": "R Course - Day 3",
@@ -574,25 +448,123 @@
     "text": "Creating your own functions\n\nmyFun &lt;- function(arg1, arg2) {\n  ## Here you type expressions that use the arguments\n}\n\nmyFun(arg1, arg2)"
   },
   {
-    "objectID": "slides/Functions1/index.html#returning-a-result",
-    "href": "slides/Functions1/index.html#returning-a-result",
+    "objectID": "slides/Functions1/index.html#example-of-a-custom-function",
+    "href": "slides/Functions1/index.html#example-of-a-custom-function",
     "title": "R Course - Day 3",
-    "section": "Returning a result",
-    "text": "Returning a result\n\ndo1 &lt;- function(x, y){\n  z &lt;- x + y\n  x\n  z\n}\n\ndo1(x = 1, y = 3) # Only z is returned\n\n[1] 4\n\n\n\ndo2 &lt;- function(x, y){\n  z &lt;- x + y \n  return(x)\n  z\n}\n\ndo2(x = 1, y = 3) # z is ignored\n\n[1] 1"
+    "section": "Example of a custom function",
+    "text": "Example of a custom function\n\nmean_xy &lt;- function(x, y){\n  (x + y)/2\n}\n\nWe can us it like this:\n\nmean_xy(2,6)\n\n[1] 4\n\n\nor\n\nmean_xy(x = 2,y = 6)\n\n[1] 4"
   },
   {
-    "objectID": "slides/Functions1/index.html#returning-multiple-values",
-    "href": "slides/Functions1/index.html#returning-multiple-values",
+    "objectID": "slides/Functions1/index.html#use-return-in-a-function",
+    "href": "slides/Functions1/index.html#use-return-in-a-function",
     "title": "R Course - Day 3",
-    "section": "Returning multiple values",
-    "text": "Returning multiple values\n\ndo3 &lt;- function(x, y){ \n  z &lt;- x + y \n  return(list(x, z))\n}\n\ndo3(x = 1, y = 3)\n\n[[1]]\n[1] 1\n\n[[2]]\n[1] 4\n\n\n\ndo4 &lt;- function(x, y = 2){ \n  z1 &lt;- x + y\n  z2 &lt;- x * y \n  return(c(z1, z2))\n} \n\ndo4(x = 1) ## uses y = 2\n\n[1] 3 2\n\ndo4(x = 1, y = 3) ## overwrites default value of y\n\n[1] 4 3"
+    "section": "Use return() in a function",
+    "text": "Use return() in a function\n\nmean_xy &lt;- function(x, y){\n  z &lt;- (x + y)/2\n  return(z)\n}\n\nmean_xy(x = 2, y = 6)\n\n[1] 4"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#default-return-value",
+    "href": "slides/Functions1/index.html#default-return-value",
+    "title": "R Course - Day 3",
+    "section": "Default return value",
+    "text": "Default return value\n\nmean_xy_2 &lt;- function(x, y){\n  z &lt;- (x + y)/2\n  x\n  z\n}\n\nmean_xy_2(x = 1, y = 3)\n\n[1] 2\n\n\nx is not returned!\n\nmean_xy_3 &lt;- function(x, y){\n  z &lt;- x + y \n  return(x)\n  z\n}\n\nmean_xy_3(x = 1, y = 3)\n\n[1] 1\n\n\nz is not returned!"
   },
   {
     "objectID": "slides/Functions1/index.html#function-with-multiple-input-values",
     "href": "slides/Functions1/index.html#function-with-multiple-input-values",
     "title": "R Course - Day 3",
     "section": "Function with multiple input values",
-    "text": "Function with multiple input values\n\nmeanOfAll &lt;- function(...) {\n  x &lt;- mean(c(...))\n  return(x)\n}\n\nusSales &lt;- c(123,456,789)\neuropeSales &lt;- c(100,1000,10000,100000)\notherSales &lt;- c(50,100,150,200,250,300,350)\n\nmeanOfAll(usSales, europeSales, otherSales)\n\n[1] 8133.429"
+    "text": "Function with multiple input values\n\nmean_vector &lt;- function(...){ \n  z &lt;- mean(c(...))\n  return(z)\n} \n\nmean_vector(1,2,3)\n\n[1] 2\n\n\nNo limit to number of inputs:\n\nmean_vector(1,2,3,4,5,6,7,8,9,10) \n\n[1] 5.5"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#vector-as-an-input-to-a-function",
+    "href": "slides/Functions1/index.html#vector-as-an-input-to-a-function",
+    "title": "R Course - Day 3",
+    "section": "Vector as an input to a function",
+    "text": "Vector as an input to a function\n\nmean_x &lt;- function(x){ \n  z &lt;- mean(x)\n  return(z)\n} \nx &lt;- c(1,2,3,4,5)\nmean_x(x)\n\n[1] 3"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#build-a-custom-function-to-clean-data",
+    "href": "slides/Functions1/index.html#build-a-custom-function-to-clean-data",
+    "title": "R Course - Day 3",
+    "section": "Build a custom function to clean data",
+    "text": "Build a custom function to clean data\nCalculate mean of only the positive values (data cleaning)\n\nmy_descriptives &lt;- function(x){\n  x.trim &lt;- x[x &gt;= 0]\n  out &lt;- mean(x.trim)\n  return(out)\n}\n\nPatient data:\n\ndata$Ages\n\n [1]  52  30  53  55  48  44  58  49  54  54  39  45  54  59  36 -50  40  48  30\n[20]  49  65  51  65  59  40\n\n\n-50 is clearly wrong"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#build-a-custom-function-to-clean-data-1",
+    "href": "slides/Functions1/index.html#build-a-custom-function-to-clean-data-1",
+    "title": "R Course - Day 3",
+    "section": "Build a custom function to clean data",
+    "text": "Build a custom function to clean data\n\nmy_descriptives(data$Ages)\n\n[1] 49.04167\n\n\nIn stead of:\n\nmean(data$Ages)\n\n[1] 45.08"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#returning-vectors",
+    "href": "slides/Functions1/index.html#returning-vectors",
+    "title": "R Course - Day 3",
+    "section": "Returning vectors",
+    "text": "Returning vectors\n\nmy_descriptives &lt;- function(x){\n  x.trim &lt;- x[x&gt;=0]\n  out &lt;- summary(x.trim)\n  return(out)\n}\n\nmy_descriptives(data$Ages)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  30.00   43.00   50.00   49.04   54.25   65.00"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#returning-multiple-values",
+    "href": "slides/Functions1/index.html#returning-multiple-values",
+    "title": "R Course - Day 3",
+    "section": "Returning multiple values",
+    "text": "Returning multiple values\nIt is not possible to use return(x,y)\n\nmy_descriptives2_wrong &lt;- function(x){\n  x.trim &lt;- x[x&gt;0]\n  below0 &lt;- sum(x&lt;0)\n  meanX &lt;- mean(x.trim)\n  return(below0, meanX)\n}\n\nmy_descriptives2_wrong(data$Ages)\n\nError in return(below0, meanX): multi-argument returns are not permitted"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#returning-multiple-values-1",
+    "href": "slides/Functions1/index.html#returning-multiple-values-1",
+    "title": "R Course - Day 3",
+    "section": "Returning multiple values",
+    "text": "Returning multiple values\nTo return multiple values we use: return(c(x,y)) or return(list(x,y))\n\nmy_descriptives2 &lt;- function(x){\n  x.trim &lt;- x[x&gt;0]\n  below0 &lt;- sum(x&lt;0)\n  meanX &lt;- mean(x.trim)\n  return(list(below0, meanX))\n}\n\nmy_descriptives2(data$Ages)\n\n[[1]]\n[1] 1\n\n[[2]]\n[1] 49.04167"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#function-environments-and-scoping",
+    "href": "slides/Functions1/index.html#function-environments-and-scoping",
+    "title": "R Course - Day 3",
+    "section": "Function environments and scoping",
+    "text": "Function environments and scoping\nThe Top-Level (or Global) Environment\n\nw &lt;- 2\nf &lt;- function(y) {\n  d &lt;- 3\n  return(d * (w + y))\n}\nenvironment(f)\n\n&lt;environment: R_GlobalEnv&gt;\n\n\nObjects in the Global Environment:\n\nobjects()\n\n [1] \"Ages\"                   \"data\"                   \"f\"                     \n [4] \"mean_vector\"            \"mean_x\"                 \"mean_xy\"               \n [7] \"mean_xy_2\"              \"mean_xy_3\"              \"my_descriptives\"       \n[10] \"my_descriptives2\"       \"my_descriptives2_wrong\" \"PatientID\"             \n[13] \"w\"                      \"x\""
+  },
+  {
+    "objectID": "slides/Functions1/index.html#global-and-local-variables",
+    "href": "slides/Functions1/index.html#global-and-local-variables",
+    "title": "R Course - Day 3",
+    "section": "Global and Local Variables",
+    "text": "Global and Local Variables\nw is a global variable\nd is a local variable to f()\n\nf &lt;- function(y) {\n  d &lt;- 3\n  return(d * (w + y))\n}\n\nf(y = 1)\n\n[1] 9\n\nd\n\nError in eval(expr, envir, enclos): object 'd' not found"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#local-preference-over-global",
+    "href": "slides/Functions1/index.html#local-preference-over-global",
+    "title": "R Course - Day 3",
+    "section": "Local preference over Global",
+    "text": "Local preference over Global\n\nw &lt;- 2\nd &lt;- 4\n\nf &lt;- function(y) {\n  d &lt;- 3\n  return(d * (w + y))\n}\n\nf(y = 1)\n\n[1] 9"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#local-assignment-of-variables",
+    "href": "slides/Functions1/index.html#local-assignment-of-variables",
+    "title": "R Course - Day 3",
+    "section": "Local assignment of variables",
+    "text": "Local assignment of variables\n\nw &lt;- 2\nd &lt;- 4 # This value of d will remain unchanged.\n\nf &lt;- function(y) {\n  d &lt;- 3 # This doesnt affect the value of d in the global environment\n  return(d * (w + y))\n}\n\nf(y = 1)\n\n[1] 9\n\nd\n\n[1] 4"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#nested-functions-and-the-scope-hierarchy",
+    "href": "slides/Functions1/index.html#nested-functions-and-the-scope-hierarchy",
+    "title": "R Course - Day 3",
+    "section": "Nested Functions and the Scope Hierarchy",
+    "text": "Nested Functions and the Scope Hierarchy\nExample:\n\nw &lt;- 2\nf &lt;- function(y) {\n  d &lt;- 3\n  h &lt;- function() {\n    b &lt;- 5\n    return(d * (w + y))\n  }\n  return(h())\n}\n\n\nw is a global environment variable to f() and also to h()\ny and d are local variables to f(), but “global” to h()\nb is local to h()"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#check-local-variables-with-ls",
+    "href": "slides/Functions1/index.html#check-local-variables-with-ls",
+    "title": "R Course - Day 3",
+    "section": "Check local variables with ls()",
+    "text": "Check local variables with ls()\n\nw &lt;- 2\nf &lt;- function(y) {\n  d &lt;- 3\n  h &lt;- function() {\n    b &lt;- 5\n    return(d * (w + y))\n  }\n  print(ls())\n  return(h())\n}\n\nf(y = 2)\n\n[1] \"d\" \"h\" \"y\"\n\n\n[1] 12\n\n\nNote that b is not printed, as it is local to h(), but not to f()."
+  },
+  {
+    "objectID": "slides/Functions1/index.html#view-environment-environment",
+    "href": "slides/Functions1/index.html#view-environment-environment",
+    "title": "R Course - Day 3",
+    "section": "View environment: environment()",
+    "text": "View environment: environment()\n\nw &lt;- 2\nf &lt;- function(y) {\n  d &lt;- 3\n  h &lt;- function() {\n    b &lt;- 5\n    return(d * (w + y))\n  }\n  print(environment(h))\n  return(h())\n}\nf(y = 2)\n\n&lt;environment: 0x000001cc7b1631c0&gt;\n\n\n[1] 12\n\n\nShows location in computer memory"
   },
   {
     "objectID": "slides/ggplot2/index.html#what-is-ggplot2",

@@ -8,7 +8,7 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.433">
+  <meta name="generator" content="quarto-1.4.553">
 
   <title>BasicRCourseEMC_Slides - R Course - Day 2</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,7 +30,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -220,7 +220,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -397,8 +398,8 @@
 <section id="basic-plotting" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Basic plotting</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">data</span>(ToothGrowth)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">str</span>(ToothGrowth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">data</span>(ToothGrowth)</span>
+<span id="cb1-2"><a></a><span class="fu">str</span>(ToothGrowth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   60 obs. of  3 variables:
  $ len : num  4.2 11.5 7.3 5.8 6.4 10 11.2 11.2 5.2 7 ...
@@ -410,110 +411,110 @@
 <section id="scatterplots" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Scatterplots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>len)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>len)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
 <section id="scatterplots-1" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Scatterplots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>dose, ToothGrowth<span class="sc">$</span>len)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>dose, ToothGrowth<span class="sc">$</span>len)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
 <section id="scatterplots-2" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Scatterplots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>dose, ToothGrowth<span class="sc">$</span>len, </span>
-<span id="cb5-2"><a href="#cb5-2"></a>     <span class="at">xlab =</span> <span class="st">"Dose"</span>, <span class="at">ylab =</span> <span class="st">"Tooth Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>dose, ToothGrowth<span class="sc">$</span>len, </span>
+<span id="cb5-2"><a></a>     <span class="at">xlab =</span> <span class="st">"Dose"</span>, <span class="at">ylab =</span> <span class="st">"Tooth Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
 <section id="scatterplots-3" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Scatterplots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>dose, ToothGrowth<span class="sc">$</span>len, </span>
-<span id="cb6-2"><a href="#cb6-2"></a>     <span class="at">xlab =</span> <span class="st">"Dose"</span>, <span class="at">ylab =</span> <span class="st">"Tooth Length"</span>, </span>
-<span id="cb6-3"><a href="#cb6-3"></a>     <span class="at">main =</span> <span class="st">"Guinea Pig Tooth Growth by Dosage"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>dose, ToothGrowth<span class="sc">$</span>len, </span>
+<span id="cb6-2"><a></a>     <span class="at">xlab =</span> <span class="st">"Dose"</span>, <span class="at">ylab =</span> <span class="st">"Tooth Length"</span>, </span>
+<span id="cb6-3"><a></a>     <span class="at">main =</span> <span class="st">"Guinea Pig Tooth Growth by Dosage"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
 <section id="scatterplots-4" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Scatterplots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>dose, ToothGrowth<span class="sc">$</span>len, </span>
-<span id="cb7-2"><a href="#cb7-2"></a>     <span class="at">xlab =</span> <span class="st">"Dose"</span>, <span class="at">ylab =</span> <span class="st">"Tooth Length"</span>, </span>
-<span id="cb7-3"><a href="#cb7-3"></a>     <span class="at">main =</span> <span class="st">"Guinea Pig Tooth Growth by Dosage"</span>, </span>
-<span id="cb7-4"><a href="#cb7-4"></a>     <span class="at">col =</span> ToothGrowth<span class="sc">$</span>supp, <span class="at">pch =</span> <span class="fu">as.numeric</span>(ToothGrowth<span class="sc">$</span>supp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>dose, ToothGrowth<span class="sc">$</span>len, </span>
+<span id="cb7-2"><a></a>     <span class="at">xlab =</span> <span class="st">"Dose"</span>, <span class="at">ylab =</span> <span class="st">"Tooth Length"</span>, </span>
+<span id="cb7-3"><a></a>     <span class="at">main =</span> <span class="st">"Guinea Pig Tooth Growth by Dosage"</span>, </span>
+<span id="cb7-4"><a></a>     <span class="at">col =</span> ToothGrowth<span class="sc">$</span>supp, <span class="at">pch =</span> <span class="fu">as.numeric</span>(ToothGrowth<span class="sc">$</span>supp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
 <section id="scatterplots-5" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Scatterplots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>dose, ToothGrowth<span class="sc">$</span>len, </span>
-<span id="cb8-2"><a href="#cb8-2"></a>     <span class="at">xlab =</span> <span class="st">"Dose"</span>, <span class="at">ylab =</span> <span class="st">"Tooth Length"</span>, </span>
-<span id="cb8-3"><a href="#cb8-3"></a>     <span class="at">main =</span> <span class="st">"Guinea Pig Tooth Growth by Dosage"</span>, </span>
-<span id="cb8-4"><a href="#cb8-4"></a>     <span class="at">col =</span> ToothGrowth<span class="sc">$</span>supp, <span class="at">pch =</span> <span class="fu">as.numeric</span>(ToothGrowth<span class="sc">$</span>supp))</span>
-<span id="cb8-5"><a href="#cb8-5"></a></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="fu">legend</span>(<span class="fl">1.5</span>, <span class="dv">15</span>, <span class="fu">c</span>(<span class="st">"OJ"</span>, <span class="st">"VC"</span>), <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">pch =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>dose, ToothGrowth<span class="sc">$</span>len, </span>
+<span id="cb8-2"><a></a>     <span class="at">xlab =</span> <span class="st">"Dose"</span>, <span class="at">ylab =</span> <span class="st">"Tooth Length"</span>, </span>
+<span id="cb8-3"><a></a>     <span class="at">main =</span> <span class="st">"Guinea Pig Tooth Growth by Dosage"</span>, </span>
+<span id="cb8-4"><a></a>     <span class="at">col =</span> ToothGrowth<span class="sc">$</span>supp, <span class="at">pch =</span> <span class="fu">as.numeric</span>(ToothGrowth<span class="sc">$</span>supp))</span>
+<span id="cb8-5"><a></a></span>
+<span id="cb8-6"><a></a><span class="fu">legend</span>(<span class="fl">1.5</span>, <span class="dv">15</span>, <span class="fu">c</span>(<span class="st">"OJ"</span>, <span class="st">"VC"</span>), <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">pch =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
 <section id="scatterplots-6" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Scatterplots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>dose, ToothGrowth<span class="sc">$</span>len, </span>
-<span id="cb9-2"><a href="#cb9-2"></a>     <span class="at">xlab =</span> <span class="st">"Dose"</span>, <span class="at">ylab =</span> <span class="st">"Tooth Length"</span>,</span>
-<span id="cb9-3"><a href="#cb9-3"></a>     <span class="at">main =</span> <span class="st">"Guinea Pig Tooth Growth by Dosage"</span>,</span>
-<span id="cb9-4"><a href="#cb9-4"></a>     <span class="at">col =</span> ToothGrowth<span class="sc">$</span>supp, <span class="at">pch =</span> <span class="fu">as.numeric</span>(ToothGrowth<span class="sc">$</span>supp), <span class="at">cex =</span> <span class="dv">2</span>)</span>
-<span id="cb9-5"><a href="#cb9-5"></a></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="fu">legend</span>(<span class="fl">1.5</span>, <span class="dv">15</span>, <span class="fu">c</span>(<span class="st">"OJ"</span>, <span class="st">"VC"</span>), <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, </span>
-<span id="cb9-7"><a href="#cb9-7"></a>       <span class="at">pch =</span> <span class="fu">as.numeric</span>(ToothGrowth<span class="sc">$</span>supp), <span class="at">cex=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>dose, ToothGrowth<span class="sc">$</span>len, </span>
+<span id="cb9-2"><a></a>     <span class="at">xlab =</span> <span class="st">"Dose"</span>, <span class="at">ylab =</span> <span class="st">"Tooth Length"</span>,</span>
+<span id="cb9-3"><a></a>     <span class="at">main =</span> <span class="st">"Guinea Pig Tooth Growth by Dosage"</span>,</span>
+<span id="cb9-4"><a></a>     <span class="at">col =</span> ToothGrowth<span class="sc">$</span>supp, <span class="at">pch =</span> <span class="fu">as.numeric</span>(ToothGrowth<span class="sc">$</span>supp), <span class="at">cex =</span> <span class="dv">2</span>)</span>
+<span id="cb9-5"><a></a></span>
+<span id="cb9-6"><a></a><span class="fu">legend</span>(<span class="fl">1.5</span>, <span class="dv">15</span>, <span class="fu">c</span>(<span class="st">"OJ"</span>, <span class="st">"VC"</span>), <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, </span>
+<span id="cb9-7"><a></a>       <span class="at">pch =</span> <span class="fu">as.numeric</span>(ToothGrowth<span class="sc">$</span>supp), <span class="at">cex=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
 <section id="line-graphs" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Line Graphs</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">type =</span> <span class="st">"l"</span>) <span class="co"># note type is the letter l for "line"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">type =</span> <span class="st">"l"</span>) <span class="co"># note type is the letter l for "line"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
 <section id="line-graphs-1" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Line Graphs</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">type =</span> <span class="st">"b"</span>) <span class="co"># note type is the letter b for "both"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">type =</span> <span class="st">"b"</span>) <span class="co"># note type is the letter b for "both"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
 <section id="line-graphs-2" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Line Graphs</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">type =</span> <span class="st">"l"</span>)</span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">lines</span>(ToothGrowth<span class="sc">$</span>len <span class="sc">+</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">type =</span> <span class="st">"l"</span>)</span>
+<span id="cb12-2"><a></a><span class="fu">lines</span>(ToothGrowth<span class="sc">$</span>len <span class="sc">+</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
 <section id="line-graphs-3" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Line Graphs</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">type =</span> <span class="st">"l"</span>)</span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="fu">lines</span>(ToothGrowth<span class="sc">$</span>len <span class="sc">+</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">3</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">"darkgreen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">type =</span> <span class="st">"l"</span>)</span>
+<span id="cb13-2"><a></a><span class="fu">lines</span>(ToothGrowth<span class="sc">$</span>len <span class="sc">+</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">3</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">"darkgreen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
 <section id="bar-charts" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Bar Charts</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>dose)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>dose)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
 <section id="bar-charts-1" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Bar Charts</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">table</span>(ToothGrowth<span class="sc">$</span>dose)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">table</span>(ToothGrowth<span class="sc">$</span>dose)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 0.5   1   2 
@@ -524,15 +525,15 @@
 <section id="bar-charts-2" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Bar Charts</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(ToothGrowth<span class="sc">$</span>dose))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">barplot</span>(<span class="fu">table</span>(ToothGrowth<span class="sc">$</span>dose))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
 <section id="bar-charts-3" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Bar Charts</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>props <span class="ot">&lt;-</span> <span class="fu">table</span>(ToothGrowth<span class="sc">$</span>dose)<span class="sc">/</span><span class="fu">nrow</span>(ToothGrowth)</span>
-<span id="cb18-2"><a href="#cb18-2"></a>props</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>props <span class="ot">&lt;-</span> <span class="fu">table</span>(ToothGrowth<span class="sc">$</span>dose)<span class="sc">/</span><span class="fu">nrow</span>(ToothGrowth)</span>
+<span id="cb18-2"><a></a>props</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
       0.5         1         2 
@@ -543,102 +544,102 @@
 <section id="bar-charts-4" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Bar Charts</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">barplot</span>(props)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">barplot</span>(props)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
 <section id="bar-charts-5" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Bar Charts</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">barplot</span>(props, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">barplot</span>(props, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
 <section id="bar-charts-6" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Bar Charts</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">barplot</span>(props, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">4</span>), <span class="at">width =</span> .<span class="dv">2</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"white"</span>, <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">barplot</span>(props, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">4</span>), <span class="at">width =</span> .<span class="dv">2</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"white"</span>, <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
 <section id="bar-charts-7" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Bar Charts</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">barplot</span>(props, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">4</span>),</span>
-<span id="cb23-2"><a href="#cb23-2"></a>  <span class="at">width =</span> .<span class="dv">2</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"white"</span>, <span class="st">"red"</span>),</span>
-<span id="cb23-3"><a href="#cb23-3"></a>  <span class="at">horiz =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">barplot</span>(props, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">4</span>),</span>
+<span id="cb23-2"><a></a>  <span class="at">width =</span> .<span class="dv">2</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"white"</span>, <span class="st">"red"</span>),</span>
+<span id="cb23-3"><a></a>  <span class="at">horiz =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" class="r-stretch"></section>
 <section id="histograms" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Histograms</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">hist</span>(ToothGrowth<span class="sc">$</span>len)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">hist</span>(ToothGrowth<span class="sc">$</span>len)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-21-1.png" width="960" class="r-stretch"></section>
 <section id="histograms-1" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Histograms</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">hist</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">freq =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">hist</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">freq =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch"></section>
 <section id="histograms-2" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Histograms</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">hist</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">35</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">hist</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">35</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-23-1.png" width="960" class="r-stretch"></section>
 <section id="histograms-3" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Histograms</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">hist</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">hist</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch"></section>
 <section id="histograms-4" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Histograms</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">hist</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">35</span>, <span class="dv">2</span>),</span>
-<span id="cb28-2"><a href="#cb28-2"></a>  <span class="at">main =</span> <span class="st">"Histogram of Tooth Growth"</span>, <span class="at">xlab =</span> <span class="st">"Tooth Length"</span>,</span>
-<span id="cb28-3"><a href="#cb28-3"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">07</span>), <span class="at">col =</span> <span class="st">"orange"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">hist</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">35</span>, <span class="dv">2</span>),</span>
+<span id="cb28-2"><a></a>  <span class="at">main =</span> <span class="st">"Histogram of Tooth Growth"</span>, <span class="at">xlab =</span> <span class="st">"Tooth Length"</span>,</span>
+<span id="cb28-3"><a></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">07</span>), <span class="at">col =</span> <span class="st">"orange"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-25-1.png" width="960" class="r-stretch"></section>
 <section id="boxplots" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Boxplots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">boxplot</span>(ToothGrowth<span class="sc">$</span>len)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">boxplot</span>(ToothGrowth<span class="sc">$</span>len)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-26-1.png" width="960" class="r-stretch"></section>
 <section id="boxplots-1" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Boxplots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">boxplot</span>(ToothGrowth<span class="sc">$</span>len<span class="sc">~</span>ToothGrowth<span class="sc">$</span>supp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">boxplot</span>(ToothGrowth<span class="sc">$</span>len<span class="sc">~</span>ToothGrowth<span class="sc">$</span>supp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-27-1.png" width="960" class="r-stretch"></section>
 <section id="boxplots-2" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Boxplots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">boxplot</span>(ToothGrowth<span class="sc">$</span>len<span class="sc">~</span>ToothGrowth<span class="sc">$</span>supp,</span>
-<span id="cb31-2"><a href="#cb31-2"></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkgreen"</span>, <span class="st">"purple"</span>),</span>
-<span id="cb31-3"><a href="#cb31-3"></a>  <span class="at">ylab =</span> <span class="st">"Supplement Type"</span>, <span class="at">xlab =</span> <span class="st">"Tooth Length"</span>,</span>
-<span id="cb31-4"><a href="#cb31-4"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">40</span>), <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">boxplot</span>(ToothGrowth<span class="sc">$</span>len<span class="sc">~</span>ToothGrowth<span class="sc">$</span>supp,</span>
+<span id="cb31-2"><a></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkgreen"</span>, <span class="st">"purple"</span>),</span>
+<span id="cb31-3"><a></a>  <span class="at">ylab =</span> <span class="st">"Supplement Type"</span>, <span class="at">xlab =</span> <span class="st">"Tooth Length"</span>,</span>
+<span id="cb31-4"><a></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">40</span>), <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-28-1.png" width="960" class="r-stretch"></section>
 <section id="multiple-plots-in-one-window" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Multiple plots in one window</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb32-2"><a href="#cb32-2"></a><span class="fu">boxplot</span>(ToothGrowth<span class="sc">$</span>len<span class="sc">~</span>ToothGrowth<span class="sc">$</span>supp, <span class="at">main =</span> <span class="st">"Boxplot"</span>,</span>
-<span id="cb32-3"><a href="#cb32-3"></a><span class="at">xlab =</span> <span class="st">"Supplement Type"</span>)</span>
-<span id="cb32-4"><a href="#cb32-4"></a>  </span>
-<span id="cb32-5"><a href="#cb32-5"></a><span class="fu">hist</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">main =</span> <span class="st">"Histogram"</span>, <span class="at">xlab =</span> <span class="st">"Tooth Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb32-2"><a></a><span class="fu">boxplot</span>(ToothGrowth<span class="sc">$</span>len<span class="sc">~</span>ToothGrowth<span class="sc">$</span>supp, <span class="at">main =</span> <span class="st">"Boxplot"</span>,</span>
+<span id="cb32-3"><a></a><span class="at">xlab =</span> <span class="st">"Supplement Type"</span>)</span>
+<span id="cb32-4"><a></a>  </span>
+<span id="cb32-5"><a></a><span class="fu">hist</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">main =</span> <span class="st">"Histogram"</span>, <span class="at">xlab =</span> <span class="st">"Tooth Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-29-1.png" width="960" class="r-stretch"></section>
@@ -652,39 +653,41 @@
 <section id="saving-plots" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Saving Plots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># note: run getwd() to see the working directory -</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a><span class="co"># that is the directory to which files will be written</span></span>
-<span id="cb33-3"><a href="#cb33-3"></a><span class="fu">pdf</span>(<span class="st">"plot1.pdf"</span>, <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">9</span>)</span>
-<span id="cb33-4"><a href="#cb33-4"></a><span class="fu">boxplot</span>(ToothGrowth<span class="sc">$</span>len<span class="sc">~</span>ToothGrowth<span class="sc">$</span>supp,</span>
-<span id="cb33-5"><a href="#cb33-5"></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkgreen"</span>, <span class="st">"purple"</span>),</span>
-<span id="cb33-6"><a href="#cb33-6"></a>  <span class="at">xlab =</span> <span class="st">"Supplement Type"</span>, <span class="at">ylab =</span> <span class="st">"Tooth Length"</span>,</span>
-<span id="cb33-7"><a href="#cb33-7"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">40</span>), <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb33-8"><a href="#cb33-8"></a><span class="fu">dev.off</span>()</span>
-<span id="cb33-9"><a href="#cb33-9"></a></span>
-<span id="cb33-10"><a href="#cb33-10"></a><span class="fu">pdf</span>(<span class="st">"plot2.pdf"</span>, <span class="at">width =</span> <span class="dv">4</span>, <span class="at">height =</span> <span class="dv">8</span>)</span>
-<span id="cb33-11"><a href="#cb33-11"></a><span class="fu">boxplot</span>(ToothGrowth<span class="sc">$</span>len<span class="sc">~</span>ToothGrowth<span class="sc">$</span>supp,</span>
-<span id="cb33-12"><a href="#cb33-12"></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkgreen"</span>, <span class="st">"purple"</span>),</span>
-<span id="cb33-13"><a href="#cb33-13"></a>  <span class="at">xlab =</span> <span class="st">"Supplement Type"</span>, <span class="at">ylab =</span> <span class="st">"Tooth Length"</span>,</span>
-<span id="cb33-14"><a href="#cb33-14"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">40</span>), <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb33-15"><a href="#cb33-15"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="co"># note: run getwd() to see the working directory -</span></span>
+<span id="cb33-2"><a></a><span class="co"># that is the directory to which files will be written</span></span>
+<span id="cb33-3"><a></a><span class="fu">pdf</span>(<span class="st">"plot1.pdf"</span>, <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">9</span>)</span>
+<span id="cb33-4"><a></a><span class="fu">boxplot</span>(ToothGrowth<span class="sc">$</span>len<span class="sc">~</span>ToothGrowth<span class="sc">$</span>supp,</span>
+<span id="cb33-5"><a></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkgreen"</span>, <span class="st">"purple"</span>),</span>
+<span id="cb33-6"><a></a>  <span class="at">xlab =</span> <span class="st">"Supplement Type"</span>, <span class="at">ylab =</span> <span class="st">"Tooth Length"</span>,</span>
+<span id="cb33-7"><a></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">40</span>), <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb33-8"><a></a><span class="fu">dev.off</span>()</span>
+<span id="cb33-9"><a></a></span>
+<span id="cb33-10"><a></a><span class="fu">pdf</span>(<span class="st">"plot2.pdf"</span>, <span class="at">width =</span> <span class="dv">4</span>, <span class="at">height =</span> <span class="dv">8</span>)</span>
+<span id="cb33-11"><a></a><span class="fu">boxplot</span>(ToothGrowth<span class="sc">$</span>len<span class="sc">~</span>ToothGrowth<span class="sc">$</span>supp,</span>
+<span id="cb33-12"><a></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkgreen"</span>, <span class="st">"purple"</span>),</span>
+<span id="cb33-13"><a></a>  <span class="at">xlab =</span> <span class="st">"Supplement Type"</span>, <span class="at">ylab =</span> <span class="st">"Tooth Length"</span>,</span>
+<span id="cb33-14"><a></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">40</span>), <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb33-15"><a></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="saving-plots-1" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Saving Plots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">png</span>(<span class="st">"plot1.png"</span>, <span class="at">units =</span> <span class="st">"in"</span>, <span class="at">res =</span> <span class="dv">300</span>,</span>
-<span id="cb34-2"><a href="#cb34-2"></a>  <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">9</span>)</span>
-<span id="cb34-3"><a href="#cb34-3"></a></span>
-<span id="cb34-4"><a href="#cb34-4"></a><span class="fu">boxplot</span>(ToothGrowth<span class="sc">$</span>len<span class="sc">~</span>ToothGrowth<span class="sc">$</span>supp,</span>
-<span id="cb34-5"><a href="#cb34-5"></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkgreen"</span>, <span class="st">"purple"</span>),</span>
-<span id="cb34-6"><a href="#cb34-6"></a>  <span class="at">xlab =</span> <span class="st">"Supplement Type"</span>, <span class="at">ylab =</span> <span class="st">"Tooth Length"</span>,</span>
-<span id="cb34-7"><a href="#cb34-7"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">40</span>), <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb34-8"><a href="#cb34-8"></a></span>
-<span id="cb34-9"><a href="#cb34-9"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">png</span>(<span class="st">"plot1.png"</span>, <span class="at">units =</span> <span class="st">"in"</span>, <span class="at">res =</span> <span class="dv">300</span>,</span>
+<span id="cb34-2"><a></a>  <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">9</span>)</span>
+<span id="cb34-3"><a></a></span>
+<span id="cb34-4"><a></a><span class="fu">boxplot</span>(ToothGrowth<span class="sc">$</span>len<span class="sc">~</span>ToothGrowth<span class="sc">$</span>supp,</span>
+<span id="cb34-5"><a></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkgreen"</span>, <span class="st">"purple"</span>),</span>
+<span id="cb34-6"><a></a>  <span class="at">xlab =</span> <span class="st">"Supplement Type"</span>, <span class="at">ylab =</span> <span class="st">"Tooth Length"</span>,</span>
+<span id="cb34-7"><a></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">40</span>), <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb34-8"><a></a></span>
+<span id="cb34-9"><a></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
     </div>
@@ -713,7 +716,6 @@
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -899,42 +901,80 @@
       });
     </script>
     
+
     <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
+    
 
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
 
+    
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
             }
+
           }
+
         }
+
+    
 
         // hookup for slidy
+
         if (window.w3c_slidy) {
+
           window.w3c_slidy.add_observer(function (slide_num) {
+
             // slide_num starts at position 1
+
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
           });
+
         }
 
+    
+
       })();
+
     </script>
+
+    
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1012,10 +1052,27 @@
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1025,8 +1082,17 @@
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1040,7 +1106,11 @@
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

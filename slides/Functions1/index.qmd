@@ -12,188 +12,22 @@ categories: [Day3]
 image: "image.png"
 ---
 
-## Arithmetic Operators {data-background="./_extensions/emc/www/triangle1.svg"}
-
-R can simply be used as a *calculator*.
-
-::: columns
-::: {.column style="width: 45%"}
-```{r}
-x <- 10
-y <- 3
-x + y
-x - y
-x * y
-```
-:::
-
-::: {.column style="width: 45%"}
-```{r}
-x / y
-x ^ y   # exponentiation
-x %% y  # modular arithmetic
-x %/% y  
-```
-:::
-:::
-
-## How these functions work on vectors {data-background="./_extensions/emc/www/triangle1.svg"}
-
-::: columns
-::: {.column style="width: 45%"}
-```{r}
-a_vector <- 1:10
-# x is recycled without warning
-a_vector + x                   
-a_vector + a_vector
-```
-:::
-
-::: {.column style="width: 45%"}
-```{r, warning=TRUE}
-vec_of_thr <- c(2, 4, 6)
-# recycled with a warning
-a_vector + vec_of_thr
-vec_of_fi <- c(1, 2, 3, 4, 5)
-# recycled without warning
-a_vector + vec_of_fi
-```
-:::
-:::
-
-## How these functions work on matrices {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-ano_matrix <- matrix(1:12,ncol=4)
-ano_matrix + x
-ano_matrix + ano_matrix
-ano_matrix * ano_matrix
-```
-
-## Relational Operators {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-#Previously we defined x as 10 and y as 3
-x < y   #Smaller than
-x > y   #Larger than
-x <= y  #Smaller or equal to
-x >= y  #Larger or equal to
-x == y  #Equal to (use two '=')
-x != y  #Not equal to (! means 'not')
-```
-
-## Logical Operators {data-background="./_extensions/emc/www/triangle1.svg"}
-
-These operate on logical (`TRUE` or `FALSE`) expressions and return `TRUE` or `FALSE` or `TRUE`/`FALSE` vectors.
-
-```{r, eval=FALSE}
-&&  # "And"   for logical scalars (single values)
-||  # "Or"    for logical scalars
-!   # "Not"   for logical scalars or vectors
-&   # "And"   for logical vectors (multiple values)
-|   # "Or"    for logical vectors
-```
-
-## Logical Operations on Scalar Logical Expressions {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-TRUE && TRUE
-TRUE && FALSE
-
-FALSE || TRUE
-FALSE || FALSE
-```
-
-## Combine logical and relational operators {data-background="./_extensions/emc/www/triangle1.svg"}
-
-Inside a range of numbers:
-
-```{r}
-x <- 75
-x > 60 && x < 70
-```
-
-Outside a range of numbers:
-
-```{r}
-x < 60 || x > 70
-```
-
-## Combine with if() else() statement {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-x <- 3
-y <- 5
-
-if(x < 10 && y < 10) {
-  print("Both less than 10")
-} else {
-  print("Not both less than 10")
-}
-```
-
-## Not!
-
-```{r}
-!TRUE
-```
-
-```{r}
-!FALSE
-```
-
-```{r}
-!(6 < 5)
-```
-
-## Logical Operations on Logical Vectors {data-background="./_extensions/emc/www/triangle1.svg"}
-
-Difference between `&` and `&&`:
-
-```{r, warning=TRUE}
-c(TRUE, FALSE, TRUE) && c(TRUE, TRUE, FALSE)
-```
-
-```{r}
-c(TRUE, FALSE, TRUE) & c(TRUE, TRUE, FALSE)
-```
-
-## Logical Operations with ifelse() {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-systolic <- c(110, 119, 111, 113, 128)
-diastolic <- c(70, 74, 88, 74, 83)
-
-classification <- ifelse(systolic < 120 & diastolic < 80, 
-                         yes = "Normal", 
-                         no = "Abnormal")
-classification
-```
-
-## Logical Operations for subsetting {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-bpData <- data.frame(
-  name = c("Joe", "Katy", "Bill", "Kim", "Mark"),
-  systolic = c(110, 119, 111, 113, 128),
-  diastolic = c(70, 74, 88, 74, 83)
-)
-
-bpData
-
-bpData[bpData$systolic < 120 & bpData$diastolic < 80, ]
-
-```
-
 ## Built-in Named Functions {data-background="./_extensions/emc/www/triangle1.svg"}
 
 ```{r, eval=FALSE}
-str() #Print structure of an object
-class() #Print class of an object
-head() #First six elements/rows
-tail() #Last six elements/rows
-ls() #List all objects you made
-seq(from=1, to=10, by=2) #Create a sequence
+head() #Print the first 6 lines of a dataframe
+
+tail() #Print the last 6 lines of a dataframe
+
+seq(from=1, to=10, by=2) #Create a sequence from 1 to 10 with steps of 2
+
+as.numeric(c("1","2","3","4")) #Turn string into numbers
+
+sort(c(3,4,2,5,1)) #Sort numbers or letters numerically or alphabetically
+
+max(c(111,333,444,55,6,777,999)) #Determine the maximum value of a vector
+
+rnorm(10) #Sample 10 values from a r(andom) norm(al) distribution between 0 and 1
 ```
 
 Built-in functions in base-R :
@@ -250,122 +84,6 @@ round(4.679, digits=2)
 round(digits=2, 4.679)
 ```
 
-## If? Then! Else? {data-background="./_extensions/emc/www/triangle1.svg"}
-
-Conditional execution:
-
-```{r, eval=FALSE}
-if (condition) {
-  statement1
-}
-```
-
-or
-
-```{r, eval=FALSE}
-if (condition) {
-  statement1
-} else {
-  statement2
-}
-```
-
-## Example {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-if (x >= 10) {
-  y <- 1
-} else {
-    y <- 0
-}
-
-y
-```
-
-Oneliner:
-
-```{r}
-y <- if(x >= 10) 1 else 0
-y
-```
-
-Beware!
-
-```{r}
-y <- if(x >= 10) 1 #no else
-y
-```
-
-## Returning some value based on a condition {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-mySign <- function(x) {
-    if(x < 0) {
-      return("Negative")
-    } else {
-      return("Non-negative")
-    }
-}
-
-mySign(13)
-```
-
-## Nested `if()` Statements {data-background="./_extensions/emc/www/triangle1.svg"}
-
-`if` inside an `if`
-
-```{r, eval=FALSE}
-
-if(condition1) {
-  if(condition2) {
-    statement1 
-  } else {
-    statement2
-  }
-}
-```
-
-## Stringing multiple if else together {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-whatAnimalSound <- function(animal){
-  if(animal == "cat") {
-    return("Meow!")
-  } else if (animal == "frog") {
-    return("Ribbit!")
-  } else if (animal == "dog") {
-    return("Woof!")
-  } else {
-    return(paste0("I don't know what sound a '",animal,"' makes..."))
-  }
-}
-```
-
-```{r}
-whatAnimalSound("dog")
-whatAnimalSound("bird")
-```
-
-## if-else on a vector: The `ifelse()` Function {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r, error=TRUE}
-height <- c(69, 71, 67, 66, 72, 71, 61, 65, 73, 70, 68, 74)
-
-if (height > 69){
-  print("tall") 
-} else {
-  print("short")
-}
-```
-
-```{r}
-htCategory <- ifelse(height > 69, yes = "tall", no = "short")
-
-htCategory
-```
-
-For more complicated cases we can use `apply()`
-
 ## Creating your own functions {data-background="./_extensions/emc/www/triangle1.svg"}
 
 ```{r, eval=FALSE}
@@ -376,62 +94,279 @@ myFun <- function(arg1, arg2) {
 myFun(arg1, arg2)
 ```
 
-## Returning a result
+## Example of a custom function {data-background="./_extensions/emc/www/triangle1.svg"}
 
 ```{r}
-do1 <- function(x, y){
-  z <- x + y
+mean_xy <- function(x, y){
+  (x + y)/2
+}
+```
+We can us it like this:
+
+```{r}
+mean_xy(2,6)
+```
+or
+```{r}
+mean_xy(x = 2,y = 6)
+```
+
+## Use `return()` in a function {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+mean_xy <- function(x, y){
+  z <- (x + y)/2
+  return(z)
+}
+
+mean_xy(x = 2, y = 6)
+```
+
+## Default return value {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+mean_xy_2 <- function(x, y){
+  z <- (x + y)/2
   x
   z
 }
 
-do1(x = 1, y = 3) # Only z is returned
+mean_xy_2(x = 1, y = 3)
 ```
-
+x is not returned!
 ```{r}
-do2 <- function(x, y){
+mean_xy_3 <- function(x, y){
   z <- x + y 
   return(x)
   z
 }
 
-do2(x = 1, y = 3) # z is ignored
+mean_xy_3(x = 1, y = 3)
 ```
-
-## Returning multiple values {data-background="./_extensions/emc/www/triangle1.svg"}
-
-```{r}
-
-do3 <- function(x, y){ 
-  z <- x + y 
-  return(list(x, z))
-}
-
-do3(x = 1, y = 3)
-```
-
-```{r}
-do4 <- function(x, y = 2){ 
-  z1 <- x + y
-  z2 <- x * y 
-  return(c(z1, z2))
-} 
-
-do4(x = 1) ## uses y = 2
-do4(x = 1, y = 3) ## overwrites default value of y
-```
+z is not returned!
 
 ## Function with multiple input values {data-background="./_extensions/emc/www/triangle1.svg"}
 
 ```{r}
-meanOfAll <- function(...) {
-  x <- mean(c(...))
-  return(x)
+mean_vector <- function(...){ 
+  z <- mean(c(...))
+  return(z)
+} 
+
+mean_vector(1,2,3)
+```
+No limit to number of inputs:
+```{r}
+mean_vector(1,2,3,4,5,6,7,8,9,10) 
+```
+
+## Vector as an input to a function {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+mean_x <- function(x){ 
+  z <- mean(x)
+  return(z)
+} 
+x <- c(1,2,3,4,5)
+mean_x(x)
+```
+
+## Build a custom function to clean data {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r, echo=FALSE}
+PatientID <- 1:25
+Ages <- round(c(rnorm(15, mean = 45, sd = 10), -50, rnorm(9, mean = 45, sd = 10) ) )
+data <- data.frame(PatientID = PatientID, Ages = Ages)
+data$Sex <- as.factor(c(rbinom(24, 1, 0.5),-1))
+```
+
+Calculate mean of only the positive values (data cleaning)
+```{r}
+my_descriptives <- function(x){
+  x.trim <- x[x >= 0]
+  out <- mean(x.trim)
+  return(out)
+}
+```
+Patient data:
+```{r}
+data$Ages
+```
+-50 is clearly wrong
+
+## Build a custom function to clean data {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+my_descriptives(data$Ages)
+```
+In stead of:
+```{r}
+mean(data$Ages)
+```
+
+## Returning vectors {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+my_descriptives <- function(x){
+  x.trim <- x[x>=0]
+  out <- summary(x.trim)
+  return(out)
 }
 
-usSales <- c(123,456,789)
-europeSales <- c(100,1000,10000,100000)
-otherSales <- c(50,100,150,200,250,300,350)
-
-meanOfAll(usSales, europeSales, otherSales)
+my_descriptives(data$Ages)
 ```
+
+## Returning multiple values {data-background="./_extensions/emc/www/triangle1.svg"}
+
+It is not possible to use `return(x,y)`
+
+```{r, error=T}
+my_descriptives2_wrong <- function(x){
+  x.trim <- x[x>0]
+  below0 <- sum(x<0)
+  meanX <- mean(x.trim)
+  return(below0, meanX)
+}
+
+my_descriptives2_wrong(data$Ages)
+```
+
+## Returning multiple values {data-background="./_extensions/emc/www/triangle1.svg"}
+
+To return multiple values we use: `return(c(x,y))` or `return(list(x,y))`
+
+```{r}
+my_descriptives2 <- function(x){
+  x.trim <- x[x>0]
+  below0 <- sum(x<0)
+  meanX <- mean(x.trim)
+  return(list(below0, meanX))
+}
+
+my_descriptives2(data$Ages)
+```
+
+## Function environments and scoping {data-background="./_extensions/emc/www/triangle1.svg"}
+
+The Top-Level (or Global) Environment
+
+```{r}
+w <- 2
+f <- function(y) {
+  d <- 3
+  return(d * (w + y))
+}
+environment(f)
+```
+
+Objects in the Global Environment:
+
+```{r}
+objects()
+```
+
+## Global and Local Variables {data-background="./_extensions/emc/www/triangle1.svg"}
+
+`w` is a global variable
+
+`d` is a local variable to `f()`
+
+```{r, error=TRUE}
+f <- function(y) {
+  d <- 3
+  return(d * (w + y))
+}
+
+f(y = 1)
+
+d
+```
+
+## Local preference over Global {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+w <- 2
+d <- 4
+
+f <- function(y) {
+  d <- 3
+  return(d * (w + y))
+}
+
+f(y = 1)
+```
+
+## Local assignment of variables {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+w <- 2
+d <- 4 # This value of d will remain unchanged.
+
+f <- function(y) {
+  d <- 3 # This doesnt affect the value of d in the global environment
+  return(d * (w + y))
+}
+
+f(y = 1)
+
+d
+```
+
+## Nested Functions and the Scope Hierarchy {data-background="./_extensions/emc/www/triangle1.svg"}
+
+Example:
+
+```{r}
+w <- 2
+f <- function(y) {
+  d <- 3
+  h <- function() {
+    b <- 5
+    return(d * (w + y))
+  }
+  return(h())
+}
+```
+
+-   `w` is a global environment variable to `f()` and also to `h()`
+
+-   `y` and `d` are local variables to `f()`, but "global" to `h()`
+
+-   `b` is local to `h()`
+
+## Check local variables with `ls()` {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+w <- 2
+f <- function(y) {
+  d <- 3
+  h <- function() {
+    b <- 5
+    return(d * (w + y))
+  }
+  print(ls())
+  return(h())
+}
+
+f(y = 2)
+```
+
+Note that `b` is not printed, as it is local to `h()`, but not to `f()`.
+
+## View environment: `environment()` {data-background="./_extensions/emc/www/triangle1.svg"}
+
+```{r}
+w <- 2
+f <- function(y) {
+  d <- 3
+  h <- function() {
+    b <- 5
+    return(d * (w + y))
+  }
+  print(environment(h))
+  return(h())
+}
+f(y = 2)
+```
+
+Shows location in computer memory

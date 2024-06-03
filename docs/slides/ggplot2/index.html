@@ -8,7 +8,7 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.433">
+  <meta name="generator" content="quarto-1.4.553">
 
   <title>BasicRCourseEMC_Slides - R Course - Day 2</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,7 +30,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -220,7 +220,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -409,8 +410,8 @@
 </div>
 </div><div class="column" style="width: 45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -435,7 +436,7 @@
 </div><div class="column" style="font-size: 75%; width: 40%;">
 <p>Example of a good dataset:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">head</span>(Indometh, <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">head</span>(Indometh, <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Subject time conc
 1        1 0.25 1.50
@@ -655,9 +656,13 @@
 </div>
 </div><div class="column" style="font-size: 75%; width: 60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(data) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>Month, <span class="at">y=</span>Deaths, <span class="at">color=</span>Sex))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>(data) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>Month, <span class="at">y=</span>Deaths, <span class="at">color=</span>Sex))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -709,12 +714,12 @@
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>ToothGrowth<span class="sc">$</span>index <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">rownames</span>(ToothGrowth))</span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>len)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>ToothGrowth<span class="sc">$</span>index <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">rownames</span>(ToothGrowth))</span>
+<span id="cb8-2"><a></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>len)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -722,12 +727,12 @@
 </div>
 <div id="tabset-1-2">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(ToothGrowth) <span class="sc">+</span> </span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>index, <span class="at">y=</span>len), <span class="at">size=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">ggplot</span>(ToothGrowth) <span class="sc">+</span> </span>
+<span id="cb9-2"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>index, <span class="at">y=</span>len), <span class="at">size=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -745,11 +750,11 @@
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">type =</span> <span class="st">"l"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">plot</span>(ToothGrowth<span class="sc">$</span>len, <span class="at">type =</span> <span class="st">"l"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -757,12 +762,12 @@
 </div>
 <div id="tabset-2-2">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(ToothGrowth) <span class="sc">+</span> </span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>index, <span class="at">y=</span>len))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">ggplot</span>(ToothGrowth) <span class="sc">+</span> </span>
+<span id="cb11-2"><a></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>index, <span class="at">y=</span>len))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -780,11 +785,11 @@
 <div class="tab-content">
 <div id="tabset-3-1">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(ToothGrowth<span class="sc">$</span>dose))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">barplot</span>(<span class="fu">table</span>(ToothGrowth<span class="sc">$</span>dose))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -792,12 +797,12 @@
 </div>
 <div id="tabset-3-2">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(ToothGrowth) <span class="sc">+</span> </span>
-<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">as.factor</span>(dose)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ggplot</span>(ToothGrowth) <span class="sc">+</span> </span>
+<span id="cb13-2"><a></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">as.factor</span>(dose)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -815,11 +820,11 @@
 <div class="tab-content">
 <div id="tabset-4-1">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">hist</span>(ToothGrowth<span class="sc">$</span>len,<span class="at">breaks =</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">hist</span>(ToothGrowth<span class="sc">$</span>len,<span class="at">breaks =</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -827,12 +832,12 @@
 </div>
 <div id="tabset-4-2">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">ggplot</span>(ToothGrowth) <span class="sc">+</span> </span>
-<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>len), <span class="at">binwidth =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">ggplot</span>(ToothGrowth) <span class="sc">+</span> </span>
+<span id="cb15-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>len), <span class="at">binwidth =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -850,11 +855,11 @@
 <div class="tab-content">
 <div id="tabset-5-1">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">boxplot</span>(ToothGrowth<span class="sc">$</span>len<span class="sc">~</span>ToothGrowth<span class="sc">$</span>supp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">boxplot</span>(ToothGrowth<span class="sc">$</span>len<span class="sc">~</span>ToothGrowth<span class="sc">$</span>supp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -862,13 +867,13 @@
 </div>
 <div id="tabset-5-2">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">ggplot</span>(ToothGrowth) <span class="sc">+</span> </span>
-<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">stat_boxplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>supp,<span class="at">y=</span>len), <span class="at">geom=</span><span class="st">"errorbar"</span>, <span class="at">width=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb17-3"><a href="#cb17-3"></a>    <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>supp,<span class="at">y=</span>len))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(ToothGrowth) <span class="sc">+</span> </span>
+<span id="cb17-2"><a></a>  <span class="fu">stat_boxplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>supp,<span class="at">y=</span>len), <span class="at">geom=</span><span class="st">"errorbar"</span>, <span class="at">width=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb17-3"><a></a>    <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>supp,<span class="at">y=</span>len))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -881,11 +886,11 @@
 <section id="heatmaps" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Heatmaps</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">ggplot</span>(ToothGrowth) <span class="sc">+</span> </span>
-<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">x =</span> supp, <span class="at">y =</span> <span class="fu">as.factor</span>(dose), <span class="at">fill =</span> len), <span class="at">color=</span><span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">ggplot</span>(ToothGrowth) <span class="sc">+</span> </span>
+<span id="cb18-2"><a></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">x =</span> supp, <span class="at">y =</span> <span class="fu">as.factor</span>(dose), <span class="at">fill =</span> len), <span class="at">color=</span><span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="index_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="facets" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
 <h2>Facets</h2>
 <div style="font-size: 75%;">
@@ -897,33 +902,33 @@
 <div class="columns">
 <div class="column" style="width: 30%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
-<span id="cb19-2"><a href="#cb19-2"></a></span>
-<span id="cb19-3"><a href="#cb19-3"></a>low <span class="ot">&lt;-</span> ToothGrowth[</span>
-<span id="cb19-4"><a href="#cb19-4"></a>  <span class="fu">which</span>(ToothGrowth<span class="sc">$</span>dose<span class="sc">==</span><span class="fl">0.5</span>),]</span>
-<span id="cb19-5"><a href="#cb19-5"></a></span>
-<span id="cb19-6"><a href="#cb19-6"></a>med <span class="ot">&lt;-</span> ToothGrowth[</span>
-<span id="cb19-7"><a href="#cb19-7"></a>  <span class="fu">which</span>(ToothGrowth<span class="sc">$</span>dose<span class="sc">==</span><span class="dv">1</span>),]</span>
-<span id="cb19-8"><a href="#cb19-8"></a></span>
-<span id="cb19-9"><a href="#cb19-9"></a>high <span class="ot">&lt;-</span> ToothGrowth[</span>
-<span id="cb19-10"><a href="#cb19-10"></a>  <span class="fu">which</span>(ToothGrowth<span class="sc">$</span>dose<span class="sc">==</span><span class="dv">2</span>),]</span>
-<span id="cb19-11"><a href="#cb19-11"></a></span>
-<span id="cb19-12"><a href="#cb19-12"></a><span class="fu">boxplot</span>(low<span class="sc">$</span>len<span class="sc">~</span>low<span class="sc">$</span>supp, </span>
-<span id="cb19-13"><a href="#cb19-13"></a>        <span class="at">main =</span> <span class="st">"Low dose"</span>, </span>
-<span id="cb19-14"><a href="#cb19-14"></a>        <span class="at">xlab =</span> <span class="st">"Supplement Type"</span>)</span>
-<span id="cb19-15"><a href="#cb19-15"></a><span class="fu">boxplot</span>(med<span class="sc">$</span>len<span class="sc">~</span>med<span class="sc">$</span>supp, </span>
-<span id="cb19-16"><a href="#cb19-16"></a>        <span class="at">main =</span> <span class="st">"Medium dose"</span>, </span>
-<span id="cb19-17"><a href="#cb19-17"></a>        <span class="at">xlab =</span> <span class="st">"Supplement Type"</span>)</span>
-<span id="cb19-18"><a href="#cb19-18"></a><span class="fu">boxplot</span>(high<span class="sc">$</span>len<span class="sc">~</span>high<span class="sc">$</span>supp, </span>
-<span id="cb19-19"><a href="#cb19-19"></a>        <span class="at">main =</span> <span class="st">"High dose"</span>, </span>
-<span id="cb19-20"><a href="#cb19-20"></a>        <span class="at">xlab =</span> <span class="st">"Supplement Type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb19-2"><a></a></span>
+<span id="cb19-3"><a></a>low <span class="ot">&lt;-</span> ToothGrowth[</span>
+<span id="cb19-4"><a></a>  <span class="fu">which</span>(ToothGrowth<span class="sc">$</span>dose<span class="sc">==</span><span class="fl">0.5</span>),]</span>
+<span id="cb19-5"><a></a></span>
+<span id="cb19-6"><a></a>med <span class="ot">&lt;-</span> ToothGrowth[</span>
+<span id="cb19-7"><a></a>  <span class="fu">which</span>(ToothGrowth<span class="sc">$</span>dose<span class="sc">==</span><span class="dv">1</span>),]</span>
+<span id="cb19-8"><a></a></span>
+<span id="cb19-9"><a></a>high <span class="ot">&lt;-</span> ToothGrowth[</span>
+<span id="cb19-10"><a></a>  <span class="fu">which</span>(ToothGrowth<span class="sc">$</span>dose<span class="sc">==</span><span class="dv">2</span>),]</span>
+<span id="cb19-11"><a></a></span>
+<span id="cb19-12"><a></a><span class="fu">boxplot</span>(low<span class="sc">$</span>len<span class="sc">~</span>low<span class="sc">$</span>supp, </span>
+<span id="cb19-13"><a></a>        <span class="at">main =</span> <span class="st">"Low dose"</span>, </span>
+<span id="cb19-14"><a></a>        <span class="at">xlab =</span> <span class="st">"Supplement Type"</span>)</span>
+<span id="cb19-15"><a></a><span class="fu">boxplot</span>(med<span class="sc">$</span>len<span class="sc">~</span>med<span class="sc">$</span>supp, </span>
+<span id="cb19-16"><a></a>        <span class="at">main =</span> <span class="st">"Medium dose"</span>, </span>
+<span id="cb19-17"><a></a>        <span class="at">xlab =</span> <span class="st">"Supplement Type"</span>)</span>
+<span id="cb19-18"><a></a><span class="fu">boxplot</span>(high<span class="sc">$</span>len<span class="sc">~</span>high<span class="sc">$</span>supp, </span>
+<span id="cb19-19"><a></a>        <span class="at">main =</span> <span class="st">"High dose"</span>, </span>
+<span id="cb19-20"><a></a>        <span class="at">xlab =</span> <span class="st">"Supplement Type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width: 60%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-19-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -935,17 +940,17 @@
 <div class="columns">
 <div class="column" style="width: 40%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">ggplot</span>(ToothGrowth, <span class="fu">aes</span>(<span class="at">x=</span>supp,<span class="at">y=</span>len)) <span class="sc">+</span> </span>
-<span id="cb20-2"><a href="#cb20-2"></a>    <span class="fu">stat_boxplot</span>(<span class="at">geom=</span><span class="st">"errorbar"</span>, <span class="at">width=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb20-3"><a href="#cb20-3"></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">"red"</span>) <span class="sc">+</span> </span>
-<span id="cb20-4"><a href="#cb20-4"></a>    <span class="fu">facet_grid</span>(. <span class="sc">~</span> <span class="fu">as.factor</span>(dose))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">ggplot</span>(ToothGrowth, <span class="fu">aes</span>(<span class="at">x=</span>supp,<span class="at">y=</span>len)) <span class="sc">+</span> </span>
+<span id="cb20-2"><a></a>    <span class="fu">stat_boxplot</span>(<span class="at">geom=</span><span class="st">"errorbar"</span>, <span class="at">width=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb20-3"><a></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">"red"</span>) <span class="sc">+</span> </span>
+<span id="cb20-4"><a></a>    <span class="fu">facet_grid</span>(. <span class="sc">~</span> <span class="fu">as.factor</span>(dose))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width: 50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-21-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -962,18 +967,18 @@
 <div style="font-size: 75%;">
 <p>Scale can be changed for each Aesthetic with corresponding <code>scale_...</code></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">ggplot</span>(ToothGrowth, <span class="fu">aes</span>(<span class="at">x=</span>index, <span class="at">y=</span><span class="fu">as.factor</span>(dose), <span class="at">color=</span>len)) <span class="sc">+</span> </span>
-<span id="cb21-2"><a href="#cb21-2"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb21-3"><a href="#cb21-3"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">limits=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">100</span>), <span class="at">trans =</span> <span class="st">"log2"</span>, </span>
-<span id="cb21-4"><a href="#cb21-4"></a>        <span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>,<span class="dv">16</span>,<span class="dv">32</span>,<span class="dv">64</span>), </span>
-<span id="cb21-5"><a href="#cb21-5"></a>        <span class="at">label=</span><span class="fu">c</span>(<span class="st">"two"</span>,<span class="st">"four"</span>,<span class="st">"eight"</span>,<span class="st">"sixteen"</span>,<span class="st">"thirtytwo"</span>,<span class="st">"sixtyfour"</span>)) <span class="sc">+</span> </span>
-<span id="cb21-6"><a href="#cb21-6"></a>    <span class="fu">scale_y_discrete</span>(<span class="at">label=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"medium"</span>,<span class="st">"high"</span>)) <span class="sc">+</span> </span>
-<span id="cb21-7"><a href="#cb21-7"></a>    <span class="fu">scale_color_gradient2</span>(<span class="at">limits=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">40</span>), <span class="at">low =</span> <span class="st">"green"</span>, <span class="at">mid =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"red"</span>, </span>
-<span id="cb21-8"><a href="#cb21-8"></a>        <span class="at">midpoint =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">ggplot</span>(ToothGrowth, <span class="fu">aes</span>(<span class="at">x=</span>index, <span class="at">y=</span><span class="fu">as.factor</span>(dose), <span class="at">color=</span>len)) <span class="sc">+</span> </span>
+<span id="cb21-2"><a></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb21-3"><a></a>    <span class="fu">scale_x_continuous</span>(<span class="at">limits=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">100</span>), <span class="at">trans =</span> <span class="st">"log2"</span>, </span>
+<span id="cb21-4"><a></a>        <span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>,<span class="dv">16</span>,<span class="dv">32</span>,<span class="dv">64</span>), </span>
+<span id="cb21-5"><a></a>        <span class="at">label=</span><span class="fu">c</span>(<span class="st">"two"</span>,<span class="st">"four"</span>,<span class="st">"eight"</span>,<span class="st">"sixteen"</span>,<span class="st">"thirtytwo"</span>,<span class="st">"sixtyfour"</span>)) <span class="sc">+</span> </span>
+<span id="cb21-6"><a></a>    <span class="fu">scale_y_discrete</span>(<span class="at">label=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"medium"</span>,<span class="st">"high"</span>)) <span class="sc">+</span> </span>
+<span id="cb21-7"><a></a>    <span class="fu">scale_color_gradient2</span>(<span class="at">limits=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">40</span>), <span class="at">low =</span> <span class="st">"green"</span>, <span class="at">mid =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"red"</span>, </span>
+<span id="cb21-8"><a></a>        <span class="at">midpoint =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-22-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -998,12 +1003,16 @@
 </ul>
 </div><div class="column" style="font-size: 75%; width: 60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(ToothGrowth)</span>
-<span id="cb22-2"><a href="#cb22-2"></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> index, <span class="at">y =</span> len, </span>
-<span id="cb22-3"><a href="#cb22-3"></a>                   <span class="at">color =</span> supp, <span class="at">size =</span> dose)) <span class="sc">+</span> </span>
-<span id="cb22-4"><a href="#cb22-4"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(ToothGrowth)</span>
+<span id="cb22-2"><a></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> index, <span class="at">y =</span> len, </span>
+<span id="cb22-3"><a></a>                   <span class="at">color =</span> supp, <span class="at">size =</span> dose)) <span class="sc">+</span> </span>
+<span id="cb22-4"><a></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="index_files/figure-revealjs/unnamed-chunk-23-1.png" width="960"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -1019,29 +1028,29 @@
 <div class="tab-content">
 <div id="tabset-7-1">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(ToothGrowth)</span>
-<span id="cb23-2"><a href="#cb23-2"></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> index, <span class="at">y =</span> len, <span class="at">color =</span> supp, <span class="at">size =</span> dose)) <span class="sc">+</span> </span>
-<span id="cb23-3"><a href="#cb23-3"></a>    <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"serif"</span>, <span class="at">colour =</span> <span class="st">"#6f898e"</span>), </span>
-<span id="cb23-4"><a href="#cb23-4"></a>      <span class="at">line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#163f47"</span>), </span>
-<span id="cb23-5"><a href="#cb23-5"></a>      <span class="at">rect =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#163f47"</span>, <span class="at">color =</span> <span class="st">"#163f47"</span>),</span>
-<span id="cb23-6"><a href="#cb23-6"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">color=</span><span class="st">"black"</span>), </span>
-<span id="cb23-7"><a href="#cb23-7"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">color=</span><span class="st">"white"</span>), </span>
-<span id="cb23-8"><a href="#cb23-8"></a>      <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#6f898e"</span>), </span>
-<span id="cb23-9"><a href="#cb23-9"></a>      <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#163f47"</span>, <span class="at">linetype =</span> <span class="dv">1</span>),</span>
-<span id="cb23-10"><a href="#cb23-10"></a>        <span class="at">legend.background =</span> <span class="fu">element_blank</span>(), </span>
-<span id="cb23-11"><a href="#cb23-11"></a>        <span class="at">legend.key =</span> <span class="fu">element_blank</span>(), </span>
-<span id="cb23-12"><a href="#cb23-12"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#215c68"</span>, <span class="at">colour =</span> <span class="st">"#163f47"</span>), </span>
-<span id="cb23-13"><a href="#cb23-13"></a>        <span class="at">panel.border =</span> <span class="fu">element_blank</span>(), </span>
-<span id="cb23-14"><a href="#cb23-14"></a>      <span class="at">panel.grid =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#163f47"</span>), </span>
-<span id="cb23-15"><a href="#cb23-15"></a>      <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#163f47"</span>), </span>
-<span id="cb23-16"><a href="#cb23-16"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#163f47"</span>), </span>
-<span id="cb23-17"><a href="#cb23-17"></a>      <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="cn">NULL</span>, <span class="at">colour =</span> <span class="cn">NA</span>, <span class="at">linetype =</span> <span class="dv">0</span>)</span>
-<span id="cb23-18"><a href="#cb23-18"></a>    ) <span class="sc">+</span> </span>
-<span id="cb23-19"><a href="#cb23-19"></a>    <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Toothgrowth"</span>, </span>
-<span id="cb23-20"><a href="#cb23-20"></a>        <span class="at">subtitle =</span> <span class="st">"Orange juice or Vitamin C?"</span>, <span class="at">x=</span><span class="st">"Index"</span>, <span class="at">y=</span><span class="st">"Toothlength"</span>, </span>
-<span id="cb23-21"><a href="#cb23-21"></a>        <span class="at">size=</span><span class="st">"Dose"</span>, <span class="at">color=</span><span class="st">"Supplement"</span>) <span class="sc">+</span></span>
-<span id="cb23-22"><a href="#cb23-22"></a>    <span class="fu">scale_color_manual</span>(<span class="at">label=</span><span class="fu">c</span>(<span class="st">"Orange juice"</span>,<span class="st">"Vitamin C"</span>), </span>
-<span id="cb23-23"><a href="#cb23-23"></a>        <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"VC"</span><span class="ot">=</span><span class="st">"green"</span>,<span class="st">"OJ"</span><span class="ot">=</span><span class="st">"orange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(ToothGrowth)</span>
+<span id="cb23-2"><a></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> index, <span class="at">y =</span> len, <span class="at">color =</span> supp, <span class="at">size =</span> dose)) <span class="sc">+</span> </span>
+<span id="cb23-3"><a></a>    <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"serif"</span>, <span class="at">colour =</span> <span class="st">"#6f898e"</span>), </span>
+<span id="cb23-4"><a></a>      <span class="at">line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#163f47"</span>), </span>
+<span id="cb23-5"><a></a>      <span class="at">rect =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#163f47"</span>, <span class="at">color =</span> <span class="st">"#163f47"</span>),</span>
+<span id="cb23-6"><a></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">color=</span><span class="st">"black"</span>), </span>
+<span id="cb23-7"><a></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">color=</span><span class="st">"white"</span>), </span>
+<span id="cb23-8"><a></a>      <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#6f898e"</span>), </span>
+<span id="cb23-9"><a></a>      <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#163f47"</span>, <span class="at">linetype =</span> <span class="dv">1</span>),</span>
+<span id="cb23-10"><a></a>        <span class="at">legend.background =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb23-11"><a></a>        <span class="at">legend.key =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb23-12"><a></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#215c68"</span>, <span class="at">colour =</span> <span class="st">"#163f47"</span>), </span>
+<span id="cb23-13"><a></a>        <span class="at">panel.border =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb23-14"><a></a>      <span class="at">panel.grid =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#163f47"</span>), </span>
+<span id="cb23-15"><a></a>      <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#163f47"</span>), </span>
+<span id="cb23-16"><a></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#163f47"</span>), </span>
+<span id="cb23-17"><a></a>      <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="cn">NULL</span>, <span class="at">colour =</span> <span class="cn">NA</span>, <span class="at">linetype =</span> <span class="dv">0</span>)</span>
+<span id="cb23-18"><a></a>    ) <span class="sc">+</span> </span>
+<span id="cb23-19"><a></a>    <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Toothgrowth"</span>, </span>
+<span id="cb23-20"><a></a>        <span class="at">subtitle =</span> <span class="st">"Orange juice or Vitamin C?"</span>, <span class="at">x=</span><span class="st">"Index"</span>, <span class="at">y=</span><span class="st">"Toothlength"</span>, </span>
+<span id="cb23-21"><a></a>        <span class="at">size=</span><span class="st">"Dose"</span>, <span class="at">color=</span><span class="st">"Supplement"</span>) <span class="sc">+</span></span>
+<span id="cb23-22"><a></a>    <span class="fu">scale_color_manual</span>(<span class="at">label=</span><span class="fu">c</span>(<span class="st">"Orange juice"</span>,<span class="st">"Vitamin C"</span>), </span>
+<span id="cb23-23"><a></a>        <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"VC"</span><span class="ot">=</span><span class="st">"green"</span>,<span class="st">"OJ"</span><span class="ot">=</span><span class="st">"orange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-7-2">
@@ -1049,7 +1058,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-25-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1069,8 +1078,10 @@
 <h2>Extensions</h2>
 <p><a href="https://exts.ggplot2.tidyverse.org/gallery/" class="uri">https://exts.ggplot2.tidyverse.org/gallery/</a></p>
 
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
     </div>
@@ -1099,7 +1110,6 @@
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1285,42 +1295,80 @@
       });
     </script>
     
+
     <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
+    
 
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
 
+    
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
             }
+
           }
+
         }
+
+    
 
         // hookup for slidy
+
         if (window.w3c_slidy) {
+
           window.w3c_slidy.add_observer(function (slide_num) {
+
             // slide_num starts at position 1
+
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
           });
+
         }
 
+    
+
       })();
+
     </script>
+
+    
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1398,10 +1446,27 @@
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1411,8 +1476,17 @@
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1426,7 +1500,11 @@
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

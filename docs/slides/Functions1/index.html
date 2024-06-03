@@ -609,8 +609,8 @@ NULL</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>data<span class="sc">$</span>Ages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  52  30  53  55  48  44  58  49  54  54  39  45  54  59  36 -50  40  48  30
-[20]  49  65  51  65  59  40</code></pre>
+<pre><code> [1]  30  45  56  50  35  46  28  41  37  44  46  52  59  46  46 -50  26  44  51
+[20]  20  56  43  52  26  46</code></pre>
 </div>
 </div>
 <p>-50 is clearly wrong</p>
@@ -620,14 +620,14 @@ NULL</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">my_descriptives</span>(data<span class="sc">$</span>Ages)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 49.04167</code></pre>
+<pre><code>[1] 42.70833</code></pre>
 </div>
 </div>
 <p>In stead of:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="fu">mean</span>(data<span class="sc">$</span>Ages)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 45.08</code></pre>
+<pre><code>[1] 39</code></pre>
 </div>
 </div>
 </section>
@@ -643,7 +643,7 @@ NULL</code></pre>
 <span id="cb47-7"><a></a><span class="fu">my_descriptives</span>(data<span class="sc">$</span>Ages)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  30.00   43.00   50.00   49.04   54.25   65.00 </code></pre>
+  20.00   36.50   45.50   42.71   50.25   59.00 </code></pre>
 </div>
 </div>
 </section>
@@ -681,7 +681,7 @@ NULL</code></pre>
 [1] 1
 
 [[2]]
-[1] 49.04167</code></pre>
+[1] 42.70833</code></pre>
 </div>
 </div>
 </section>
@@ -768,73 +768,6 @@ NULL</code></pre>
 <pre><code>[1] 4</code></pre>
 </div>
 </div>
-</section>
-<section id="nested-functions-and-the-scope-hierarchy" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
-<h2>Nested Functions and the Scope Hierarchy</h2>
-<p>Example:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a></a>w <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb67-2"><a></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(y) {</span>
-<span id="cb67-3"><a></a>  d <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb67-4"><a></a>  h <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb67-5"><a></a>    b <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb67-6"><a></a>    <span class="fu">return</span>(d <span class="sc">*</span> (w <span class="sc">+</span> y))</span>
-<span id="cb67-7"><a></a>  }</span>
-<span id="cb67-8"><a></a>  <span class="fu">return</span>(<span class="fu">h</span>())</span>
-<span id="cb67-9"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li><p><code>w</code> is a global environment variable to <code>f()</code> and also to <code>h()</code></p></li>
-<li><p><code>y</code> and <code>d</code> are local variables to <code>f()</code>, but “global” to <code>h()</code></p></li>
-<li><p><code>b</code> is local to <code>h()</code></p></li>
-</ul>
-</section>
-<section id="check-local-variables-with-ls" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
-<h2>Check local variables with <code>ls()</code></h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a></a>w <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb68-2"><a></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(y) {</span>
-<span id="cb68-3"><a></a>  d <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb68-4"><a></a>  h <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb68-5"><a></a>    b <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb68-6"><a></a>    <span class="fu">return</span>(d <span class="sc">*</span> (w <span class="sc">+</span> y))</span>
-<span id="cb68-7"><a></a>  }</span>
-<span id="cb68-8"><a></a>  <span class="fu">print</span>(<span class="fu">ls</span>())</span>
-<span id="cb68-9"><a></a>  <span class="fu">return</span>(<span class="fu">h</span>())</span>
-<span id="cb68-10"><a></a>}</span>
-<span id="cb68-11"><a></a></span>
-<span id="cb68-12"><a></a><span class="fu">f</span>(<span class="at">y =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "d" "h" "y"</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 12</code></pre>
-</div>
-</div>
-<p>Note that <code>b</code> is not printed, as it is local to <code>h()</code>, but not to <code>f()</code>.</p>
-</section>
-<section id="view-environment-environment" class="slide level2" data-background="./_extensions/emc/www/triangle1.svg">
-<h2>View environment: <code>environment()</code></h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a></a>w <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb71-2"><a></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(y) {</span>
-<span id="cb71-3"><a></a>  d <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb71-4"><a></a>  h <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb71-5"><a></a>    b <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb71-6"><a></a>    <span class="fu">return</span>(d <span class="sc">*</span> (w <span class="sc">+</span> y))</span>
-<span id="cb71-7"><a></a>  }</span>
-<span id="cb71-8"><a></a>  <span class="fu">print</span>(<span class="fu">environment</span>(h))</span>
-<span id="cb71-9"><a></a>  <span class="fu">return</span>(<span class="fu">h</span>())</span>
-<span id="cb71-10"><a></a>}</span>
-<span id="cb71-11"><a></a><span class="fu">f</span>(<span class="at">y =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;environment: 0x000001cc7b1631c0&gt;</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 12</code></pre>
-</div>
-</div>
-<p>Shows location in computer memory</p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

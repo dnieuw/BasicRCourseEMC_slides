@@ -8,10 +8,11 @@ author:
       department: Epidemiology
   orcid: 0000-0002-1675-2931
   email: s.willemsen@erasmusmc.nl
-date: " 26 November 2024"
+date: "04/07/2025"
+date-format: long
 format:
   emctemplatereveal-revealjs:
-    toc: true
+    toc: false
     toc-depth: 1
     chalkboard: true
     menu: true
@@ -31,19 +32,9 @@ pbcseq <- survival::pbcseq
 # Introduction to R {data-background="./templateassets/lbback.svg" class="center"}
 
 
-## Introduction to R
+## Introduction to R {.triangledb}
 
 [**Statistics**]{color="#0c2074"} have flourished in the recent years mainly due to the possibility of doing complex analysis using computers
-
-* Many statistical software exist to do simple and specialized analysis
-    
-## Introduction to R (cont'd) {.triangledb}
-
-The [**programming language R**]{color="#0c2074"}  is popular for data scientists
-
-* Analysts must not only learn how to use the software but also the ideas behind it
-* Learning statistical modelling and algorithm is more important than learning a programming language. 
-
 
 ::: {.boxspw}
  
@@ -51,7 +42,26 @@ The most valuable tool of a modern quantitative researcher is his/her personal c
 
 :::
 
-## Agenda {data-background="./_extensions/emc/www/trianglelb.svg" class="center"}
+* Analysts must not only learn how to use the software but also the ideas behind it
+* Learning statistical modelling and algorithm is more important than learning a programming language
+
+    
+## Introduction to R (cont'd) {.triangledb}
+
+* Many **statistical software packages exists** to do simple and specialized analysis
+
+
+* The [**programming language R**]{color="#0c2074"}  is popular for data scientists
+
+* **R** is a software environment for statistical computing and graphics
+  - free and open source
+  - extensive catalog of statistical and graphical methods
+  
+
+* **R** is mainly used in academia. However, many large companies also use **R** programming language, including healthcare industries but also Uber, Google, Airbnb, Facebook and so on
+ 
+
+## Agenda {data-background="./templateassets/lbback.svg" class="center"}
 
 * **Day 1:** 
   - Introduction
@@ -64,7 +74,9 @@ The most valuable tool of a modern quantitative researcher is his/her personal c
 * **Day 4:**
   - Additional topics
   
-## Program this morning
+## Program this morning {.triangledb}
+
+<br>
 
 - Introduction to R
 - Basic use of R
@@ -92,18 +104,6 @@ CRAN:
 
 
 
-## What is R {.triangledb}
-
-* **R** is a software environment for statistical computing and graphics
-  - free and open source
-  - extensive catalog of statistical and graphical methods
-  
-<br>  
-
-* **R** is mainly used in academia. However, many large companies also use **R** programming language, including healthcare industries but also Uber, Google, Airbnb, Facebook and so on
-
-  
-
 ## A brief history of R {.triangledb}
 
 * **1993**: University of Auckland, New Zealand by Ross Ihaka and Robert Gentleman
@@ -123,18 +123,19 @@ CRAN:
 * Users are allowed to modify and redistribute the code
 * Advanced statistical language
 * Supports extensions
-* Related to other languages
+* Interfaces to other languages
 * **Flexible and fun!**
   
 
 ## Where do I get R ? {.triangledb}
   - http://cran.r-project.org
   - choose your platform, e.g., Windows, Linux
-    - e.g., for Windows: Windows $\rightarrow$ base $\rightarrow$ Download R 4.4.0 for Windows
+    - e.g., for Windows: Windows $\rightarrow$ base $\rightarrow$ Download R 4.4.3 for Windows
     - Install 
 
+
   
-## How does R work ? {.triangledb}
+## Packages  {.triangledb}
 
   - [**Packages**]{color="#e84720"} built for specific tasks
   - Download R packages from the CRAN web site $\rightarrow$ within R
@@ -153,23 +154,24 @@ CRAN:
     
 ## How to get help in R {.triangledb}
 
-* **Within R **
-  - `help.search("topic")` or `??"topic"` (depends on the installed packages)
-  - `RSiteSearch("topic")` (requires internet connection)
+* [**Within R **]{color="#e84720"}
   - `help()` or `? invoke the on-line help file for the specified function
   - checking the FAQ
+  - `help.search("topic")` or `??"topic"` (depends on the installed packages)
+  - `RSiteSearch("topic")` (requires internet connection)
+
   
 ## How to get help in R (cont'd) {.triangledb}
 
 ::: {style="font-size: 90%;"}
   
-* **Online**
-  - R-help (<https://stat.ethz.ch/mailman/listinfo/r-help> – mailing list)
-  - R-seek (<http://www.rseek.org> – Google-like searched engine)
-  - CRAN Task Views (<http://cran.r-project.org/web/views/> – categorization of packages)
-  - R related Blogs (<http://www.r-bloggers.com/> – many useful illustrations of R and R packages)
-  - Open community for developers (<https://stackoverflow.com/> – ask/answer a question)
-  
+* [**Online**]{color="#e84720"}
+  - **R-help** (<https://stat.ethz.ch/mailman/listinfo/r-help> – mailing list)
+  - **R-seek** (<http://www.rseek.org> – Google-like searched engine)
+  - **CRAN Task Views** (<http://cran.r-project.org/web/views/> – categorization of packages)
+  - **R related Blogs** (<http://www.r-bloggers.com/> – many useful illustrations of R and R packages)
+  - **stackoverflow** Open community for developers (<https://stackoverflow.com/> – ask/answer a question)
+  - **Big Book of R** (<https://www.bigbookofr.com/> collection of R books)
 :::  
 
 ```{r}
@@ -181,23 +183,30 @@ CRAN:
 #  - R4stats (<http://www.r4stats.com/> – examples of #basic R programs)
 ```
 
-## Disadvantages of R {.triangledb}
+## Disadvantages of R {.triangledb }
 
 * Appears intimidating to the first-time user
-* Default Output is not so nice looking (but wait ultil Day 4)
-* Exporting output is more difficult
-* Cannot easily handle very big data sets (depends on the installed RAM)
+* Default Output is not so nice looking ([*but wait ultil Day 4*]{color="#e868686"})
+* Exporting output is more difficult ([*we will also discuss this on Day 4*]{color="#e868686"})
+* Cannot easily handle very big data sets ([*depends on the installed RAM*]{color="#e868686"})
 * A lot of things are available but they are sometimes hard to find
 * The quality of the available packages is greatly varying
-* By default uses only one CPU at a time for most tasks (can be changed using packages)
+* By default uses only one CPU at a time for most tasks ([*can be changed using packages*]{color="#e868686"}))
+
+<div style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/8e/Lol_2.png'); background-size: 50%; background-position: center; background-repeat: no-repeat; opacity: 0.15; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2;"></div>
 
 
 
-## Packages {.triangledb}
+## Summary {.triangledb}
+
+* **R** is a great tool to explore and analyse data
+* Several statistical methods can be performed with **R**
+* It is important to understand the methods before applying them in **R**
+
 
 ::: {.boxcontainer}
 
-<h3 syle="margin-left:1em">&emsp;How to use</h3>
+<h3 syle="margin-left:1em">&emsp;How to use R</h3>
 
 :::: {.boxinterior}
 
@@ -211,13 +220,7 @@ CRAN:
 
 ::::
 
-:::  
-
-## Summary
-
-* **R** is a great tool to explore and analyse data
-* Several statistical methods can be performed with **R**
-* It is important to understand the methods before applying them in **R**
+:::
 
 
 # Basic Use of R {data-background="./templateassets/lbback.svg" class="center"}
@@ -226,7 +229,7 @@ CRAN:
 
 ## In this Section {.triangledb}
 
-* Using R
+* Using R / RStudio
 
 * Examples with Data
 
@@ -265,7 +268,7 @@ CRAN:
   - for more check <https://r-dir.com/blog/2013/01/list-of-r-editors.html>
   
   
-##  Using R {.triangledb}
+##  Using R / RStudio {.triangledb}
 
 <br>
 
@@ -277,7 +280,7 @@ CRAN:
   - alternative output options
   
   
-##  Using R  {.triangledb}
+##  Using R / RStudio  {.triangledb}
 
 <br>
 <br>
@@ -289,10 +292,74 @@ CRAN:
 * Can I use [**Rstudio**]{color="#afcc46"} without [**R**]{color="#e84720"}?
 
 
-## Practical Examples {.triangledb}
-```{r eval=FALSE, include=FALSE}
-# perhaps a slide about using R as a calculator
+
+
+## R commands {.triangledb}
+
+* Elementary commands: [**expressions**]{colour="#e84720"} and [**assignments**]{colour="#afcc46}
+
+* An [**expression**]{colour="#e84720"} given as command is evaluated printed and discarded
+
+* An [**assignments**]{colour="#afcc46"} evaluates an [**expression**]{colour="#e84720"} and passes the value to a variable - the result is not automatically printed
+
+
+## R commands  {.triangledb}
+
+[**expression**]{colour="#e84720"} is given as a command,
+```{r, eval = TRUE, include = TRUE, echo = TRUE}
+1 + 1
 ```
+
+ - The result is lost after execution
+ - It cannot be viewed again unless the command is rerun.
+ 
+
+<br>
+
+ In order to store information, the [**expression**]{colour="#e84720"} should [**assign**]{color="#e84720"} the result of the command to a variable
+ 
+```{r, eval = TRUE, include = TRUE, echo = TRUE}
+x <- 1 + 1
+x
+```
+
+
+## Basic calculations  {.triangledb}
+
+::: {.boxspw}
+
+**You can use R as a calculator!**
+
+:::
+
+* Basic arithmetics
+```{r, eval = FALSE, include = TRUE, echo = TRUE}
+#| code-line-numbers: false
++, -, *, /, ^
+```
+
+```{r, eval = TRUE, include = TRUE, echo = TRUE}
+#| code-line-numbers: false
+y <- 103473 + 100000
+y
+```
+
+* Complicated arithmetics
+```{r, eval = TRUE, include = TRUE, echo = TRUE}
+#| code-line-numbers: false
+y <- sqrt(log(5) + exp(1))
+y
+```
+
+::: {.boxspw}
+
+**Many functions exist can we can even define our own**
+
+:::
+
+## Practical Examples {.triangledb}
+
+* In practice we often work with data sets and other data structures
 
 * [**Package `survival` - pbc data set**]{color="#0c2074"}
 
@@ -420,68 +487,10 @@ kable(dt, "html", booktabs = T, align = "c") %>%
 
 :::
 
-## Getting Familiar with R {.triangledb}
 
-* Elementary commands: [**expressions**]{colour="#e84720"} and [**assignments**]{colour="#afcc46}
+## Tips {.triangledb}
 
-* An [**expression**]{colour="#e84720"} given as command is evaluated printed and discarded
-
-* An [**assignments**]{colour="#afcc46"} evaluates an [**expression**]{colour="#e84720"} and passes the value to a variable - the result is not automatically printed
-
-
-## Getting Familiar with R  {.triangledb}
-
-[**expression**]{colour="#e84720"} is given as a command,
-```{r, eval = TRUE, include = TRUE, echo = TRUE}
-1 + 1
-```
-
- - The result is lost after execution
- - It cannot be viewed again unless the command is rerun.
- 
-
-<br>
-
- In order to store information, the [**expression**]{colour="#e84720"} should [**assign**]{color="#e84720"} the result of the command to a variable
- 
-```{r, eval = TRUE, include = TRUE, echo = TRUE}
-x <- 1 + 1
-x
-```
-
-
-## Getting Familiar with R  {.triangledb}
-
-::: {.boxspw}
-
-**You can use R as a calculator!**
-
-:::
-
-* Basic arithmetics
-```{r, eval = FALSE, include = TRUE, echo = TRUE}
-#| code-line-numbers: false
-+, -, *, /, ^
-```
-
-```{r, eval = TRUE, include = TRUE, echo = TRUE}
-#| code-line-numbers: false
-y <- 103473 + 100000
-y
-```
-
-<br>
-
-* Complicated arithmetics
-```{r, eval = TRUE, include = TRUE, echo = TRUE}
-#| code-line-numbers: false
-y <- sqrt(log(5) + exp(1))
-y
-```
-
-## Getting Familiar with R  {.triangledb}
-
-### Tips
+:::: {.boxspw}
 
 * R is **case sensitive**, e.g.,
   - **`sex`** is different than **`Sex`**
@@ -489,6 +498,10 @@ y
 * Comments can be put anywhere, starting with a hashmark **`#`**: everything to the end of the line is a comment
 * Assign a value to an object by **`<-`** (or **`=`**)
 * **Working directory**: get with `getwd()` and set with `setwd()`
+
+::::
+
+
 
 
 ## Getting Familiar with R  {.triangledb}
@@ -523,8 +536,10 @@ y
 
 ::: {.callout-note}
 use forward slashes or double backward slashes in the file names, e.g., \
-    "`C:/Documents and Settings/User/Data/file.txt`" or \
-    "`C:\\Documents and Settings\\User\\Data\\file.txt`"
+    `"C:/Documents and Settings/User/Data/file.txt"` or \
+    `"C:\\Documents and Settings\\User\\Data\\file.txt"` \
+or use raw character constants \
+    `r"(C:\\Documents and Settings\\User\\Data\\file.txt)"`
 :::
     
 ## Importing Data (cont'd) {.triangledb}
@@ -997,15 +1012,20 @@ list1
 
 * When transforming and analyzing data we often need to **select** specific [**observations**]{color="#afcc46"} or [**variables**]{color="#e84720"}
   - Examples: Select ...
+      * [the age of the patient with the name 'John Harvey']{style="font-size: 90%;"}
       * [the 3rd element of vector age]{style="font-size: 90%;"}
       * [the 3rd column of the pbc data set]{style="font-size: 90%;"}
       * [the sex of the 10th patient]{style="font-size: 90%;"}
       * [all information of the 5th patient]{style="font-size: 90%;"}
       * [the serum cholesterol for all males]{style="font-size: 90%;"}
-      * [the age for male patients or patients that have]{style="font-size: 90%;"} serum bi[lirubin > 3]{style="font-size: 90%;"}
+      * [the age for male patients or patients that have serum billirubin > 3]{style="font-size: 90%;"}
       * [the first measurement per patient]{style="font-size: 90%;"}
     
 :::::
+
+## Indexing/Subsetting {.triangledb}
+
+![](.\\assets-day1\\mailboxes.svg){fig-align="center" height="460px" }
 
 ## Indexing/Subsetting  {.triangledb}
 
@@ -1094,12 +1114,47 @@ x[c('foo', 'one')]
 * Use the function `names` to obtain the names
 
 
-## Indexing with `vectors` {.triangledb}
+## Indexing with a `matrix` {.triangledb}
 
 * Indexing matrices is similar to indexing vectors but with double index
 
   - The first position denotes the rows `["index", ]`
   - The first position denotes the columns `[ , "index"]`
+  
+::: {.columns}
+
+
+:::: {.column width="47%"}  
+
+<br>
+
+Example: select `M[3, 2]`
+
+<br>
+
+3rd row, second column
+
+::::
+
+:::: {.column width="47%"} 
+
+$$
+\begin{pmatrix}
+11 & \color{blue}{\mathbf{12}} & 13 & 14 & 15 \\[6pt]
+21 & \color{blue}{\mathbf{22}} & 23 & 24 & 25 \\[6pt]
+\color{blue}{\mathbf{31}} & \color{red}{\mathbf{32}} & \color{blue}{\mathbf{33}} & \color{blue}{\mathbf{34}} & \color{blue}{\mathbf{35}} \\[6pt]
+41 & \color{blue}{\mathbf{42}} & 43 & 44 & 45 \\[6pt]
+51 & \color{blue}{\mathbf{52}} & 53 & 54 & 55
+\end{pmatrix}
+$$
+
+::::
+
+:::
+
+## Indexing with a `matrix` {.triangledb}
+
+
 
 
 ::: {.columns}
@@ -1113,16 +1168,30 @@ mat <- matrix(data = 1:4,
 mat
 ```  
 
-::::
-
-:::: {.column width="47%"}  
-
 * Use position indexing as:
 ```{r, eval = TRUE, include = TRUE, echo = TRUE}
 mat <- matrix(data = 1:4, 
               nrow = 2, ncol = 2)
 mat[2, 2]
 ```  
+
+::::
+
+:::: {.column width="47%"}  
+
+* Can use names:
+
+```{r, eval = TRUE, include = TRUE, echo = TRUE}
+rownames(mat) <- c("Patient1", "Patient2")
+colnames(mat) <- c("Height", "Weight")
+mat # display
+```
+
+* To access the Weight of Patient2:
+
+```{r, eval = TRUE, include = TRUE, echo = TRUE}
+mat["Patient2", "Weight"]
+```
 
 ::::
 
@@ -1143,7 +1212,9 @@ mat <- matrix(data = 1:4,
 mat[2]
 mat[[2]]
 ```  
-  
+
+
+
 
 ## Indexing with a `matrix` {.triangledb}
 
@@ -1156,6 +1227,18 @@ mat <- matrix(data = 1:4,
 mat
 mat[2, ]
 ```  
+
+* Example with a logical index: select rows where first column > 1
+  
+
+```{r, eval = TRUE, include = TRUE, echo = TRUE}
+logical_row_index <- mat[,1] > 1
+logical_row_index
+``` 
+
+```{r , eval = TRUE, include = TRUE, echo = TRUE}
+mat[logical_row_index, ]
+```
 
 ## Indexing with a `matrix` {.triangledb}
 

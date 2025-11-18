@@ -1,227 +1,290 @@
 [
   {
-    "objectID": "slides/Plotting/index.html#basic-plotting",
-    "href": "slides/Plotting/index.html#basic-plotting",
-    "title": "R Course - Day 2",
-    "section": "Basic plotting",
-    "text": "Basic plotting\n\ndata(ToothGrowth)\nstr(ToothGrowth)\n\n'data.frame':   60 obs. of  3 variables:\n $ len : num  4.2 11.5 7.3 5.8 6.4 10 11.2 11.2 5.2 7 ...\n $ supp: Factor w/ 2 levels \"OJ\",\"VC\": 2 2 2 2 2 2 2 2 2 2 ...\n $ dose: num  0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 ..."
-  },
-  {
-    "objectID": "slides/Plotting/index.html#scatterplots",
-    "href": "slides/Plotting/index.html#scatterplots",
-    "title": "R Course - Day 2",
-    "section": "Scatterplots",
-    "text": "Scatterplots\n\nplot(ToothGrowth$len)"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#scatterplots-1",
-    "href": "slides/Plotting/index.html#scatterplots-1",
-    "title": "R Course - Day 2",
-    "section": "Scatterplots",
-    "text": "Scatterplots\n\nplot(ToothGrowth$dose, ToothGrowth$len)"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#scatterplots-2",
-    "href": "slides/Plotting/index.html#scatterplots-2",
-    "title": "R Course - Day 2",
-    "section": "Scatterplots",
-    "text": "Scatterplots\n\nplot(ToothGrowth$dose, ToothGrowth$len, \n     xlab = \"Dose\", ylab = \"Tooth Length\")"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#scatterplots-3",
-    "href": "slides/Plotting/index.html#scatterplots-3",
-    "title": "R Course - Day 2",
-    "section": "Scatterplots",
-    "text": "Scatterplots\n\nplot(ToothGrowth$dose, ToothGrowth$len, \n     xlab = \"Dose\", ylab = \"Tooth Length\", \n     main = \"Guinea Pig Tooth Growth by Dosage\")"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#scatterplots-4",
-    "href": "slides/Plotting/index.html#scatterplots-4",
-    "title": "R Course - Day 2",
-    "section": "Scatterplots",
-    "text": "Scatterplots\n\nplot(ToothGrowth$dose, ToothGrowth$len, \n     xlab = \"Dose\", ylab = \"Tooth Length\", \n     main = \"Guinea Pig Tooth Growth by Dosage\", \n     col = ToothGrowth$supp, pch = as.numeric(ToothGrowth$supp))"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#scatterplots-5",
-    "href": "slides/Plotting/index.html#scatterplots-5",
-    "title": "R Course - Day 2",
-    "section": "Scatterplots",
-    "text": "Scatterplots\n\nplot(ToothGrowth$dose, ToothGrowth$len, \n     xlab = \"Dose\", ylab = \"Tooth Length\", \n     main = \"Guinea Pig Tooth Growth by Dosage\", \n     col = ToothGrowth$supp, pch = as.numeric(ToothGrowth$supp))\n\nlegend(1.5, 15, c(\"OJ\", \"VC\"), col = 1:2, pch = 1:2)"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#scatterplots-6",
-    "href": "slides/Plotting/index.html#scatterplots-6",
-    "title": "R Course - Day 2",
-    "section": "Scatterplots",
-    "text": "Scatterplots\n\nplot(ToothGrowth$dose, ToothGrowth$len, \n     xlab = \"Dose\", ylab = \"Tooth Length\",\n     main = \"Guinea Pig Tooth Growth by Dosage\",\n     col = ToothGrowth$supp, pch = as.numeric(ToothGrowth$supp), cex = 2)\n\nlegend(1.5, 15, c(\"OJ\", \"VC\"), col = 1:2, \n       pch = as.numeric(ToothGrowth$supp), cex=2)"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#line-graphs",
-    "href": "slides/Plotting/index.html#line-graphs",
-    "title": "R Course - Day 2",
-    "section": "Line Graphs",
-    "text": "Line Graphs\n\nplot(ToothGrowth$len, type = \"l\") # note type is the letter l for \"line\""
-  },
-  {
-    "objectID": "slides/Plotting/index.html#line-graphs-1",
-    "href": "slides/Plotting/index.html#line-graphs-1",
-    "title": "R Course - Day 2",
-    "section": "Line Graphs",
-    "text": "Line Graphs\n\nplot(ToothGrowth$len, type = \"b\") # note type is the letter b for \"both\""
-  },
-  {
-    "objectID": "slides/Plotting/index.html#line-graphs-2",
-    "href": "slides/Plotting/index.html#line-graphs-2",
-    "title": "R Course - Day 2",
-    "section": "Line Graphs",
-    "text": "Line Graphs\n\nplot(ToothGrowth$len, type = \"l\")\nlines(ToothGrowth$len + 2)"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#line-graphs-3",
-    "href": "slides/Plotting/index.html#line-graphs-3",
-    "title": "R Course - Day 2",
-    "section": "Line Graphs",
-    "text": "Line Graphs\n\nplot(ToothGrowth$len, type = \"l\")\nlines(ToothGrowth$len + 2, lty = 3, lwd = 3, col = \"darkgreen\")"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#bar-charts",
-    "href": "slides/Plotting/index.html#bar-charts",
-    "title": "R Course - Day 2",
-    "section": "Bar Charts",
-    "text": "Bar Charts\n\nplot(ToothGrowth$dose)"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#bar-charts-1",
-    "href": "slides/Plotting/index.html#bar-charts-1",
-    "title": "R Course - Day 2",
-    "section": "Bar Charts",
-    "text": "Bar Charts\n\ntable(ToothGrowth$dose)\n\n\n0.5   1   2 \n 20  20  20"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#bar-charts-2",
-    "href": "slides/Plotting/index.html#bar-charts-2",
-    "title": "R Course - Day 2",
-    "section": "Bar Charts",
-    "text": "Bar Charts\n\nbarplot(table(ToothGrowth$dose))"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#bar-charts-3",
-    "href": "slides/Plotting/index.html#bar-charts-3",
-    "title": "R Course - Day 2",
-    "section": "Bar Charts",
-    "text": "Bar Charts\n\nprops &lt;- table(ToothGrowth$dose)/nrow(ToothGrowth)\nprops\n\n\n      0.5         1         2 \n0.3333333 0.3333333 0.3333333"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#bar-charts-4",
-    "href": "slides/Plotting/index.html#bar-charts-4",
-    "title": "R Course - Day 2",
-    "section": "Bar Charts",
-    "text": "Bar Charts\n\nbarplot(props)"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#bar-charts-5",
-    "href": "slides/Plotting/index.html#bar-charts-5",
-    "title": "R Course - Day 2",
-    "section": "Bar Charts",
-    "text": "Bar Charts\n\nbarplot(props, ylim = c(0, .4))"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#bar-charts-6",
-    "href": "slides/Plotting/index.html#bar-charts-6",
-    "title": "R Course - Day 2",
-    "section": "Bar Charts",
-    "text": "Bar Charts\n\nbarplot(props, ylim = c(0, .4), width = .2, col = c(\"blue\", \"white\", \"red\"))"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#bar-charts-7",
-    "href": "slides/Plotting/index.html#bar-charts-7",
-    "title": "R Course - Day 2",
-    "section": "Bar Charts",
-    "text": "Bar Charts\n\nbarplot(props, xlim = c(0, .4),\n  width = .2, col = c(\"blue\", \"white\", \"red\"),\n  horiz = TRUE)"
+    "objectID": "slides/Plotting/index.html#basic-plotting-quick-look-at-your-data",
+    "href": "slides/Plotting/index.html#basic-plotting-quick-look-at-your-data",
+    "title": "R Course - Day 3",
+    "section": "Basic plotting: quick look at your data",
+    "text": "Basic plotting: quick look at your data\n\ndata(ToothGrowth)\nstr(ToothGrowth)\n\n'data.frame':   60 obs. of  3 variables:\n $ len : num  4.2 11.5 7.3 5.8 6.4 10 11.2 11.2 5.2 7 ...\n $ supp: Factor w/ 2 levels \"OJ\",\"VC\": 2 2 2 2 2 2 2 2 2 2 ...\n $ dose: num  0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 ..."
   },
   {
     "objectID": "slides/Plotting/index.html#histograms",
     "href": "slides/Plotting/index.html#histograms",
-    "title": "R Course - Day 2",
+    "title": "R Course - Day 3",
     "section": "Histograms",
     "text": "Histograms\n\nhist(ToothGrowth$len)"
   },
   {
-    "objectID": "slides/Plotting/index.html#histograms-1",
-    "href": "slides/Plotting/index.html#histograms-1",
-    "title": "R Course - Day 2",
-    "section": "Histograms",
-    "text": "Histograms\n\nhist(ToothGrowth$len, freq = FALSE)"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#histograms-2",
-    "href": "slides/Plotting/index.html#histograms-2",
-    "title": "R Course - Day 2",
-    "section": "Histograms",
-    "text": "Histograms\n\nhist(ToothGrowth$len, freq = FALSE, breaks = seq(0, 35, 2))"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#histograms-3",
-    "href": "slides/Plotting/index.html#histograms-3",
-    "title": "R Course - Day 2",
-    "section": "Histograms",
-    "text": "Histograms\n\nhist(ToothGrowth$len, freq = FALSE, breaks = 25)"
-  },
-  {
-    "objectID": "slides/Plotting/index.html#histograms-4",
-    "href": "slides/Plotting/index.html#histograms-4",
-    "title": "R Course - Day 2",
-    "section": "Histograms",
-    "text": "Histograms\n\nhist(ToothGrowth$len, freq = FALSE, breaks = seq(0, 35, 2),\n  main = \"Histogram of Tooth Growth\", xlab = \"Tooth Length\",\n  ylim = c(0, .07), col = \"orange\")"
+    "objectID": "slides/Plotting/index.html#scatterplots",
+    "href": "slides/Plotting/index.html#scatterplots",
+    "title": "R Course - Day 3",
+    "section": "Scatterplots",
+    "text": "Scatterplots\n\nplot(ToothGrowth$dose, ToothGrowth$len, \n     xlab = \"Dose\", ylab = \"Tooth Length\", \n     main = \"Guinea Pig Tooth Growth by Dosage\", \n     col = ToothGrowth$supp, pch = as.numeric(ToothGrowth$supp))\n\nlegend(1.5, 15, c(\"OJ\", \"VC\"), col = 1:2, pch = 1:2)"
   },
   {
     "objectID": "slides/Plotting/index.html#boxplots",
     "href": "slides/Plotting/index.html#boxplots",
-    "title": "R Course - Day 2",
+    "title": "R Course - Day 3",
     "section": "Boxplots",
-    "text": "Boxplots\n\nboxplot(ToothGrowth$len)"
+    "text": "Boxplots\n\nboxplot(ToothGrowth$len~ToothGrowth$supp + ToothGrowth$dose)"
   },
   {
-    "objectID": "slides/Plotting/index.html#boxplots-1",
-    "href": "slides/Plotting/index.html#boxplots-1",
-    "title": "R Course - Day 2",
-    "section": "Boxplots",
-    "text": "Boxplots\n\nboxplot(ToothGrowth$len~ToothGrowth$supp)"
+    "objectID": "slides/Plotting/index.html#what-is-ggplot2",
+    "href": "slides/Plotting/index.html#what-is-ggplot2",
+    "title": "R Course - Day 3",
+    "section": "What is ggplot2?",
+    "text": "What is ggplot2?\n\n\n\nBasic plotting: quick look\nPretty graphs: ggplot2\nCreated by Hadley Wickham\n“Grammar of Graphics” GGplot2\n\n\nhttp://ggplot2.tidyverse.org/reference/index.html\n\n\n\ninstall.packages(\"ggplot2\")\nlibrary(ggplot2)"
   },
   {
-    "objectID": "slides/Plotting/index.html#boxplots-2",
-    "href": "slides/Plotting/index.html#boxplots-2",
-    "title": "R Course - Day 2",
-    "section": "Boxplots",
-    "text": "Boxplots\n\nboxplot(ToothGrowth$len~ToothGrowth$supp,\n  col = c(\"darkgreen\", \"purple\"),\n  ylab = \"Supplement Type\", xlab = \"Tooth Length\",\n  ylim = c(0, 40), horizontal = TRUE)"
+    "objectID": "slides/Plotting/index.html#grammar-of-graphics",
+    "href": "slides/Plotting/index.html#grammar-of-graphics",
+    "title": "R Course - Day 3",
+    "section": "Grammar of graphics",
+    "text": "Grammar of graphics\n\nData\nAesthetics\nGeometries\nFacets\nScales\nThemes"
   },
   {
-    "objectID": "slides/Plotting/index.html#multiple-plots-in-one-window",
-    "href": "slides/Plotting/index.html#multiple-plots-in-one-window",
-    "title": "R Course - Day 2",
-    "section": "Multiple plots in one window",
-    "text": "Multiple plots in one window\n\npar(mfrow = c(1, 2))\nboxplot(ToothGrowth$len~ToothGrowth$supp, main = \"Boxplot\",\nxlab = \"Supplement Type\")\n  \nhist(ToothGrowth$len, main = \"Histogram\", xlab = \"Tooth Length\")"
+    "objectID": "slides/Plotting/index.html#data",
+    "href": "slides/Plotting/index.html#data",
+    "title": "R Course - Day 3",
+    "section": "Data",
+    "text": "Data\n\n\nClass: data.frame\nSeparate plotting variables per column\n\nExample of a good dataset:\n\nhead(Indometh, 25)\n\n   Subject time conc\n1        1 0.25 1.50\n2        1 0.50 0.94\n3        1 0.75 0.78\n4        1 1.00 0.48\n5        1 1.25 0.37\n6        1 2.00 0.19\n7        1 3.00 0.12\n8        1 4.00 0.11\n9        1 5.00 0.08\n10       1 6.00 0.07\n11       1 8.00 0.05\n12       2 0.25 2.03\n13       2 0.50 1.63\n14       2 0.75 0.71\n15       2 1.00 0.70\n16       2 1.25 0.64\n17       2 2.00 0.36\n18       2 3.00 0.32\n19       2 4.00 0.20\n20       2 5.00 0.25\n21       2 6.00 0.12\n22       2 8.00 0.08\n23       3 0.25 2.72\n24       3 0.50 1.49\n25       3 0.75 1.16"
   },
   {
-    "objectID": "slides/Plotting/index.html#multiple-plots-in-one-window-1",
-    "href": "slides/Plotting/index.html#multiple-plots-in-one-window-1",
-    "title": "R Course - Day 2",
-    "section": "Multiple plots in one window",
-    "text": "Multiple plots in one window\nTo reset plotting device run:\ndev.off()\nor\npar(mfrow = c(1, 1))"
+    "objectID": "slides/Plotting/index.html#example-of-a-bad-data-set",
+    "href": "slides/Plotting/index.html#example-of-a-bad-data-set",
+    "title": "R Course - Day 3",
+    "section": "Example of a Bad Data Set",
+    "text": "Example of a Bad Data Set\n\n\nNot a data.frame\nSeparated data by Male/Female sex\nYear as rownames and month as column names\n\nExample of bad dataset:\n\n\n      Jan  Feb  Mar  Apr  May  Jun  Jul  Aug  Sep  Oct  Nov  Dec\n1974 2134 1863 1877 1877 1492 1249 1280 1131 1209 1492 1621 1846\n1975 2103 2137 2153 1833 1403 1288 1186 1133 1053 1347 1545 2066\n1976 2020 2750 2283 1479 1189 1160 1113  970  999 1208 1467 2059\n1977 2240 1634 1722 1801 1246 1162 1087 1013  959 1179 1229 1655\n1978 2019 2284 1942 1423 1340 1187 1098 1004  970 1140 1110 1812\n1979 2263 1820 1846 1531 1215 1075 1056  975  940 1081 1294 1341\n\n\n      Jan  Feb  Mar  Apr  May  Jun  Jul  Aug  Sep  Oct  Nov  Dec\n1974  901  689  827  677  522  406  441  393  387  582  578  666\n1975  830  752  785  664  467  438  421  412  343  440  531  771\n1976  767 1141  896  532  447  420  376  330  357  445  546  764\n1977  862  660  663  643  502  392  411  348  387  385  411  638\n1978  796  853  737  546  530  446  431  362  387  430  425  679\n1979  821  785  727  612  478  429  405  379  393  411  487  574"
   },
   {
-    "objectID": "slides/Plotting/index.html#saving-plots",
-    "href": "slides/Plotting/index.html#saving-plots",
-    "title": "R Course - Day 2",
-    "section": "Saving Plots",
-    "text": "Saving Plots\n\n# note: run getwd() to see the working directory -\n# that is the directory to which files will be written\npdf(\"plot1.pdf\", width = 6, height = 9)\nboxplot(ToothGrowth$len~ToothGrowth$supp,\n  col = c(\"darkgreen\", \"purple\"),\n  xlab = \"Supplement Type\", ylab = \"Tooth Length\",\n  ylim = c(0, 40), horizontal = TRUE)\ndev.off()\n\npdf(\"plot2.pdf\", width = 4, height = 8)\nboxplot(ToothGrowth$len~ToothGrowth$supp,\n  col = c(\"darkgreen\", \"purple\"),\n  xlab = \"Supplement Type\", ylab = \"Tooth Length\",\n  ylim = c(0, 40), horizontal = TRUE)\ndev.off()"
+    "objectID": "slides/Plotting/index.html#reformat-to-one-variable-one-column",
+    "href": "slides/Plotting/index.html#reformat-to-one-variable-one-column",
+    "title": "R Course - Day 3",
+    "section": "Reformat to One variable One Column",
+    "text": "Reformat to One variable One Column\n\n\n\n\n    Deaths Year Month    Sex\n1      901 1974   Jan female\n2      689 1974   Feb female\n3      827 1974   Mar female\n4      677 1974   Apr female\n5      522 1974   May female\n6      406 1974   Jun female\n7      441 1974   Jul female\n8      393 1974   Aug female\n9      387 1974   Sep female\n10     582 1974   Oct female\n11     578 1974   Nov female\n12     666 1974   Dec female\n13     830 1975   Jan female\n14     752 1975   Feb female\n15     785 1975   Mar female\n16     664 1975   Apr female\n17     467 1975   May female\n18     438 1975   Jun female\n19     421 1975   Jul female\n20     412 1975   Aug female\n21     343 1975   Sep female\n22     440 1975   Oct female\n23     531 1975   Nov female\n24     771 1975   Dec female\n25     767 1976   Jan female\n26    1141 1976   Feb female\n27     896 1976   Mar female\n28     532 1976   Apr female\n29     447 1976   May female\n30     420 1976   Jun female\n31     376 1976   Jul female\n32     330 1976   Aug female\n33     357 1976   Sep female\n34     445 1976   Oct female\n35     546 1976   Nov female\n36     764 1976   Dec female\n37     862 1977   Jan female\n38     660 1977   Feb female\n39     663 1977   Mar female\n40     643 1977   Apr female\n41     502 1977   May female\n42     392 1977   Jun female\n43     411 1977   Jul female\n44     348 1977   Aug female\n45     387 1977   Sep female\n46     385 1977   Oct female\n47     411 1977   Nov female\n48     638 1977   Dec female\n49     796 1978   Jan female\n50     853 1978   Feb female\n51     737 1978   Mar female\n52     546 1978   Apr female\n53     530 1978   May female\n54     446 1978   Jun female\n55     431 1978   Jul female\n56     362 1978   Aug female\n57     387 1978   Sep female\n58     430 1978   Oct female\n59     425 1978   Nov female\n60     679 1978   Dec female\n61     821 1979   Jan female\n62     785 1979   Feb female\n63     727 1979   Mar female\n64     612 1979   Apr female\n65     478 1979   May female\n66     429 1979   Jun female\n67     405 1979   Jul female\n68     379 1979   Aug female\n69     393 1979   Sep female\n70     411 1979   Oct female\n71     487 1979   Nov female\n72     574 1979   Dec female\n73    2134 1974   Jan   male\n74    1863 1974   Feb   male\n75    1877 1974   Mar   male\n76    1877 1974   Apr   male\n77    1492 1974   May   male\n78    1249 1974   Jun   male\n79    1280 1974   Jul   male\n80    1131 1974   Aug   male\n81    1209 1974   Sep   male\n82    1492 1974   Oct   male\n83    1621 1974   Nov   male\n84    1846 1974   Dec   male\n85    2103 1975   Jan   male\n86    2137 1975   Feb   male\n87    2153 1975   Mar   male\n88    1833 1975   Apr   male\n89    1403 1975   May   male\n90    1288 1975   Jun   male\n91    1186 1975   Jul   male\n92    1133 1975   Aug   male\n93    1053 1975   Sep   male\n94    1347 1975   Oct   male\n95    1545 1975   Nov   male\n96    2066 1975   Dec   male\n97    2020 1976   Jan   male\n98    2750 1976   Feb   male\n99    2283 1976   Mar   male\n100   1479 1976   Apr   male\n101   1189 1976   May   male\n102   1160 1976   Jun   male\n103   1113 1976   Jul   male\n104    970 1976   Aug   male\n105    999 1976   Sep   male\n106   1208 1976   Oct   male\n107   1467 1976   Nov   male\n108   2059 1976   Dec   male\n109   2240 1977   Jan   male\n110   1634 1977   Feb   male\n111   1722 1977   Mar   male\n112   1801 1977   Apr   male\n113   1246 1977   May   male\n114   1162 1977   Jun   male\n115   1087 1977   Jul   male\n116   1013 1977   Aug   male\n117    959 1977   Sep   male\n118   1179 1977   Oct   male\n119   1229 1977   Nov   male\n120   1655 1977   Dec   male\n121   2019 1978   Jan   male\n122   2284 1978   Feb   male\n123   1942 1978   Mar   male\n124   1423 1978   Apr   male\n125   1340 1978   May   male\n126   1187 1978   Jun   male\n127   1098 1978   Jul   male\n128   1004 1978   Aug   male\n129    970 1978   Sep   male\n130   1140 1978   Oct   male\n131   1110 1978   Nov   male\n132   1812 1978   Dec   male\n133   2263 1979   Jan   male\n134   1820 1979   Feb   male\n135   1846 1979   Mar   male\n136   1531 1979   Apr   male\n137   1215 1979   May   male\n138   1075 1979   Jun   male\n139   1056 1979   Jul   male\n140    975 1979   Aug   male\n141    940 1979   Sep   male\n142   1081 1979   Oct   male\n143   1294 1979   Nov   male\n144   1341 1979   Dec   male\n\n\n\n\nggplot(data) + geom_point(aes(x=Month, y=Deaths, color=Sex))"
   },
   {
-    "objectID": "slides/Plotting/index.html#saving-plots-1",
-    "href": "slides/Plotting/index.html#saving-plots-1",
-    "title": "R Course - Day 2",
-    "section": "Saving Plots",
-    "text": "Saving Plots\n\npng(\"plot1.png\", units = \"in\", res = 300,\n  width = 6, height = 9)\n\nboxplot(ToothGrowth$len~ToothGrowth$supp,\n  col = c(\"darkgreen\", \"purple\"),\n  xlab = \"Supplement Type\", ylab = \"Tooth Length\",\n  ylim = c(0, 40), horizontal = TRUE)\n\ndev.off()"
+    "objectID": "slides/Plotting/index.html#aesthetics",
+    "href": "slides/Plotting/index.html#aesthetics",
+    "title": "R Course - Day 3",
+    "section": "Aesthetics",
+    "text": "Aesthetics\n\nAvailable aesthetics:\n\nx\ny\ncolor\nfill\nsize\nalpha\nlinetype\nlabels\nshape\ngroup"
+  },
+  {
+    "objectID": "slides/Plotting/index.html#geometries",
+    "href": "slides/Plotting/index.html#geometries",
+    "title": "R Course - Day 3",
+    "section": "Geometries",
+    "text": "Geometries\ngeom_… - the thing you want to plot\n30+ different geoms: https://ggplot2.tidyverse.org/reference/\n\n\n\ngeom_point() \ngeom_line() \ngeom_bar() \n\n\n\ngeom_histogram() \ngeom_boxplot() \ngeom_heatmap()"
+  },
+  {
+    "objectID": "slides/Plotting/index.html#scatter-plots",
+    "href": "slides/Plotting/index.html#scatter-plots",
+    "title": "R Course - Day 3",
+    "section": "Scatter Plots",
+    "text": "Scatter Plots\n\n\nBase Rggplot2\n\n\n\nplot(ToothGrowth$dose, ToothGrowth$len, \n     xlab = \"Dose\", ylab = \"Tooth Length\", \n     main = \"Guinea Pig Tooth Growth by Dosage\", \n     col = ToothGrowth$supp, pch = as.numeric(ToothGrowth$supp))\n\nlegend(1.5, 15, c(\"OJ\", \"VC\"), col = 1:2, pch = 1:2)\n\n\n\n\n\n\n\nToothGrowth$index &lt;- as.numeric(rownames(ToothGrowth))\nplot(ToothGrowth$len)\n\n\n\n\n\n\n\n\n\n\n\nggplot(ToothGrowth) + \n  geom_point(aes(x=dose, y=len, color=supp, shape=supp), size=2) +\n  labs(x=\"Dose\",y=\"Tooth Length\",\n       title = \"Guinea Pig Tooth Growth by Dosage\")"
+  },
+  {
+    "objectID": "slides/Plotting/index.html#histograms-1",
+    "href": "slides/Plotting/index.html#histograms-1",
+    "title": "R Course - Day 3",
+    "section": "Histograms",
+    "text": "Histograms\n\n\nBase Rggplot2\n\n\n\nhist(ToothGrowth$len,breaks = 50)\n\n\n\n\n\n\n\n\n\n\n\nggplot(ToothGrowth) + \n  geom_histogram(aes(x=len), binwidth = 0.5)"
+  },
+  {
+    "objectID": "slides/Plotting/index.html#box-plots",
+    "href": "slides/Plotting/index.html#box-plots",
+    "title": "R Course - Day 3",
+    "section": "Box Plots",
+    "text": "Box Plots\n\n\nBase Rggplot2\n\n\n\nboxplot(ToothGrowth$len~ToothGrowth$supp + ToothGrowth$dose)\n\n\n\n\n\n\n\n\n\n\n\nggplot(ToothGrowth) + \n  stat_boxplot(aes(x=paste(supp, dose),y=len), geom=\"errorbar\", width=0.5) + \n    geom_boxplot(aes(x=paste(supp, dose),y=len))"
+  },
+  {
+    "objectID": "slides/Plotting/index.html#heatmaps",
+    "href": "slides/Plotting/index.html#heatmaps",
+    "title": "R Course - Day 3",
+    "section": "Heatmaps",
+    "text": "Heatmaps\n\nggplot(ToothGrowth) + \n  geom_tile(aes(x = supp, y = as.factor(dose), fill = len), color=\"black\")"
+  },
+  {
+    "objectID": "slides/Plotting/index.html#facets",
+    "href": "slides/Plotting/index.html#facets",
+    "title": "R Course - Day 3",
+    "section": "Facets",
+    "text": "Facets\n\nSeparate plots (facets) to compare groups of data\n\nBase Rggplot2\n\n\n\npar(mfrow = c(1, 3))\nlow &lt;- ToothGrowth[which(ToothGrowth$dose==0.5),]; boxplot(low$len~low$supp, main = \"Low dose\", xlab = \"Supplement Type\")\nmed &lt;- ToothGrowth[which(ToothGrowth$dose==1),]; boxplot(med$len~med$supp, main = \"Medium dose\", xlab = \"Supplement Type\")\nhigh &lt;- ToothGrowth[which(ToothGrowth$dose==2),]; boxplot(high$len~high$supp, main = \"High dose\", xlab = \"Supplement Type\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(ToothGrowth, aes(x=supp,y=len)) + stat_boxplot(geom=\"errorbar\", width=0.5) + \n    geom_boxplot() + geom_point(color=\"red\") + facet_grid(. ~ as.factor(dose))"
+  },
+  {
+    "objectID": "slides/Plotting/index.html#scales",
+    "href": "slides/Plotting/index.html#scales",
+    "title": "R Course - Day 3",
+    "section": "Scales",
+    "text": "Scales\n\nScale can be changed for each Aesthetic with corresponding scale_...\n\nggplot(ToothGrowth, aes(x=index, y=as.factor(dose), color=len)) + \n    geom_point() + \n    scale_x_continuous(limits=c(1,100), trans = \"log2\", \n        breaks=c(2,4,8,16,32,64), \n        label=c(\"two\",\"four\",\"eight\",\"sixteen\",\"thirtytwo\",\"sixtyfour\")) + \n    scale_y_discrete(label=c(\"low\",\"medium\",\"high\")) + \n    scale_color_gradient2(limits=c(0,40), low = \"green\", mid = \"black\", high = \"red\", \n        midpoint = 20)\n\n\n\n\n\n\n\n\nAll available scales with examples: http://ggplot2.tidyverse.org/reference/"
+  },
+  {
+    "objectID": "slides/Plotting/index.html#themes",
+    "href": "slides/Plotting/index.html#themes",
+    "title": "R Course - Day 3",
+    "section": "Themes",
+    "text": "Themes\n\n\nThe standard themes available in the ggplot package are:\n\ntheme_gray\ntheme_bw\ntheme_linedraw\ntheme_light\ntheme_dark\ntheme_minimal\ntheme_classic\ntheme_void\n\n\n\np &lt;- ggplot(ToothGrowth)\np + geom_point(aes(x = index, y = len, \n                   color = supp, size = dose)) + \n  theme_light()"
+  },
+  {
+    "objectID": "slides/Plotting/index.html#custom-themes",
+    "href": "slides/Plotting/index.html#custom-themes",
+    "title": "R Course - Day 3",
+    "section": "Custom Themes",
+    "text": "Custom Themes\n\nTheme parameters: http://ggplot2.tidyverse.org/reference/theme.html\nCustomize labels with labs()\n\nCodeResult\n\n\n\np &lt;- ggplot(ToothGrowth)\np + geom_point(aes(x = index, y = len, color = supp, size = dose)) + \n    theme(text = element_text(family = \"serif\", colour = \"#6f898e\"), \n      line = element_line(color = \"#163f47\"), \n      rect = element_rect(fill = \"#163f47\", color = \"#163f47\"),\n        axis.text.x = element_text(color=\"black\"), \n        axis.text.y = element_text(color=\"white\"), \n      axis.ticks = element_line(color = \"#6f898e\"), \n      axis.line = element_line(color = \"#163f47\", linetype = 1),\n        legend.background = element_blank(), \n        legend.key = element_blank(), \n        panel.background = element_rect(fill = \"#215c68\", colour = \"#163f47\"), \n        panel.border = element_blank(), \n      panel.grid = element_line(color = \"#163f47\"), \n      panel.grid.major = element_line(color = \"#163f47\"), \n      panel.grid.minor = element_line(color = \"#163f47\"), \n      plot.background = element_rect(fill = NULL, colour = NA, linetype = 0)\n    ) + \n    labs(title=\"Toothgrowth\", \n        subtitle = \"Orange juice or Vitamin C?\", x=\"Index\", y=\"Toothlength\", \n        size=\"Dose\", color=\"Supplement\") +\n    scale_color_manual(label=c(\"Orange juice\",\"Vitamin C\"), \n        values = c(\"VC\"=\"green\",\"OJ\"=\"orange\"))"
+  },
+  {
+    "objectID": "slides/Plotting/index.html#saving-ggplots",
+    "href": "slides/Plotting/index.html#saving-ggplots",
+    "title": "R Course - Day 3",
+    "section": "Saving ggplots",
+    "text": "Saving ggplots\nSave plot with ggsave() function\nEnter plot object and file to save ggsave(p, \"myplot.png\")\nPossible file extensions: “eps”, “ps”, “tex”, “pdf”, “jpeg”, “tiff”, “png”, “bmp”, “svg” or “wmf”"
+  },
+  {
+    "objectID": "slides/Plotting/index.html#extensions",
+    "href": "slides/Plotting/index.html#extensions",
+    "title": "R Course - Day 3",
+    "section": "Extensions",
+    "text": "Extensions\nhttps://exts.ggplot2.tidyverse.org/gallery/"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#built-in-named-functions",
+    "href": "slides/Functions1/index.html#built-in-named-functions",
+    "title": "R Course - Day 3",
+    "section": "Built-in Named Functions",
+    "text": "Built-in Named Functions\n\nhead() #Print the first 6 lines of a dataframe\n\ntail() #Print the last 6 lines of a dataframe\n\nseq(from=1, to=10, by=2) #Create a sequence from 1 to 10 with steps of 2\n\nas.numeric(c(\"1\",\"2\",\"3\",\"4\")) #Turn string into numbers\n\nsort(c(3,4,2,5,1)) #Sort numbers or letters numerically or alphabetically\n\nmax(c(111,333,444,55,6,777,999)) #Determine the maximum value of a vector\n\nrnorm(10) #Sample 10 values from a r(andom) norm(al) distribution between 0 and 1\n\nBuilt-in functions in base-R :\nhttps://stat.ethz.ch/R-manual/R-patched/library/base/html/00Index.html"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#function-arguments",
+    "href": "slides/Functions1/index.html#function-arguments",
+    "title": "R Course - Day 3",
+    "section": "Function arguments",
+    "text": "Function arguments\narguments, the object in the parentheses ( ):\n\nsqrt(2)\n\n[1] 1.414214\n\n\nor\n\nx &lt;- 2\nsqrt(x)\n\n[1] 1.414214\n\n\nor\n\nsqrt(x^2 + 5)\n\n[1] 3"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#functions-with-multiple-arguments",
+    "href": "slides/Functions1/index.html#functions-with-multiple-arguments",
+    "title": "R Course - Day 3",
+    "section": "Functions with multiple arguments",
+    "text": "Functions with multiple arguments\n\nargs(round)\n\nfunction (x, digits = 0, ...) \nNULL\n\nround(4.679, 2)\n\n[1] 4.68\n\n\ndigits is optional and defaults to 0:\n\nround(4.679)\n\n[1] 5"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#named-argument-matching",
+    "href": "slides/Functions1/index.html#named-argument-matching",
+    "title": "R Course - Day 3",
+    "section": "Named Argument Matching",
+    "text": "Named Argument Matching\n\nround(x = 4.679, digits = 2)\n\n[1] 4.68\n\nround(digits = 2, x = 4.679)\n\n[1] 4.68\n\n\nMixing is possible:\n\nround(4.679, digits=2)\n\n[1] 4.68\n\nround(digits=2, 4.679)\n\n[1] 4.68"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#creating-your-own-functions",
+    "href": "slides/Functions1/index.html#creating-your-own-functions",
+    "title": "R Course - Day 3",
+    "section": "Creating your own functions",
+    "text": "Creating your own functions\n\nmyFun &lt;- function(arg1, arg2) {\n  ## Here you type expressions that use the arguments\n}\n\nmyFun(arg1, arg2)"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#example-of-a-custom-function",
+    "href": "slides/Functions1/index.html#example-of-a-custom-function",
+    "title": "R Course - Day 3",
+    "section": "Example of a custom function",
+    "text": "Example of a custom function\n\nmean_xy &lt;- function(x, y){\n  (x + y)/2\n}\n\nWe can us it like this:\n\nmean_xy(2,6)\n\n[1] 4\n\n\nor\n\nmean_xy(x = 2,y = 6)\n\n[1] 4"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#use-return-in-a-function",
+    "href": "slides/Functions1/index.html#use-return-in-a-function",
+    "title": "R Course - Day 3",
+    "section": "Use return() in a function",
+    "text": "Use return() in a function\n\nmean_xy &lt;- function(x, y){\n  z &lt;- (x + y)/2\n  return(z)\n}\n\nmean_xy(x = 2, y = 6)\n\n[1] 4"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#default-return-value",
+    "href": "slides/Functions1/index.html#default-return-value",
+    "title": "R Course - Day 3",
+    "section": "Default return value",
+    "text": "Default return value\n\nmean_xy_2 &lt;- function(x, y){\n  z &lt;- (x + y)/2\n  x\n  z\n}\n\nmean_xy_2(x = 1, y = 3)\n\n[1] 2\n\n\nx is not returned!\n\nmean_xy_3 &lt;- function(x, y){\n  z &lt;- x + y \n  return(x)\n  z\n}\n\nmean_xy_3(x = 1, y = 3)\n\n[1] 1\n\n\nz is not returned!"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#function-with-multiple-input-values",
+    "href": "slides/Functions1/index.html#function-with-multiple-input-values",
+    "title": "R Course - Day 3",
+    "section": "Function with multiple input values",
+    "text": "Function with multiple input values\n\nmean_vector &lt;- function(...){ \n  z &lt;- mean(c(...))\n  return(z)\n} \n\nmean_vector(1,2,3)\n\n[1] 2\n\n\nNo limit to number of inputs:\n\nmean_vector(1,2,3,4,5,6,7,8,9,10) \n\n[1] 5.5"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#vector-as-an-input-to-a-function",
+    "href": "slides/Functions1/index.html#vector-as-an-input-to-a-function",
+    "title": "R Course - Day 3",
+    "section": "Vector as an input to a function",
+    "text": "Vector as an input to a function\n\nmean_x &lt;- function(x){ \n  z &lt;- mean(x)\n  return(z)\n} \nx &lt;- c(1,2,3,4,5)\nmean_x(x)\n\n[1] 3"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#build-a-custom-function-to-clean-data",
+    "href": "slides/Functions1/index.html#build-a-custom-function-to-clean-data",
+    "title": "R Course - Day 3",
+    "section": "Build a custom function to clean data",
+    "text": "Build a custom function to clean data\nCalculate mean of only the positive values (data cleaning)\n\nmy_descriptives &lt;- function(x){\n  x.trim &lt;- x[x &gt;= 0]\n  out &lt;- mean(x.trim)\n  return(out)\n}\n\nPatient data:\n\ndata$Ages\n\n [1]  56  53  53  33  44  52  56  38  39  72  48  40  57  39  32 -50  37  50  37\n[20]  29  46  46  47  50  54\n\n\n-50 is clearly wrong"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#build-a-custom-function-to-clean-data-1",
+    "href": "slides/Functions1/index.html#build-a-custom-function-to-clean-data-1",
+    "title": "R Course - Day 3",
+    "section": "Build a custom function to clean data",
+    "text": "Build a custom function to clean data\n\nmy_descriptives(data$Ages)\n\n[1] 46.16667\n\n\nIn stead of:\n\nmean(data$Ages)\n\n[1] 42.32"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#returning-vectors",
+    "href": "slides/Functions1/index.html#returning-vectors",
+    "title": "R Course - Day 3",
+    "section": "Returning vectors",
+    "text": "Returning vectors\n\nmy_descriptives &lt;- function(x){\n  x.trim &lt;- x[x&gt;=0]\n  out &lt;- summary(x.trim)\n  return(out)\n}\n\nmy_descriptives(data$Ages)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  29.00   38.75   46.50   46.17   53.00   72.00"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#returning-multiple-values",
+    "href": "slides/Functions1/index.html#returning-multiple-values",
+    "title": "R Course - Day 3",
+    "section": "Returning multiple values",
+    "text": "Returning multiple values\nIt is not possible to use return(x,y)\n\nmy_descriptives2_wrong &lt;- function(x){\n  x.trim &lt;- x[x&gt;0]\n  below0 &lt;- sum(x&lt;0)\n  meanX &lt;- mean(x.trim)\n  return(below0, meanX)\n}\n\nmy_descriptives2_wrong(data$Ages)\n\nError in return(below0, meanX): multi-argument returns are not permitted"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#returning-multiple-values-1",
+    "href": "slides/Functions1/index.html#returning-multiple-values-1",
+    "title": "R Course - Day 3",
+    "section": "Returning multiple values",
+    "text": "Returning multiple values\nTo return multiple values we use: return(c(x,y)) or return(list(x,y))\n\nmy_descriptives2 &lt;- function(x){\n  x.trim &lt;- x[x&gt;0]\n  below0 &lt;- sum(x&lt;0)\n  meanX &lt;- mean(x.trim)\n  return(list(below0, meanX))\n}\n\nmy_descriptives2(data$Ages)\n\n[[1]]\n[1] 1\n\n[[2]]\n[1] 46.16667"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#function-environments-and-scoping",
+    "href": "slides/Functions1/index.html#function-environments-and-scoping",
+    "title": "R Course - Day 3",
+    "section": "Function environments and scoping",
+    "text": "Function environments and scoping\nThe Top-Level (or Global) Environment\n\nw &lt;- 2\nf &lt;- function(y) {\n  d &lt;- 3\n  return(d * (w + y))\n}\nenvironment(f)\n\n&lt;environment: R_GlobalEnv&gt;\n\n\nObjects in the Global Environment:\n\nobjects()\n\n [1] \"Ages\"                   \"data\"                   \"f\"                     \n [4] \"mean_vector\"            \"mean_x\"                 \"mean_xy\"               \n [7] \"mean_xy_2\"              \"mean_xy_3\"              \"my_descriptives\"       \n[10] \"my_descriptives2\"       \"my_descriptives2_wrong\" \"PatientID\"             \n[13] \"w\"                      \"x\""
+  },
+  {
+    "objectID": "slides/Functions1/index.html#global-and-local-variables",
+    "href": "slides/Functions1/index.html#global-and-local-variables",
+    "title": "R Course - Day 3",
+    "section": "Global and Local Variables",
+    "text": "Global and Local Variables\nw is a global variable\nd is a local variable to f()\n\nf &lt;- function(y) {\n  d &lt;- 3\n  return(d * (w + y))\n}\n\nf(y = 1)\n\n[1] 9\n\nd\n\nError: object 'd' not found"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#local-preference-over-global",
+    "href": "slides/Functions1/index.html#local-preference-over-global",
+    "title": "R Course - Day 3",
+    "section": "Local preference over Global",
+    "text": "Local preference over Global\n\nw &lt;- 2\nd &lt;- 4\n\nf &lt;- function(y) {\n  d &lt;- 3\n  return(d * (w + y))\n}\n\nf(y = 1)\n\n[1] 9"
+  },
+  {
+    "objectID": "slides/Functions1/index.html#local-assignment-of-variables",
+    "href": "slides/Functions1/index.html#local-assignment-of-variables",
+    "title": "R Course - Day 3",
+    "section": "Local assignment of variables",
+    "text": "Local assignment of variables\n\nw &lt;- 2\nd &lt;- 4 # This value of d will remain unchanged.\n\nf &lt;- function(y) {\n  d &lt;- 3 # This doesnt affect the value of d in the global environment\n  return(d * (w + y))\n}\n\nf(y = 1)\n\n[1] 9\n\nd\n\n[1] 4"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "BasicRCourseEMC_Slides",
+    "section": "",
+    "text": "R Course - Day 3\n\n\n\nDay3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Course - Day 3\n\n\n\nDay3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Course - Day 3\n\n\n\nDay3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "slides/Functions2/index.html#if-then-else",
@@ -256,7 +319,7 @@
     "href": "slides/Functions2/index.html#adding-if-else-to-the-descriptives-function",
     "title": "R Course - Day 3",
     "section": "Adding if else to the descriptives function",
-    "text": "Adding if else to the descriptives function\n\nmy_descriptives &lt;- function(x){\n  if(class(x) == \"numeric\"){\n    x.trim &lt;- x[x&gt;0]\n    summary(x.trim)\n  } else if (class(x) == \"factor\"){\n    x.trim &lt;- droplevels(x[x!=-1])\n    table(x.trim)\n  }\n}\nmy_descriptives(data$Ages)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  23.00   36.75   43.00   45.71   53.50   71.00 \n\nmy_descriptives(data$Sex)\n\nx.trim\n 0  1 \n13 11"
+    "text": "Adding if else to the descriptives function\n\nmy_descriptives &lt;- function(x){\n  if(class(x) == \"numeric\"){\n    x.trim &lt;- x[x&gt;0]\n    summary(x.trim)\n  } else if (class(x) == \"factor\"){\n    x.trim &lt;- droplevels(x[x!=-1])\n    table(x.trim)\n  }\n}\nmy_descriptives(data$Ages)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  28.00   37.50   48.00   46.04   55.50   67.00 \n\nmy_descriptives(data$Sex)\n\nx.trim\n 0  1 \n12 12"
   },
   {
     "objectID": "slides/Functions2/index.html#stringing-multiple-if-else-together",
@@ -396,307 +459,13 @@
     "href": "slides/Functions2/index.html#using-tapply-on-groups-of-data",
     "title": "R Course - Day 3",
     "section": "Using tapply on groups of data",
-    "text": "Using tapply on groups of data\n\npatients &lt;- data.frame(\"group\"=paste('grp',\n                          c(1,1,1,1,1,2,2,2,2,2),sep='-'), \n                       \"outcome\"=rnorm(10)) \n                      #10 random normally distributed values\npatients\n\n   group    outcome\n1  grp-1 -0.7930061\n2  grp-1  0.4491819\n3  grp-1  0.4399118\n4  grp-1  0.8997570\n5  grp-1 -0.8043006\n6  grp-2 -0.1144139\n7  grp-2  0.1370383\n8  grp-2 -1.0170428\n9  grp-2  0.6118554\n10 grp-2  0.6728039\n\ntapply(patients$outcome, patients$group, mean)\n\n     grp-1      grp-2 \n0.03830882 0.05804818"
+    "text": "Using tapply on groups of data\n\npatients &lt;- data.frame(\"group\"=paste('grp',\n                          c(1,1,1,1,1,2,2,2,2,2),sep='-'), \n                       \"outcome\"=rnorm(10)) \n                      #10 random normally distributed values\npatients\n\n   group     outcome\n1  grp-1  0.36335899\n2  grp-1 -2.10322749\n3  grp-1 -0.46796604\n4  grp-1  0.81349481\n5  grp-1 -1.88003678\n6  grp-2 -0.48965553\n7  grp-2 -0.02886587\n8  grp-2 -1.10973330\n9  grp-2 -0.18656796\n10 grp-2  0.67209573\n\ntapply(patients$outcome, patients$group, mean)\n\n     grp-1      grp-2 \n-0.6548753 -0.2285454"
   },
   {
     "objectID": "slides/Functions2/index.html#multiple-grouping-variables-possible",
     "href": "slides/Functions2/index.html#multiple-grouping-variables-possible",
     "title": "R Course - Day 3",
     "section": "Multiple grouping variables possible",
-    "text": "Multiple grouping variables possible\n\npatients &lt;- data.frame(\"group\"=paste('grp',c(1,1,1,1,1,2,2,2,2,2),sep='-'),\n                       \"serotype\"=c(\"A\",\"B\",\"A\",\"B\",\"A\",\"B\",\"A\",\"B\",\"A\",\"B\"),\n                       \"outcome\"=rnorm(10))\n\ntapply(patients$outcome, list(patients$group, patients$serotype), mean)\n\n                A         B\ngrp-1  0.09293757 1.6339488\ngrp-2 -0.75751287 0.1602559"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "BasicRCourseEMC_Slides",
-    "section": "",
-    "text": "R Course - Day 3\n\n\n\nDay3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Course - Day 3\n\n\n\nDay3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Course - Day 2\n\n\n\nDay2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Course - Day 2\n\n\n\nDay2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#built-in-named-functions",
-    "href": "slides/Functions1/index.html#built-in-named-functions",
-    "title": "R Course - Day 3",
-    "section": "Built-in Named Functions",
-    "text": "Built-in Named Functions\n\nhead() #Print the first 6 lines of a dataframe\n\ntail() #Print the last 6 lines of a dataframe\n\nseq(from=1, to=10, by=2) #Create a sequence from 1 to 10 with steps of 2\n\nas.numeric(c(\"1\",\"2\",\"3\",\"4\")) #Turn string into numbers\n\nsort(c(3,4,2,5,1)) #Sort numbers or letters numerically or alphabetically\n\nmax(c(111,333,444,55,6,777,999)) #Determine the maximum value of a vector\n\nrnorm(10) #Sample 10 values from a r(andom) norm(al) distribution between 0 and 1\n\nBuilt-in functions in base-R :\nhttps://stat.ethz.ch/R-manual/R-patched/library/base/html/00Index.html"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#function-arguments",
-    "href": "slides/Functions1/index.html#function-arguments",
-    "title": "R Course - Day 3",
-    "section": "Function arguments",
-    "text": "Function arguments\narguments, the object in the parentheses ( ):\n\nsqrt(2)\n\n[1] 1.414214\n\n\nor\n\nx &lt;- 2\nsqrt(x)\n\n[1] 1.414214\n\n\nor\n\nsqrt(x^2 + 5)\n\n[1] 3"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#functions-with-multiple-arguments",
-    "href": "slides/Functions1/index.html#functions-with-multiple-arguments",
-    "title": "R Course - Day 3",
-    "section": "Functions with multiple arguments",
-    "text": "Functions with multiple arguments\n\nargs(round)\n\nfunction (x, digits = 0) \nNULL\n\nround(4.679, 2)\n\n[1] 4.68\n\n\ndigits is optional and defaults to 0:\n\nround(4.679)\n\n[1] 5"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#named-argument-matching",
-    "href": "slides/Functions1/index.html#named-argument-matching",
-    "title": "R Course - Day 3",
-    "section": "Named Argument Matching",
-    "text": "Named Argument Matching\n\nround(x = 4.679, digits = 2)\n\n[1] 4.68\n\nround(digits = 2, x = 4.679)\n\n[1] 4.68\n\n\nMixing is possible:\n\nround(4.679, digits=2)\n\n[1] 4.68\n\nround(digits=2, 4.679)\n\n[1] 4.68"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#creating-your-own-functions",
-    "href": "slides/Functions1/index.html#creating-your-own-functions",
-    "title": "R Course - Day 3",
-    "section": "Creating your own functions",
-    "text": "Creating your own functions\n\nmyFun &lt;- function(arg1, arg2) {\n  ## Here you type expressions that use the arguments\n}\n\nmyFun(arg1, arg2)"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#example-of-a-custom-function",
-    "href": "slides/Functions1/index.html#example-of-a-custom-function",
-    "title": "R Course - Day 3",
-    "section": "Example of a custom function",
-    "text": "Example of a custom function\n\nmean_xy &lt;- function(x, y){\n  (x + y)/2\n}\n\nWe can us it like this:\n\nmean_xy(2,6)\n\n[1] 4\n\n\nor\n\nmean_xy(x = 2,y = 6)\n\n[1] 4"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#use-return-in-a-function",
-    "href": "slides/Functions1/index.html#use-return-in-a-function",
-    "title": "R Course - Day 3",
-    "section": "Use return() in a function",
-    "text": "Use return() in a function\n\nmean_xy &lt;- function(x, y){\n  z &lt;- (x + y)/2\n  return(z)\n}\n\nmean_xy(x = 2, y = 6)\n\n[1] 4"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#default-return-value",
-    "href": "slides/Functions1/index.html#default-return-value",
-    "title": "R Course - Day 3",
-    "section": "Default return value",
-    "text": "Default return value\n\nmean_xy_2 &lt;- function(x, y){\n  z &lt;- (x + y)/2\n  x\n  z\n}\n\nmean_xy_2(x = 1, y = 3)\n\n[1] 2\n\n\nx is not returned!\n\nmean_xy_3 &lt;- function(x, y){\n  z &lt;- x + y \n  return(x)\n  z\n}\n\nmean_xy_3(x = 1, y = 3)\n\n[1] 1\n\n\nz is not returned!"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#function-with-multiple-input-values",
-    "href": "slides/Functions1/index.html#function-with-multiple-input-values",
-    "title": "R Course - Day 3",
-    "section": "Function with multiple input values",
-    "text": "Function with multiple input values\n\nmean_vector &lt;- function(...){ \n  z &lt;- mean(c(...))\n  return(z)\n} \n\nmean_vector(1,2,3)\n\n[1] 2\n\n\nNo limit to number of inputs:\n\nmean_vector(1,2,3,4,5,6,7,8,9,10) \n\n[1] 5.5"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#vector-as-an-input-to-a-function",
-    "href": "slides/Functions1/index.html#vector-as-an-input-to-a-function",
-    "title": "R Course - Day 3",
-    "section": "Vector as an input to a function",
-    "text": "Vector as an input to a function\n\nmean_x &lt;- function(x){ \n  z &lt;- mean(x)\n  return(z)\n} \nx &lt;- c(1,2,3,4,5)\nmean_x(x)\n\n[1] 3"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#build-a-custom-function-to-clean-data",
-    "href": "slides/Functions1/index.html#build-a-custom-function-to-clean-data",
-    "title": "R Course - Day 3",
-    "section": "Build a custom function to clean data",
-    "text": "Build a custom function to clean data\nCalculate mean of only the positive values (data cleaning)\n\nmy_descriptives &lt;- function(x){\n  x.trim &lt;- x[x &gt;= 0]\n  out &lt;- mean(x.trim)\n  return(out)\n}\n\nPatient data:\n\ndata$Ages\n\n [1]  30  45  56  50  35  46  28  41  37  44  46  52  59  46  46 -50  26  44  51\n[20]  20  56  43  52  26  46\n\n\n-50 is clearly wrong"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#build-a-custom-function-to-clean-data-1",
-    "href": "slides/Functions1/index.html#build-a-custom-function-to-clean-data-1",
-    "title": "R Course - Day 3",
-    "section": "Build a custom function to clean data",
-    "text": "Build a custom function to clean data\n\nmy_descriptives(data$Ages)\n\n[1] 42.70833\n\n\nIn stead of:\n\nmean(data$Ages)\n\n[1] 39"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#returning-vectors",
-    "href": "slides/Functions1/index.html#returning-vectors",
-    "title": "R Course - Day 3",
-    "section": "Returning vectors",
-    "text": "Returning vectors\n\nmy_descriptives &lt;- function(x){\n  x.trim &lt;- x[x&gt;=0]\n  out &lt;- summary(x.trim)\n  return(out)\n}\n\nmy_descriptives(data$Ages)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  20.00   36.50   45.50   42.71   50.25   59.00"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#returning-multiple-values",
-    "href": "slides/Functions1/index.html#returning-multiple-values",
-    "title": "R Course - Day 3",
-    "section": "Returning multiple values",
-    "text": "Returning multiple values\nIt is not possible to use return(x,y)\n\nmy_descriptives2_wrong &lt;- function(x){\n  x.trim &lt;- x[x&gt;0]\n  below0 &lt;- sum(x&lt;0)\n  meanX &lt;- mean(x.trim)\n  return(below0, meanX)\n}\n\nmy_descriptives2_wrong(data$Ages)\n\nError in return(below0, meanX): multi-argument returns are not permitted"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#returning-multiple-values-1",
-    "href": "slides/Functions1/index.html#returning-multiple-values-1",
-    "title": "R Course - Day 3",
-    "section": "Returning multiple values",
-    "text": "Returning multiple values\nTo return multiple values we use: return(c(x,y)) or return(list(x,y))\n\nmy_descriptives2 &lt;- function(x){\n  x.trim &lt;- x[x&gt;0]\n  below0 &lt;- sum(x&lt;0)\n  meanX &lt;- mean(x.trim)\n  return(list(below0, meanX))\n}\n\nmy_descriptives2(data$Ages)\n\n[[1]]\n[1] 1\n\n[[2]]\n[1] 42.70833"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#function-environments-and-scoping",
-    "href": "slides/Functions1/index.html#function-environments-and-scoping",
-    "title": "R Course - Day 3",
-    "section": "Function environments and scoping",
-    "text": "Function environments and scoping\nThe Top-Level (or Global) Environment\n\nw &lt;- 2\nf &lt;- function(y) {\n  d &lt;- 3\n  return(d * (w + y))\n}\nenvironment(f)\n\n&lt;environment: R_GlobalEnv&gt;\n\n\nObjects in the Global Environment:\n\nobjects()\n\n [1] \"Ages\"                   \"data\"                   \"f\"                     \n [4] \"mean_vector\"            \"mean_x\"                 \"mean_xy\"               \n [7] \"mean_xy_2\"              \"mean_xy_3\"              \"my_descriptives\"       \n[10] \"my_descriptives2\"       \"my_descriptives2_wrong\" \"PatientID\"             \n[13] \"w\"                      \"x\""
-  },
-  {
-    "objectID": "slides/Functions1/index.html#global-and-local-variables",
-    "href": "slides/Functions1/index.html#global-and-local-variables",
-    "title": "R Course - Day 3",
-    "section": "Global and Local Variables",
-    "text": "Global and Local Variables\nw is a global variable\nd is a local variable to f()\n\nf &lt;- function(y) {\n  d &lt;- 3\n  return(d * (w + y))\n}\n\nf(y = 1)\n\n[1] 9\n\nd\n\nError in eval(expr, envir, enclos): object 'd' not found"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#local-preference-over-global",
-    "href": "slides/Functions1/index.html#local-preference-over-global",
-    "title": "R Course - Day 3",
-    "section": "Local preference over Global",
-    "text": "Local preference over Global\n\nw &lt;- 2\nd &lt;- 4\n\nf &lt;- function(y) {\n  d &lt;- 3\n  return(d * (w + y))\n}\n\nf(y = 1)\n\n[1] 9"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#local-assignment-of-variables",
-    "href": "slides/Functions1/index.html#local-assignment-of-variables",
-    "title": "R Course - Day 3",
-    "section": "Local assignment of variables",
-    "text": "Local assignment of variables\n\nw &lt;- 2\nd &lt;- 4 # This value of d will remain unchanged.\n\nf &lt;- function(y) {\n  d &lt;- 3 # This doesnt affect the value of d in the global environment\n  return(d * (w + y))\n}\n\nf(y = 1)\n\n[1] 9\n\nd\n\n[1] 4"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#nested-functions-and-the-scope-hierarchy",
-    "href": "slides/Functions1/index.html#nested-functions-and-the-scope-hierarchy",
-    "title": "R Course - Day 3",
-    "section": "Nested Functions and the Scope Hierarchy",
-    "text": "Nested Functions and the Scope Hierarchy\nExample:\n\nw &lt;- 2\nf &lt;- function(y) {\n  d &lt;- 3\n  h &lt;- function() {\n    b &lt;- 5\n    return(d * (w + y))\n  }\n  return(h())\n}\n\n\nw is a global environment variable to f() and also to h()\ny and d are local variables to f(), but “global” to h()\nb is local to h()"
-  },
-  {
-    "objectID": "slides/Functions1/index.html#check-local-variables-with-ls",
-    "href": "slides/Functions1/index.html#check-local-variables-with-ls",
-    "title": "R Course - Day 3",
-    "section": "Check local variables with ls()",
-    "text": "Check local variables with ls()\n\nw &lt;- 2\nf &lt;- function(y) {\n  d &lt;- 3\n  h &lt;- function() {\n    b &lt;- 5\n    return(d * (w + y))\n  }\n  print(ls())\n  return(h())\n}\n\nf(y = 2)\n\n[1] \"d\" \"h\" \"y\"\n\n\n[1] 12\n\n\nNote that b is not printed, as it is local to h(), but not to f()."
-  },
-  {
-    "objectID": "slides/Functions1/index.html#view-environment-environment",
-    "href": "slides/Functions1/index.html#view-environment-environment",
-    "title": "R Course - Day 3",
-    "section": "View environment: environment()",
-    "text": "View environment: environment()\n\nw &lt;- 2\nf &lt;- function(y) {\n  d &lt;- 3\n  h &lt;- function() {\n    b &lt;- 5\n    return(d * (w + y))\n  }\n  print(environment(h))\n  return(h())\n}\nf(y = 2)\n\n&lt;environment: 0x000001cc7b1631c0&gt;\n\n\n[1] 12\n\n\nShows location in computer memory"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#what-is-ggplot2",
-    "href": "slides/ggplot2/index.html#what-is-ggplot2",
-    "title": "R Course - Day 2",
-    "section": "What is ggplot2?",
-    "text": "What is ggplot2?\n\n\n\nBasic plotting: quick look\nPretty graphs: ggplot2\nCreated by Hadley Wickham\n“Grammar of Graphics” GGplot2\n\n\nhttp://ggplot2.tidyverse.org/reference/index.html\n\n\n\ninstall.packages(\"ggplot2\")\nlibrary(ggplot2)"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#grammar-of-graphics",
-    "href": "slides/ggplot2/index.html#grammar-of-graphics",
-    "title": "R Course - Day 2",
-    "section": "Grammar of graphics",
-    "text": "Grammar of graphics\n\nData\nAesthetics\nGeometries\nFacets\nScales\nThemes"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#data",
-    "href": "slides/ggplot2/index.html#data",
-    "title": "R Course - Day 2",
-    "section": "Data",
-    "text": "Data\n\n\nClass: data.frame\nSeparate plotting variables per column\n\nExample of a good dataset:\n\nhead(Indometh, 25)\n\n   Subject time conc\n1        1 0.25 1.50\n2        1 0.50 0.94\n3        1 0.75 0.78\n4        1 1.00 0.48\n5        1 1.25 0.37\n6        1 2.00 0.19\n7        1 3.00 0.12\n8        1 4.00 0.11\n9        1 5.00 0.08\n10       1 6.00 0.07\n11       1 8.00 0.05\n12       2 0.25 2.03\n13       2 0.50 1.63\n14       2 0.75 0.71\n15       2 1.00 0.70\n16       2 1.25 0.64\n17       2 2.00 0.36\n18       2 3.00 0.32\n19       2 4.00 0.20\n20       2 5.00 0.25\n21       2 6.00 0.12\n22       2 8.00 0.08\n23       3 0.25 2.72\n24       3 0.50 1.49\n25       3 0.75 1.16"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#example-of-a-bad-data-set",
-    "href": "slides/ggplot2/index.html#example-of-a-bad-data-set",
-    "title": "R Course - Day 2",
-    "section": "Example of a Bad Data Set",
-    "text": "Example of a Bad Data Set\n\n\nNot a data.frame\nSeparated data by Male/Female sex\nYear as rownames and month as column names\n\nExample of bad dataset:\n\n\n      Jan  Feb  Mar  Apr  May  Jun  Jul  Aug  Sep  Oct  Nov  Dec\n1974 2134 1863 1877 1877 1492 1249 1280 1131 1209 1492 1621 1846\n1975 2103 2137 2153 1833 1403 1288 1186 1133 1053 1347 1545 2066\n1976 2020 2750 2283 1479 1189 1160 1113  970  999 1208 1467 2059\n1977 2240 1634 1722 1801 1246 1162 1087 1013  959 1179 1229 1655\n1978 2019 2284 1942 1423 1340 1187 1098 1004  970 1140 1110 1812\n1979 2263 1820 1846 1531 1215 1075 1056  975  940 1081 1294 1341\n\n\n      Jan  Feb  Mar  Apr  May  Jun  Jul  Aug  Sep  Oct  Nov  Dec\n1974  901  689  827  677  522  406  441  393  387  582  578  666\n1975  830  752  785  664  467  438  421  412  343  440  531  771\n1976  767 1141  896  532  447  420  376  330  357  445  546  764\n1977  862  660  663  643  502  392  411  348  387  385  411  638\n1978  796  853  737  546  530  446  431  362  387  430  425  679\n1979  821  785  727  612  478  429  405  379  393  411  487  574"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#reformat-to-one-variable-one-column",
-    "href": "slides/ggplot2/index.html#reformat-to-one-variable-one-column",
-    "title": "R Course - Day 2",
-    "section": "Reformat to One variable One Column",
-    "text": "Reformat to One variable One Column\n\n\n\n\n    Deaths Year Month    Sex\n1      901 1974   Jan female\n2      689 1974   Feb female\n3      827 1974   Mar female\n4      677 1974   Apr female\n5      522 1974   May female\n6      406 1974   Jun female\n7      441 1974   Jul female\n8      393 1974   Aug female\n9      387 1974   Sep female\n10     582 1974   Oct female\n11     578 1974   Nov female\n12     666 1974   Dec female\n13     830 1975   Jan female\n14     752 1975   Feb female\n15     785 1975   Mar female\n16     664 1975   Apr female\n17     467 1975   May female\n18     438 1975   Jun female\n19     421 1975   Jul female\n20     412 1975   Aug female\n21     343 1975   Sep female\n22     440 1975   Oct female\n23     531 1975   Nov female\n24     771 1975   Dec female\n25     767 1976   Jan female\n26    1141 1976   Feb female\n27     896 1976   Mar female\n28     532 1976   Apr female\n29     447 1976   May female\n30     420 1976   Jun female\n31     376 1976   Jul female\n32     330 1976   Aug female\n33     357 1976   Sep female\n34     445 1976   Oct female\n35     546 1976   Nov female\n36     764 1976   Dec female\n37     862 1977   Jan female\n38     660 1977   Feb female\n39     663 1977   Mar female\n40     643 1977   Apr female\n41     502 1977   May female\n42     392 1977   Jun female\n43     411 1977   Jul female\n44     348 1977   Aug female\n45     387 1977   Sep female\n46     385 1977   Oct female\n47     411 1977   Nov female\n48     638 1977   Dec female\n49     796 1978   Jan female\n50     853 1978   Feb female\n51     737 1978   Mar female\n52     546 1978   Apr female\n53     530 1978   May female\n54     446 1978   Jun female\n55     431 1978   Jul female\n56     362 1978   Aug female\n57     387 1978   Sep female\n58     430 1978   Oct female\n59     425 1978   Nov female\n60     679 1978   Dec female\n61     821 1979   Jan female\n62     785 1979   Feb female\n63     727 1979   Mar female\n64     612 1979   Apr female\n65     478 1979   May female\n66     429 1979   Jun female\n67     405 1979   Jul female\n68     379 1979   Aug female\n69     393 1979   Sep female\n70     411 1979   Oct female\n71     487 1979   Nov female\n72     574 1979   Dec female\n73    2134 1974   Jan   male\n74    1863 1974   Feb   male\n75    1877 1974   Mar   male\n76    1877 1974   Apr   male\n77    1492 1974   May   male\n78    1249 1974   Jun   male\n79    1280 1974   Jul   male\n80    1131 1974   Aug   male\n81    1209 1974   Sep   male\n82    1492 1974   Oct   male\n83    1621 1974   Nov   male\n84    1846 1974   Dec   male\n85    2103 1975   Jan   male\n86    2137 1975   Feb   male\n87    2153 1975   Mar   male\n88    1833 1975   Apr   male\n89    1403 1975   May   male\n90    1288 1975   Jun   male\n91    1186 1975   Jul   male\n92    1133 1975   Aug   male\n93    1053 1975   Sep   male\n94    1347 1975   Oct   male\n95    1545 1975   Nov   male\n96    2066 1975   Dec   male\n97    2020 1976   Jan   male\n98    2750 1976   Feb   male\n99    2283 1976   Mar   male\n100   1479 1976   Apr   male\n101   1189 1976   May   male\n102   1160 1976   Jun   male\n103   1113 1976   Jul   male\n104    970 1976   Aug   male\n105    999 1976   Sep   male\n106   1208 1976   Oct   male\n107   1467 1976   Nov   male\n108   2059 1976   Dec   male\n109   2240 1977   Jan   male\n110   1634 1977   Feb   male\n111   1722 1977   Mar   male\n112   1801 1977   Apr   male\n113   1246 1977   May   male\n114   1162 1977   Jun   male\n115   1087 1977   Jul   male\n116   1013 1977   Aug   male\n117    959 1977   Sep   male\n118   1179 1977   Oct   male\n119   1229 1977   Nov   male\n120   1655 1977   Dec   male\n121   2019 1978   Jan   male\n122   2284 1978   Feb   male\n123   1942 1978   Mar   male\n124   1423 1978   Apr   male\n125   1340 1978   May   male\n126   1187 1978   Jun   male\n127   1098 1978   Jul   male\n128   1004 1978   Aug   male\n129    970 1978   Sep   male\n130   1140 1978   Oct   male\n131   1110 1978   Nov   male\n132   1812 1978   Dec   male\n133   2263 1979   Jan   male\n134   1820 1979   Feb   male\n135   1846 1979   Mar   male\n136   1531 1979   Apr   male\n137   1215 1979   May   male\n138   1075 1979   Jun   male\n139   1056 1979   Jul   male\n140    975 1979   Aug   male\n141    940 1979   Sep   male\n142   1081 1979   Oct   male\n143   1294 1979   Nov   male\n144   1341 1979   Dec   male\n\n\n\n\nggplot(data) + geom_point(aes(x=Month, y=Deaths, color=Sex))"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#aesthetics",
-    "href": "slides/ggplot2/index.html#aesthetics",
-    "title": "R Course - Day 2",
-    "section": "Aesthetics",
-    "text": "Aesthetics\n\nAvailable aesthetics:\n\nx\ny\ncolor\nfill\nsize\nalpha\nlinetype\nlabels\nshape\ngroup"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#geometries",
-    "href": "slides/ggplot2/index.html#geometries",
-    "title": "R Course - Day 2",
-    "section": "Geometries",
-    "text": "Geometries\ngeom_… - the thing you want to plot\n30+ different geoms: https://ggplot2.tidyverse.org/reference/\n\n\n\ngeom_point() \ngeom_line() \ngeom_bar() \n\n\n\ngeom_histogram() \ngeom_boxplot() \ngeom_heatmap()"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#scatter-plots",
-    "href": "slides/ggplot2/index.html#scatter-plots",
-    "title": "R Course - Day 2",
-    "section": "Scatter Plots",
-    "text": "Scatter Plots\n\n\nBase Rggplot2\n\n\n\nToothGrowth$index &lt;- as.numeric(rownames(ToothGrowth))\nplot(ToothGrowth$len)\n\n\n\n\n\n\n\n\n\n\n\nggplot(ToothGrowth) + \n  geom_point(aes(x=index, y=len), size=2)"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#line-graphs",
-    "href": "slides/ggplot2/index.html#line-graphs",
-    "title": "R Course - Day 2",
-    "section": "Line Graphs",
-    "text": "Line Graphs\n\n\nBase Rggplot2\n\n\n\nplot(ToothGrowth$len, type = \"l\")\n\n\n\n\n\n\n\n\n\n\n\nggplot(ToothGrowth) + \n  geom_line(aes(x=index, y=len))"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#bar-charts",
-    "href": "slides/ggplot2/index.html#bar-charts",
-    "title": "R Course - Day 2",
-    "section": "Bar Charts",
-    "text": "Bar Charts\n\n\nBase Rggplot2\n\n\n\nbarplot(table(ToothGrowth$dose))\n\n\n\n\n\n\n\n\n\n\n\nggplot(ToothGrowth) + \n  geom_bar(aes(x=as.factor(dose)))"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#histograms",
-    "href": "slides/ggplot2/index.html#histograms",
-    "title": "R Course - Day 2",
-    "section": "Histograms",
-    "text": "Histograms\n\n\nBase Rggplot2\n\n\n\nhist(ToothGrowth$len,breaks = 50)\n\n\n\n\n\n\n\n\n\n\n\nggplot(ToothGrowth) + \n  geom_histogram(aes(x=len), binwidth = 0.5)"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#box-plots",
-    "href": "slides/ggplot2/index.html#box-plots",
-    "title": "R Course - Day 2",
-    "section": "Box Plots",
-    "text": "Box Plots\n\n\nBase Rggplot2\n\n\n\nboxplot(ToothGrowth$len~ToothGrowth$supp)\n\n\n\n\n\n\n\n\n\n\n\nggplot(ToothGrowth) + \n  stat_boxplot(aes(x=supp,y=len), geom=\"errorbar\", width=0.5) + \n    geom_boxplot(aes(x=supp,y=len))"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#heatmaps",
-    "href": "slides/ggplot2/index.html#heatmaps",
-    "title": "R Course - Day 2",
-    "section": "Heatmaps",
-    "text": "Heatmaps\n\nggplot(ToothGrowth) + \n  geom_tile(aes(x = supp, y = as.factor(dose), fill = len), color=\"black\")"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#facets",
-    "href": "slides/ggplot2/index.html#facets",
-    "title": "R Course - Day 2",
-    "section": "Facets",
-    "text": "Facets\n\nSeparate plots (facets) to compare groups of data\n\nBase Rggplot2\n\n\n\n\n\npar(mfrow = c(1, 3))\n\nlow &lt;- ToothGrowth[\n  which(ToothGrowth$dose==0.5),]\n\nmed &lt;- ToothGrowth[\n  which(ToothGrowth$dose==1),]\n\nhigh &lt;- ToothGrowth[\n  which(ToothGrowth$dose==2),]\n\nboxplot(low$len~low$supp, \n        main = \"Low dose\", \n        xlab = \"Supplement Type\")\nboxplot(med$len~med$supp, \n        main = \"Medium dose\", \n        xlab = \"Supplement Type\")\nboxplot(high$len~high$supp, \n        main = \"High dose\", \n        xlab = \"Supplement Type\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(ToothGrowth, aes(x=supp,y=len)) + \n    stat_boxplot(geom=\"errorbar\", width=0.5) + \n    geom_boxplot() + geom_point(color=\"red\") + \n    facet_grid(. ~ as.factor(dose))"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#scales",
-    "href": "slides/ggplot2/index.html#scales",
-    "title": "R Course - Day 2",
-    "section": "Scales",
-    "text": "Scales\n\nScale can be changed for each Aesthetic with corresponding scale_...\n\nggplot(ToothGrowth, aes(x=index, y=as.factor(dose), color=len)) + \n    geom_point() + \n    scale_x_continuous(limits=c(1,100), trans = \"log2\", \n        breaks=c(2,4,8,16,32,64), \n        label=c(\"two\",\"four\",\"eight\",\"sixteen\",\"thirtytwo\",\"sixtyfour\")) + \n    scale_y_discrete(label=c(\"low\",\"medium\",\"high\")) + \n    scale_color_gradient2(limits=c(0,40), low = \"green\", mid = \"black\", high = \"red\", \n        midpoint = 20)\n\n\n\n\n\n\n\n\nAll available scales with examples: http://ggplot2.tidyverse.org/reference/"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#themes",
-    "href": "slides/ggplot2/index.html#themes",
-    "title": "R Course - Day 2",
-    "section": "Themes",
-    "text": "Themes\n\n\nThe standard themes available in the ggplot package are:\n\ntheme_gray\ntheme_bw\ntheme_linedraw\ntheme_light\ntheme_dark\ntheme_minimal\ntheme_classic\ntheme_void\n\n\n\np &lt;- ggplot(ToothGrowth)\np + geom_point(aes(x = index, y = len, \n                   color = supp, size = dose)) + \n  theme_light()"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#custom-themes",
-    "href": "slides/ggplot2/index.html#custom-themes",
-    "title": "R Course - Day 2",
-    "section": "Custom Themes",
-    "text": "Custom Themes\n\nTheme parameters: http://ggplot2.tidyverse.org/reference/theme.html\nCustomize labels with labs()\n\nCodeResult\n\n\n\np &lt;- ggplot(ToothGrowth)\np + geom_point(aes(x = index, y = len, color = supp, size = dose)) + \n    theme(text = element_text(family = \"serif\", colour = \"#6f898e\"), \n      line = element_line(color = \"#163f47\"), \n      rect = element_rect(fill = \"#163f47\", color = \"#163f47\"),\n        axis.text.x = element_text(color=\"black\"), \n        axis.text.y = element_text(color=\"white\"), \n      axis.ticks = element_line(color = \"#6f898e\"), \n      axis.line = element_line(color = \"#163f47\", linetype = 1),\n        legend.background = element_blank(), \n        legend.key = element_blank(), \n        panel.background = element_rect(fill = \"#215c68\", colour = \"#163f47\"), \n        panel.border = element_blank(), \n      panel.grid = element_line(color = \"#163f47\"), \n      panel.grid.major = element_line(color = \"#163f47\"), \n      panel.grid.minor = element_line(color = \"#163f47\"), \n      plot.background = element_rect(fill = NULL, colour = NA, linetype = 0)\n    ) + \n    labs(title=\"Toothgrowth\", \n        subtitle = \"Orange juice or Vitamin C?\", x=\"Index\", y=\"Toothlength\", \n        size=\"Dose\", color=\"Supplement\") +\n    scale_color_manual(label=c(\"Orange juice\",\"Vitamin C\"), \n        values = c(\"VC\"=\"green\",\"OJ\"=\"orange\"))"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#saving-ggplots",
-    "href": "slides/ggplot2/index.html#saving-ggplots",
-    "title": "R Course - Day 2",
-    "section": "Saving ggplots",
-    "text": "Saving ggplots\nSave plot with ggsave() function\nEnter plot object and file to save ggsave(p, \"myplot.png\")\nPossible file extensions: “eps”, “ps”, “tex”, “pdf”, “jpeg”, “tiff”, “png”, “bmp”, “svg” or “wmf”"
-  },
-  {
-    "objectID": "slides/ggplot2/index.html#extensions",
-    "href": "slides/ggplot2/index.html#extensions",
-    "title": "R Course - Day 2",
-    "section": "Extensions",
-    "text": "Extensions\nhttps://exts.ggplot2.tidyverse.org/gallery/"
+    "text": "Multiple grouping variables possible\n\npatients &lt;- data.frame(\"group\"=paste('grp',c(1,1,1,1,1,2,2,2,2,2),sep='-'),\n                       \"serotype\"=c(\"A\",\"B\",\"A\",\"B\",\"A\",\"B\",\"A\",\"B\",\"A\",\"B\"),\n                       \"outcome\"=rnorm(10))\n\ntapply(patients$outcome, list(patients$group, patients$serotype), mean)\n\n                A        B\ngrp-1 -0.17958543 0.744583\ngrp-2 -0.07263831 1.125893"
   }
 ]

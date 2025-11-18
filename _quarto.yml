@@ -1,7 +1,9 @@
 project:
   type: website
   output-dir: docs
-
+  render:
+    - index.qmd
+    - slides/ 
 website:
   title: "BasicRCourseEMC_Slides"
   navbar:
